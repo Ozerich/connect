@@ -1,0 +1,120 @@
+
+.avatar-50 {
+    width: 50px;
+    height: 50px;
+    padding: 3px 6px 6px 3px;
+    margin: 2px;
+}
+
+.avatar-50 img {
+    width: 50px;
+    height: 50px;
+    -webkit-box-shadow: 0 0 2px #666;
+    -moz-box-shadow: 0 0 2px #666;
+}
+
+.avatar-50 img:hover {
+    -webkit-box-shadow: 0 0 4px #41d40d;
+    -moz-box-shadow: 0 0 4px #41d40d;
+}
+
+
+
+
+.profile-wr {
+    border-top: 1px solid white;
+    background: url('/static/images/dashboard-bg.png') repeat-x;
+    width: 100%;
+    border-radius: 0px 5px 0px 0px;
+    -moz-border-radius: 0px 5px 0px 0px;
+}
+
+.profile {
+    width: 100%;
+}
+
+.profile img.photo {
+    margin-top: 5px;
+    width: 100px;
+    height: 100px;
+}
+
+.profile td.photo {
+    padding: 3px 20px 0px 20px;
+    width: 100px;
+}
+
+.profile .name {
+    padding: 5px 0px 0px 0px;
+    font-size: 24px;
+}
+
+.profile .faculty {
+    font-size: 16px;
+    padding-left: 10px;
+}
+
+.profile .group {
+    font-size: 14px;
+    color: #999;
+    padding-left: 3px;
+}
+
+.profile .buttons {
+    padding: 5px 0px 0px 0px;
+}
+
+.profile .friends {
+    padding: 10px 20px 0px 20px;
+    width: 160px;
+}
+
+.profile .friends span {
+    font-weight: bold;
+}
+
+
+
+.friendsbox {
+    margin: 5px 0px 0px 0px;
+    width: 100%;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    border: 1px solid #ddd;
+}
+
+.friends img.photo {
+    margin-top: 5px;
+}
+
+.friends td.photo {
+    padding: 3px 20px 5px 20px;
+    width: 50px;
+}
+
+.friends .name {
+    padding: 5px 0px 0px 0px;
+    font-size: 16px;
+}
+
+.friends .faculty {
+    font-size: 12px;
+    padding-left: 10px;
+}
+
+.friends .group {
+    font-size: 12px;
+    color: #999;
+    padding-left: 3px;
+}
+
+.friends .buttons {
+    padding: 5px 0px 0px 10px;
+}
+
+.friends .friends {
+    padding: 10px 20px 0px 20px;
+    width: 160px;
+}
+
+

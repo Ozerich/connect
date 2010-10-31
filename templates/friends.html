@@ -1,0 +1,40 @@
+<div class="profile-wr">
+
+
+<table class="friends">
+    {% for friend in friends %}
+    <tr>
+        <td rowspan="2">
+            {% with friend as user %}{% include "user-item.html" %}{% endwith %}
+`       </td>
+        <td class="name">
+            <a href="/{{ friend.id }}">{{ friend.name }} {{ friend.surname }}
+            {% if friend.is_request %} - запрос дружбы{% endif %}</a>
+        </td>
+        <td class="buttons">
+            {% if friend.is_my_request %}
+                <a class="cbutton" href="/friends?delete={{ friend.id }}">Отменить запрос</a>
+            {% else %}            
+                {% if friend.is_request %}
+                    <a class="cbutton" href="/friends?accept={{ friend.id }}">Добавить</a>
+                    <a class="cbutton" href="/friends?delete={{ friend.id }}">Удалить</a>
+                {% else %}
+                    <a class="cbutton" href="/messages/view/{{ friend.id }}">Написать</a>
+                    <a class="cbutton" href="/friends?delete={{ friend.id }}">Удалить</a>
+                {% endif %}
+            {% endif %}
+        </td>
+    </tr>
+    <tr>
+        <td class="group" colspan="2">
+            <a href="#" class="inner">{{ friend.group.faculty.name }}</a> -
+            <a href="#" class="inner">{{ friend.group.stream.name }}</a> -
+            <a href="#" class="inner">{{ friend.group.name }}</a> -
+            {{ friend.subgroup }}
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+</div>
+

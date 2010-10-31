@@ -1,0 +1,342 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    text-align: left;
+    vertical-align: top;
+    text-decoration: none;
+    font-family: Ubuntu, Droid Sans, Verdana, sans-serif;
+    outline: none;
+    font-size: 14px;
+    z-index: 100;
+}
+
+
+html, body {
+    width: 100%;
+    height: 100%;
+    background: #eee;
+    line-height: 0px;
+    font-size: 0px;
+}
+
+
+div {
+    display: block;
+    overflow: hidden;
+}
+
+textarea {
+    width: 300px;
+    height: 100px;
+}
+
+body * {
+    line-height: normal;
+}
+
+a, img {
+    border: none;
+    color: #555;
+    font-size: inherit;
+}
+
+
+table {
+    border-spacing: 0px;
+}
+
+#page {
+    height: auto !important;
+    margin: auto;
+    min-height: 100%;
+    position: relative;
+}
+
+/* Main layout */
+
+.main-wr {
+    width: 690px;
+    margin: auto;
+    padding: 5px 5px 10px 5px;
+    margin-bottom: 50px;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+}
+
+.wr {
+    width: 700px;
+    margin: auto;
+}
+
+#main-top {
+    background: #333;
+    background: -moz-linear-gradient(top,  #333,  #222);
+    background: -webkit-gradient(linear, left top, left bottom, from(#333), to(#222));
+    border-bottom: 1px solid #181818;
+    height: 50px;
+}
+
+#main-top2 {
+    background: #222;
+    background: -moz-linear-gradient(top,  #222,  #111);
+    background: -webkit-gradient(linear, left top, left bottom, from(#222), to(#111));
+    height: 25px;
+    margin-bottom: 20px;
+    border-top: 1px solid #303030;
+    box-shadow: 0 3px 3px #222;
+    -moz-box-shadow: 0 3px 3px #555;
+    -webkit-box-shadow: 0 3px 3px #000;
+}
+
+#main-top2 .wr .button {
+    font-size: 13px;
+    padding: 0px 10px 0px 5px;
+    height: 25px;
+    line-height: 25px;
+    color: #aaa;
+    font-family: Droid Sans, Arial, sans-serif;
+    font-weight: bold;
+    float: left;
+    display: block;
+}
+
+#main-top2 .wr sup {
+    color: #fff;
+    text-shadow: 0px 0px 3px #6cdf1f;
+}
+
+#main-top2 .wr .button:hover {
+    background: #222;
+    background: -moz-linear-gradient(top,  #333,  #222);
+    background: -webkit-gradient(linear, left top, left bottom, from(#333), to(#222));
+    height: 24px;
+    border-bottom: 1px solid #6c6c6c;
+    color: #eee;
+}
+
+#main-top2 .wr .button-active {
+    background: #222;
+    background: -moz-linear-gradient(top,  #333,  #222);
+    background: -webkit-gradient(linear, left top, left bottom, from(#333), to(#222));
+    border-bottom: 1px solid #6cdf1f;
+    border-left: 1px solid #333;
+    border-right: 1px solid #333;
+    padding: 0px 9px 0px 4px;
+    height: 24px;
+    color: #eee;
+}
+
+#main-top2 .wr .button-right {
+    float: right;
+}
+
+
+#main-top .logo {
+    padding: 20px 0px 0px 0px;
+}
+
+
+#main-top .wr .miniprofile {
+    margin: 10px 0px 0px 0px;
+    padding: 3px 5px 3px 5px;
+    float: right;
+    border: 1px solid #222;
+    -moz-border-radius: 3px;
+}
+
+#main-top .wr .miniprofile .photo {
+    width: 25px;
+    height: 25px;
+    border: 1px solid #333;
+    margin-right: 10px;
+    float: left;
+}
+
+#main-top .wr .miniprofile .name {
+    color: #aaa;
+    font-size: 12px;
+    font-weight: bold;
+    display: block;
+    float: right;
+    min-width: 100px;
+}
+
+#main-top .wr .miniprofile .link {
+    display: block;
+    float: bottom;
+}
+    
+#main-top .wr .miniprofile .link a {
+    color: #666;
+    font-size: 10px;
+    font-weight: bold;
+    border-bottom: 1px dashed #555;
+}
+
+/* Bottom pane */
+
+.main-bottom {
+    width: 100%;
+    height: 30px;
+    position: absolute;
+    bottom: 0;
+}
+
+.main-bottom .wr {
+    border-top: 1px solid #888;
+    padding-top: 5px;
+}
+
+.main-bottom .small {
+    font-size: 12px;
+    line-height: 21px;
+    margin-left: 10px; 
+    border-bottom: 1px dashed #888;
+    color: #888;
+}
+
+.main-bottom .small:hover {
+    border-bottom: 1px dashed #888;
+    color: #aaa;
+}
+
+
+
+/* Notifications */
+.notify-new {
+    border: 1px solid #ffb033;
+    background: url('/static/images/notify-bg.png') repeat-x #ffb033;
+    color: #fff;
+    text-shadow: 0px 0px 2px #000;
+    margin: auto;
+    padding: 5px;
+    text-align: center;
+}
+
+
+.notify-error {
+    border: 1px solid #cc5555;
+    background: url('/static/images/error-bg.png') repeat-x #fe3232;
+    color: #fff;
+    text-shadow: 0px 0px 2px #000;
+    margin: auto;
+    padding: 5px;
+    text-align: center;
+}
+
+
+/* Common controls */
+.cbutton {
+    margin: 2px;
+    font-size: 12px;
+    padding: 2px 4px;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    color: #444;
+    text-shadow: 0px 0px 2px #fff;
+
+    display: inline-block;
+    border: 1px solid #aaa;
+    background: #ddd;
+    background: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#ccc));
+    background: -moz-linear-gradient(top,  #eee,  #ccc);
+}
+
+.cbutton:hover {
+    color: #222;
+    background: #ddd;
+    background: -moz-linear-gradient(top,  #fff,  #ddd);
+    background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ddd));
+}
+
+.cbutton:active {
+    color: #222;
+    background: #ddd;
+    background: -moz-linear-gradient(top,  #ddd,  #fff);
+    background: -webkit-gradient(linear, left top, left bottom, from(#ddd), to(#fff));
+}
+
+input, select {
+    font-size: 12px;
+    margin: 2px;
+}
+
+input.text {
+    border: 1px solid #999;
+    height: 18px;
+    width: 180px;
+}
+
+input.text:focus {
+    border: 1px solid #267608;
+}
+
+
+a.inner {
+    border-bottom: 1px dashed #999;
+    font-size: inherit;
+    color: inherit;
+}
+
+a.inner:hover {
+    color: #222;
+}
+
+
+.cswitch {
+    margin: 0px;
+    font-size: 12px;
+    padding: 2px 4px;
+    background: #f8f8f8;
+    border: 1px solid #ccc;
+    display: inline-block;
+}
+
+.cswitch-active {
+    border: 1px solid #aaa;
+    background: #eee;
+    background: -moz-linear-gradient(top,  #eee,  #ccc);
+    background: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#ccc));
+}
+
+
+/* Popups */
+
+.dialog {
+    -moz-box-shadow: 0 0 18px rgba(0, 0, 0, 0.4);
+    -moz-border-radius: 5px 5px 5px 5px;
+    -webkit-box-shadow: 0 0 18px rgba(0, 0, 0, 0.4);
+    -webkit-border-radius: 5px 5px 5px 5px;
+    box-shadow: 0 0 18px rgba(0, 0, 0, 0.4);
+    border-radius: 5px 5px 5px 5px;
+    border: 3px solid transparent;
+    
+    text-align: left;
+    vertical-align: top;
+    position: absolute;
+    top:0px;
+    z-order: 100;
+}
+
+.dialog-content {
+    background: #ececee;
+    padding: 10px 10px 10px 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+}
+
+.dialog-blackout {
+    background: rgba(0,0,0,0.5);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+

@@ -1,0 +1,22 @@
+<table class="messages">
+    {% for u in senders %}
+    <tr class="message-item" onclick="window.location.href='/messages/view/{{u.id}}'">
+        <td class="icon">
+            {% if u.msg_unread %}<img src="/static/images/icons/message-unread.png"/>{% endif %}
+        </td>
+        <td class="sender">
+            <a href="/{{u.id}}">{{ u.full_name }} ({{ u.msg_count }})</a>
+        </td>
+        <td class="subject">
+            <a href="/messages/view/{{ u.id }}">
+                {{ u.msg_subj }}
+            </a>
+        </td>
+        <td class="date">
+            {{ u.msg_date }}
+        </td>
+    </tr>
+    {% empty %}
+    <tr><td>Нет сообщений</td></tr>
+    {% endfor %}
+</table>

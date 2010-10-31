@@ -1,0 +1,38 @@
+{% if not ajax %}
+<table class="messages-writebox">
+        <tbody id="messages">
+        <tr>
+        <form method="POST" action="/messages/send/{{u.id}}">
+            <td class="avatar">
+                {% with me as user %}
+                    {% include "user-item.html" %}
+                {% endwith %}
+            </td>
+            <td>
+                <textarea name="text" class="message"></textarea>
+            </td>
+            <td style="padding: 7px;">
+                <input type="submit" value="Отправить" class="cbutton"/>
+            </td>
+        </form>
+        </tr>
+{% endif %}
+        {% for msg in messages %}
+        <tr>
+            <td class="avatar">
+                {% with msg.src as user %}
+                    {% include "user-item.html" %}
+                {% endwith %}
+            </td>
+            <td><div class="message">{{ msg.text }}</div></td>
+            <td style="padding: 7px;">
+                <a href="/messages/delete/{{msg.id}}" class="cbutton">Удалить</a>
+             </td>
+        </tr>
+        {% endfor %}
+{% if not ajax %}
+    </tbody>
+</table>
+<a href="#" onclick="ajaxLoadMessages('{{ u.id }}',10)" id="ajaxLoadBtn" class="cbutton">Старые сообщения</a>
+{% endif %}
+

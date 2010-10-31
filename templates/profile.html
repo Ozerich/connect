@@ -1,0 +1,45 @@
+<table class="profile">
+    <tr>
+        <td class="photo" rowspan="4">
+            <img src="/static/storage/avatars/100.{{ user.avatar }}" class="photo"/>
+        </td>
+        <td class="name">
+            {{ user.name }} {{ user.surname }}
+        </td>
+    </tr>
+    <tr>
+        <td class="group">
+            <a href="#" class="inner">{{ user.group.faculty.name }}</a> -
+            <a href="#" class="inner">{{ user.group.stream.name }}</a> -
+            <a href="#" class="inner">{{ user.group.name }}</a> -
+            {{ user.subgroup }}
+        </td>
+    </tr>
+    <tr>
+        <td class="group">
+            Родился: {{ user.birthday }}
+        </td>
+    </tr>
+    <tr>
+        <td class="buttons">
+            {% if notmyfriend %}
+            <a href="/friends/add/{{user.id}}" class="cbutton">В друзья</a>
+            {% endif %}
+            <a href="/messages/view/{{user.id}}" class="cbutton">Написать</a>
+            <a href="timetable.php?group={$group}&subgroup={$subgroup}"><input type="submit" class="cbutton" value="Расписание"/></a>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2" class="sep"></td>
+    </tr>
+    <tr>
+         <td class="friends" colspan="2">
+             <span>Друзья:</span>
+             <div class="friendsbox">
+                {% for user in friends %}
+                    {% include "user-item.html" %}
+                {% endfor %}                    
+             </div>
+        </td>
+    </tr>
+</table>

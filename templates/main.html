@@ -1,0 +1,185 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>{{ page_title }}</title>
+    <link rel="stylesheet" href="/static/css/style.css"/>
+    <link rel="stylesheet" href="/static/css/registration.css"/>
+    <link rel="stylesheet" href="/static/css/dashboard.css"/>
+    <link rel="stylesheet" href="/static/css/profile.css"/>
+    <link rel="stylesheet" href="/static/css/timetable.css"/>
+    <link rel="stylesheet" href="/static/css/messages.css"/>
+    <link rel="shortcut icon" href="/static/images/favicon.png"/>
+
+    <script src="/static/js/ui.js"></script>
+    <script src="/static/js/ajax.js"></script>
+    <script src="/static/js/register.js"></script>
+	<script src="/static/js/ps.js"></script>
+</head>
+<body onload="ui_init()">
+<div id="page">
+
+    <div id="main-top">
+        <div class="wr">
+            <a href="/">
+                <img class="logo" src='/static/images/logo.png'/>
+            </a>
+            {% if me %}
+            <div class="miniprofile">
+                <img class="photo" src="/static/storage/avatars/25.{{ me.avatar }}"/>
+                <span class="name">{{ me.name }} {{ me.surname }}</span>
+                <span class="link"><a href="#" onclick="ui_show_dialog('dialog-edit')">Редактировать</a></span>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <div id="main-top2">
+        <div class="wr">
+            {% if has_menu %}
+            <a class="button{% ifequal current 1 %} button-active{% endifequal %}" href="/">
+                <img src="/static/images/icons/top-home.png"/>
+                ДОМАШНЯЯ
+            </a>
+            <a class="button{% ifequal current 2 %} button-active{% endifequal %}" href="/messages">
+                <img src="/static/images/icons/top-messages.png"/>
+                СООБЩЕНИЯ <sup>{{ unread_messages_count }}</sup>
+            </a>
+            <a class="button{% ifequal current 3 %} button-active{% endifequal %}" href="/friends">
+                <img src="/static/images/icons/top-people.png"/>
+                ЛЮДИ <sup>{{ friend_request_count }}</sup>
+            </a>
+            <a class="button{% ifequal current 4 %} button-active{% endifequal %}" href="/groups">
+                <img src="/static/images/icons/top-groups.png"/>
+                ГРУППЫ
+            </a>
+            <a class="button{% ifequal current 5 %} button-active{% endifequal %}" href="/timetable">
+                <img src="/static/images/icons/top-events.png"/>
+                РАСПИСАНИЕ
+            </a>
+            <a class="button button-right" href="/logout">
+                <img src="/static/images/icons/top-logout.png"/>
+                ВЫХОД
+            </a>
+            {% endif %}
+        </div>
+    </div>
+      
+    <div class="main-wr">
+        {% if notification %}
+            <div class="notify-new">{{ notification }}</div>
+        {% endif %}
+        {{ content }}
+    </div>
+
+    <div style="clear:both"></div>
+    
+    <div class="main-bottom">
+        <div class="wr">
+            <div style="float:left">
+                БГУИР-Connect
+            </div>
+            <div style="float:right">
+                <a class="small" href="http://bsuir.by" target="_blank">Университет</a>
+                <a class="small" href="#">О сайте</a>
+                <a class="small" href="#">Авторы</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="dialog-blackout" id="blackout" style="display:none"></div>                  
+<div class="dialog" id="dialog-edit" style="display:none">
+    <div class="dialog-content">
+    <form method="POST" action="/"  enctype="multipart/form-data">
+	{% if error_msg %}
+		<div id = "error_div" class="notify-error">
+	{% else %}
+		<div id = "error_div" class="notify-error" style="display:none" >
+	{% endif %}
+			{{ error_msg }}
+		</div>
+    <table class="reg-main">
+ 		<tr>
+   			<td class="reg-left">E-mail</td>
+      		<td class="reg-right" width="250">
+            	<input class="text" id="email" name="email" value="{{ me.email }}"/>
+        	</td>
+        </tr>
+        <tr><td colspan="2">&nbsp;</td></tr>
+        <tr>
+            <td class="reg-left">Новый пароль</td>
+ 			<td class="reg-right">
+ 			    <input class="text" type="password" id="password_new" name="password_new">
+ 			</td>
+        </tr>
+
+        <tr>
+            <td class="reg-left">Новый пароль еще раз</td>
+ 			<td class="reg-right">
+ 			    <input class="text" type="password" id="password_new2" name="password_new2">
+ 			</td>
+        </tr>
+
+        <tr><td colspan="2">&nbsp;</td></tr>
+        <tr>
+        	<td class="reg-left">Дата рождения:</td>
+            <td class="reg-right" width="250">
+                <select name="birth_day" id="birth_day">
+            	    {% for day in days %}
+                    	<option value="{{ day }}" {% ifequal day me.birthday.day %}selected{% endifequal %}>{{ day }}</option>
+                    {% endfor %}
+                </select>&nbsp;
+                <select name="birth_month" id="birth_month">
+            	    {% for month in months %}
+                    	<option value="{{ month }}" {% ifequal month me.birthday.month %}selected{% endifequal %}>{{ month }}</option>
+                    {% endfor %}
+                </select>&nbsp;
+                <select name="birth_year" id="birth_year">
+            	    {% for year in years %}
+                    	<option value="{{ year }}" {% ifequal year me.birthday.year %}selected{% endifequal %}>{{ year }}</option>
+                    {% endfor %}
+                </select>&nbsp;
+            </td>
+        </tr>
+        <tr>
+            <td colspan=2>&nbsp;</td>
+         </tr>
+        <tr>
+        	<td class="reg-left">Иностранный язык</td>
+         	<td class="reg-right">
+            	<select name="language">
+            	    {% for lang in langs %}
+                    	<option value="{{ lang.name }}" {% ifequal lang.name me.language.name %}selected{% endifequal %}>{{ lang.name }}</option>
+                    {% endfor %}
+               	</select>
+          	</td>
+ 		</tr>
+        <tr>
+            <td colspan = 2></td>
+        </tr>
+        <tr><td colspan="2">&nbsp;</td></tr>
+        <tr>
+            <td class="reg-left">Новая фотография</td>
+            <td class="reg-right"><input type="file" size="35" name="avatar"></td>
+        </tr>
+        {% if me.avatar %}
+        <tr>
+            <td class="reg-left">Удалить фотографию</td>
+            <td class="reg-right"> <input type="checkbox" name="deleteavatar"/></td>
+        </tr>
+        {% endif %}
+	 	<tr>
+        	<td colspan="2" class="reg-btn">
+            	<input id="submit" class="cbutton" name="submit_edit" onclick="return !checkEditProfileErrors();" type="submit" value="Сохранить"/>
+            </td>
+        </tr>
+  	</table>
+    </form>
+    </div>
+</div>
+
+
+</body>
+</html>
+

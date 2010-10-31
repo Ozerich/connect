@@ -1,0 +1,47 @@
+.timetable-wr {
+    width: 700px;
+    margin: 10px;
+}
+
+.timetable-wr .label {
+    font-size: 12px;
+    line-height: 15px;
+    font-weight: bold;
+    padding-left: 10px;
+}
+
+table.timetable * {
+    font-size: 10px;
+}
+
+table.timetable {
+    width: 100%;
+}
+
+table.timetable td {
+    padding: 5px 10px 3px 0px;
+}
+
+table.timetable tr td {
+    border-bottom: 1px solid #ccc;
+}
+               
+table.timetable .weeks, .subg {
+    color: #bbb;
+}
+
+table.timetable .subj, .room {
+    color: #000;
+    font-weight: bold;
+}
+
+table.timetable .mode {
+    color: #000;
+    padding-top: 2px;
+}
+
+table.timetable .title {
+    color: #000;
+    font-size: 14px;
+    padding-top: 20px;
+}

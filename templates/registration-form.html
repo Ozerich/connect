@@ -1,0 +1,145 @@
+<form action="/register" method="POST" enctype="multipart/form-data">
+	{% if error_msg %}
+		<div id = "error_div" class="notify-error">
+	{% else %}
+		<div id = "error_div" class="notify-error" style="display:none" >
+	{% endif %}
+			{{ error_msg }}
+		</div>
+
+	<table class="reg-main">
+ 		<tr>
+   			<td class="reg-left">E-mail</td>
+      		<td class="reg-right" width="250">
+            	<input class="text" id="email" name="email" onchange="setState('email', email_regexp.test(this.value))">
+                <img src="images/icons/right.png" id="email-right" style="display:none"/>
+                <img src="images/icons/wrong.png" id="email-wrong" style="display:none"/>
+        	</td>
+        </tr>
+  		<tr>
+   			<td class="reg-left">Личный номер</td>
+      		<td class="reg-right" width="250">
+            	<input class="text" id="private_number" name="private_number"
+            		onchange="setState('private', ((number_regexp.test(this.value)) && (this.value.length == 7)))">
+                <img src="images/icons/right.png" id="private-right" style="display:none"/>
+                <img src="images/icons/wrong.png" id="private-wrong" style="display:none"/>
+        	</td>
+        </tr>
+        <tr>
+            <td colspan=2>&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="reg-left">Пароль</td>
+ 			<td class="reg-right">
+ 			    <input class="text" type="password" id="password" name="password">
+				<div id = "ps_container">
+                
+				</div>
+ 			</td>
+        </tr>   
+        <tr>
+            <td>&nbsp;</td>
+            <td>
+			</td>
+        </tr>
+   		<tr>
+        	<td class="reg-left">Еще раз пароль</td>
+            <td class="reg-right" width="250">
+            	<input class="text" type="password" id="password2" name="password2"
+            		onblur="checkPasswords(this.value, document.getElementById('password').value)">
+                <img src="images/icons/right.png" id="passwords-right" style="display:none"/>
+                <img src="images/icons/wrong.png" id="passwords-wrong" style="display:none"/>
+            </td>
+        </tr>
+        <tr>
+            <td colspan=2>&nbsp;</td>
+         </tr>
+        <tr>
+        	<td class="reg-left">Имя:</td>
+            <td class="reg-right" width="250">
+            	<input class="text" type="text" id="name" name="name" onblur="setState('name', this.value.length > 0 && letter_regexp.test(this.value))">
+           		<img src="images/icons/right.png" id="name-right" style="display:none"/>
+                <img src="images/icons/wrong.png" id="name-wrong" style="display:none"/>
+            </td>
+        </tr>
+        <tr>
+        	<td class="reg-left">Фамилия:</td>
+            <td class="reg-right" width="250">
+            	<input class="text" type="text" id="surname" name="surname" onblur="setState('surname', this.value.length && letter_regexp.test(this.value))">
+                <img src="images/icons/right.png" id="surname-right" style="display:none"/>
+                <img src="images/icons/wrong.png" id="surname-wrong" style="display:none"/>
+            </td>
+        </tr>
+        <tr>
+        	<td class="reg-left">Дата рождения:</td>
+            <td class="reg-right" width="250">
+                <select name="birth_day" id="birth_day">
+                    <option value="0">День&nbsp;</option>
+            	    {% for day in days %}
+                    	<option value="{{ day }}">{{ day }}</option>
+                    {% endfor %}
+                </select>&nbsp;&nbsp;
+                <select name="birth_month" id="birth_month">
+                	<option value="0">Месяц</option>
+            	    {% for month in months %}
+                    	<option value="{{ month }}">{{ month }}</option>
+                    {% endfor %}
+                </select>&nbsp;&nbsp;
+                <select name="birth_year" id="birth_year">
+                 	<option value="0">Год</option>
+            	    {% for year in years %}
+                    	<option value="{{ year }}">{{ year }}</option>
+                    {% endfor %}
+                </select>&nbsp;&nbsp;
+            </td>
+        </tr>
+        <tr>
+            <td colspan=2>&nbsp;</td>
+         </tr>
+        <tr>
+        	<td class="reg-left">Группа</td>
+            <td class="reg-right">
+            	<select name="group">
+            	    {% for group in groups %}
+                    	<option value="{{ group.name }}">{{ group.name }}</option>
+                    {% endfor %}
+                </select>
+            </td>
+        </tr>
+        <tr>
+        	<td class="reg-left">Подгруппа</td>
+            <td class="reg-right">
+            	<select name="subgroup">
+             		<option value="1">1&nbsp;&nbsp;</option>
+                    <option value="2">2&nbsp;&nbsp;</option>
+                </select>
+           	</td>
+        </tr>
+        <tr>
+        	<td class="reg-left">Иностранный язык</td>
+         	<td class="reg-right">
+            	<select name="language">
+            	    {% for lang in langs %}
+                    	<option value="{{ lang.name }}">{{ lang.name }}</option>
+                    {% endfor %}
+               	</select>
+          	</td>
+ 		</tr>
+        <tr>
+            <td colspan = 2></td>
+        </tr>
+        <tr>
+            <td class="reg-left">Фотография</td>
+            <td class="reg-right"><input type="file" size="35" name="avatar"></td>
+        </tr>
+	 	<tr>
+        	<td colspan="2" class="reg-btn">
+            	<input id="submit" class="cbutton" name="submit_register" type="submit" onclick="return !checkRegisterErrors();" value="Зарегистрироваться"/>
+            </td>
+        </tr>
+ 	</table>
+</form>
+<script>
+    createPSIndicator("password", "ps_container", 4, 16, true);
+</script>
+

@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>{{ page_title }}</title>
+    <link rel="stylesheet" href="/static/css/style.css"/>
+    <link rel="stylesheet" href="/static/css/leftbar.css"/>
+    <link rel="stylesheet" href="/static/css/registration.css"/>
+    <link rel="stylesheet" href="/static/css/dashboard.css"/>
+    <link rel="stylesheet" href="/static/css/profile.css"/>
+    <link rel="stylesheet" href="/static/css/timetable.css"/>
+    <link rel="stylesheet" href="/static/css/messages.css"/>
+    <link rel="shortcut icon" href="/static/images/favicon.png"/>
+
+    <script src="/static/js/ui.js"></script>
+    <script src="/static/js/register.js"></script>
+	<script src="/static/js/ps.js"></script>
+</head>
+<body>
+<div id="page">
+   
+    <div id="main-top">
+        <div class="wr">
+            <a href="/">
+                <img class="logo" src='/static/images/logo.png'/>
+            </a>
+        </div>
+    </div>
+    
+    <div class="landing-image">
+        <img src="/static/images/index.png"/>
+    </div>
+
+
+    <div class="main-wr">
+
+
+<form action="/login" method="POST">
+    <table class="main-center" cellpadding="0" cellspacing="0">
+        <tr>
+            <td class="main-right-index-box">
+    {% if error_msg %}
+        <div class="notify-error">
+            {{ error_msg }}
+        </div>
+    {% endif %}
+    <table class="login-main">
+        <tr>
+            <td class="reg-left">E-mail</td>
+            <td class="reg-right" width="250">
+                <input class="text" name="email">
+            </td>
+        </tr>
+        <tr>
+            <td class="reg-left">Пароль</td>
+            <td class="reg-right">
+                <input class="text" type="password" name="password">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" class="reg-btn">
+                <input class="cbutton" type="submit" name = "submit_login" value="Connect!"/>
+            </td>
+        </tr>
+     </table>
+    </td>
+    <td class="main-right-index-box-right">
+                    
+                    
+                    
+    <table class="login-reg">
+        <tr>
+            <td style="height:48px">
+                Пройдите несколько простых шагов и станьте частью сообщества <br/><b>БГУИР-Connect</b>
+            </td>
+        </tr>
+        <tr>
+            <td class="reg-btn">
+                <a href="/register"><input class="cbutton" type="submit" name = "submit_login" value="Регистрация"/></a>
+            </td>
+        </tr>
+     </table>
+
+
+                    	
+                    </td>
+                </tr>
+            </table>
+
+</form>
+
+
+    </div>
+
+    <div style="clear:both"></div>
+    
+    <div class="main-bottom">
+        <div class="wr">
+            <div style="float:left">
+                БГУИР-Connect
+            </div>
+            <div style="float:right">
+                <a class="small" href="http://bsuir.by" target="_blank">Университет</a>
+                <a class="small" href="#">О сайте</a>
+                <a class="small" href="#">Авторы</a>
+            </div>
+        </div>
+    </div>
+    
+</div>    
+</body>
+</html>
+
+
+
+

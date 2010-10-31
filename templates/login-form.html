@@ -1,0 +1,27 @@
+<form action = "login.php" method = "POST">
+    {if $error_msg ne ''}
+        <div class="notify-error">
+            {$error_msg}
+        </div>
+    {/if}
+    <table class="reg-main">
+        <tr>
+            <td class="reg-left">E-mail</td>
+            <td class="reg-right" width="250">
+                <input class="text" name="email">
+            </td>
+        </tr>
+        <tr>
+            <td class="reg-left">Пароль</td>
+            <td class="reg-right">
+                <input class="text" type="password" name="password">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" class="reg-btn">
+                <input class="cbutton" type="submit" name = "submit_login" value="Войти"/>
+            </td>
+        </tr>
+     </table>
+</form>
+            

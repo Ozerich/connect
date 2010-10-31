@@ -1,0 +1,75 @@
+.messages {
+    margin: 10px;
+    border-top: 1px solid #eee;
+    width: 640px;
+}
+
+.message-item td {
+    height: 20px;
+    padding: 3px 4px;
+    border-bottom: 1px solid #ddd;
+    font-size: 12px;
+}
+
+.message-item td img {
+    padding-top: 1px;
+}
+
+.message-item:hover td {
+    background: #efefef;
+}
+
+.message-item td.subject {
+    font-weight: bold;
+    overflow: hidden;
+    font-size: 12px;
+}
+
+.message-item td.icon {
+    width: 16px;
+    text-align: left;
+}
+
+.message-item td.date {
+    width: 200px;
+    font-size: 12px;
+}
+
+
+
+.messages-writebox {
+    margin: 10px;
+    width: 510px;
+}
+
+.messages-writebox td {
+    padding-bottom: 15px;
+}
+
+.messages-writebox .message {
+    width: 500px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    margin-top: 7px;
+    padding: 5px;
+}
+
+.messages-writebox img.avatar {
+    width: 50px;
+    height: 50px;
+    -webkit-box-shadow: 0 0 2px #000;
+    -moz-box-shadow: 0 0 2px #000;
+}
+
+.messages-writebox td.avatar {
+    width: 50px;
+    height: 50px;
+    padding: 0px 10px 10px 0px;
+}
+
+.messages-writebox td.sep {
+    height: 10px;
+}
+

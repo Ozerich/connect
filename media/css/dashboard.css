@@ -1,0 +1,27 @@
+.dashboard {
+    margin: 0px;
+    width: 700px;
+}
+
+.block-header {
+    font-weight: bold;
+    padding: 5px 0px 0px 5px;
+    display: block;
+    font-size: 12px;
+}
+
+table.news {
+    margin: 0px 0px 0px 5px;
+}
+
+table.news td.news {
+    font-size: 12px;
+    padding: 2px 0px 2px 20px;
+    color: #666;
+}
+
+table.news td.date {
+    font-size: 12px;
+    padding: 5px 0px 2px 10px;
+}
+

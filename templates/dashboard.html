@@ -40,14 +40,25 @@
         </tr>
     </table>
     
-    </td><td style="width: 200px">
-    
+    </td><td style="width: 240px">
         <div class="block-header">
             Завтра: Неделя {$week}
         </div>
         
         <div style="padding-left: 10px">
             {$tomorrow_timetable}
+        </div>
+
+        <div class="block-header">
+            Группы
+        </div>
+
+        <div style="padding-left: 30px">
+            <ul style="list-style: square outside">
+            {% for c in me.communities.all|dictsort:"name"|dictsortreversed:"rank" %}
+                <li><a class="inner" href="/community/{{c.id}}">{{c.name}}</a></li>
+            {% endfor %}
+            </ul>
         </div>
     </td></tr>
 </table>    

@@ -13,6 +13,10 @@ urlpatterns = patterns('main.views',
     (r'^messages/view/(?P<id>\d+)$', 'viewmsg'),
     (r'^messages/send/(?P<id>\d+)$', 'sendmsg'),
     (r'^messages/delete/(?P<id>\d+)$', 'deletemsg'),
+    (r'^community$', 'community_tree'),
+    (r'^community/(?P<id>\d+)$', 'community'),
+    (r'^community/join/(?P<id>\d+)$', 'community_join'),
+    (r'^community/leave/(?P<id>\d+)$', 'community_leave'),
     (r'^admin/', include(admin.site.urls)),
 )
 

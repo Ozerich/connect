@@ -97,11 +97,6 @@
     font-size: 16px;
 }
 
-.friends .faculty {
-    font-size: 12px;
-    padding-left: 10px;
-}
-
 .friends .group {
     font-size: 12px;
     color: #999;
@@ -112,9 +107,39 @@
     padding: 5px 0px 0px 10px;
 }
 
-.friends .friends {
+
+
+
+.community {
+    width: 670px;
+    margin: 0 10px;
+}
+
+
+.community .name {
+    padding: 5px 0px 10px 0px;
+    font-size: 20px;
+}
+
+.community .buttons {
+    padding: 8px 0px 0px 0px;
+    text-align: right;
+}
+
+.community .users {
     padding: 10px 20px 0px 20px;
     width: 160px;
 }
 
+.community .users span {
+    font-weight: bold;
+}
+
+.usersbox {
+    margin: 5px 0px 0px 0px;
+    width: 100%;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    border: 1px solid #ddd;
+}
 

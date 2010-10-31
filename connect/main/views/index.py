@@ -32,6 +32,7 @@ def index(request):
             
         content = make_template(
             'dashboard.html',
+            me=current_user(request)
         )
         return main_template(request, content, title='Домашняя')
     else:

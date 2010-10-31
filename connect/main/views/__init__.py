@@ -5,3 +5,4 @@ from profile import *
 from friends import *
 from messages import *
 from messageview import *
+from community import *

@@ -3,6 +3,7 @@ from django.db import models
 
 class Faculty(models.Model):
     name = models.CharField('Name', max_length=200)
+    community = models.ForeignKey('Community')
 
     def __unicode__(self):
         return self.name
@@ -12,6 +13,7 @@ class Stream(models.Model):
     name = models.CharField('Name', max_length=200)
     gid = models.CharField('Code', max_length=200)
     faculty = models.ForeignKey(Faculty)
+    community = models.ForeignKey('Community')
     
     def __unicode__(self):
         return self.name
@@ -21,6 +23,7 @@ class Group(models.Model):
     name = models.CharField('Name', max_length=200)
     stream = models.ForeignKey(Stream)
     faculty = models.ForeignKey(Faculty)
+    community = models.ForeignKey('Community')
     
     def __unicode__(self):
         return self.name
@@ -54,6 +57,7 @@ class User(models.Model):
     language = models.ForeignKey(Language)
     
     friends = models.ManyToManyField('self', symmetrical=False, through=Friendship)
+    communities = models.ManyToManyField('Community')
     
     avatar = models.CharField('Avatar file', max_length=200)
 
@@ -73,3 +77,12 @@ class Message(models.Model):
     unread = models.IntegerField('Unread')
     date = models.DateTimeField('Sent on')
 
+
+class Community(models.Model):
+    name = models.CharField('Name', max_length=200)
+    parent = models.ForeignKey('Community', blank=True, null=True)
+    rank = models.IntegerField('Rank')
+
+    def __unicode__(self):
+        return self.name
+    

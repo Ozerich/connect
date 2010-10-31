@@ -8,7 +8,7 @@ class UserAdmin(admin.ModelAdmin):
         ('Личные', {'fields': ['name', 'surname', 'birthday']}),
         ('Регистрационные данные', {'fields': ['email', 'password']}),
         ('Учеба', {'fields': ['number', 'group', 'subgroup', 'language']}),
-#        ('Друзья', {'fields': ['friends']}),
+        ('Группы', {'fields': ['communities']}),
         ('Внутреннее', {'fields': ['avatar']}),
     ]
     search_fields = ['email', 'name', 'surname']
@@ -21,4 +21,5 @@ admin.site.register(Language)
 admin.site.register(Faculty)
 admin.site.register(Stream)
 admin.site.register(Friendship)
+admin.site.register(Community)
 

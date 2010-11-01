@@ -1,0 +1,22 @@
+<div class="comment">
+    <div class="avatar">
+    {% with comment.author as user %}
+        {% include "user-item-mini.html" %}
+    {% endwith %}
+    </div>
+    <span class="user">
+        {{ comment.author.full_name }}
+    </span>
+    <span class="date">
+        {{ comment.date }}
+    </span>
+    <span class="text">
+        {{ comment.text }}
+    </span>
+    <a href="#" class="replylink" onclick="ui_show_comment_form('comment-form-{{comment.id}}', '{{comment.id}}')" class="inner">Ответить</a>
+    <div id="comment-form-{{comment.id}}"></div>
+    {% autoescape off %}
+    {{ children }}
+    {% endautoescape %}
+</div>
+    

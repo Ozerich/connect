@@ -1,7 +1,5 @@
 .messages {
-    margin: 10px;
     border-top: 1px solid #eee;
-    width: 640px;
 }
 
 .message-item td {
@@ -37,13 +35,8 @@
 
 
 
-.messages-writebox {
-    margin: 10px;
-    width: 510px;
-}
-
 .messages-writebox td {
-    padding-bottom: 15px;
+    padding: 6px;
 }
 
 .messages-writebox .message {
@@ -52,24 +45,10 @@
     border-radius: 3px;
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
-    margin-top: 7px;
     padding: 5px;
 }
 
-.messages-writebox img.avatar {
-    width: 50px;
-    height: 50px;
-    -webkit-box-shadow: 0 0 2px #000;
-    -moz-box-shadow: 0 0 2px #000;
-}
-
 .messages-writebox td.avatar {
-    width: 50px;
-    height: 50px;
-    padding: 0px 10px 10px 0px;
-}
-
-.messages-writebox td.sep {
-    height: 10px;
+    padding: 0px 5px 0px 0px;
 }
 

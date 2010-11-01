@@ -1,4 +1,6 @@
 {% if not ajax %}
+<div class="page-wrapper">
+
 <table class="messages-writebox">
         <tbody id="messages">
         <tr>
@@ -11,7 +13,7 @@
             <td>
                 <textarea name="text" class="message"></textarea>
             </td>
-            <td style="padding: 7px;">
+            <td>
                 <input type="submit" value="Отправить" class="cbutton"/>
             </td>
         </form>
@@ -25,14 +27,15 @@
                 {% endwith %}
             </td>
             <td><div class="message">{{ msg.text }}</div></td>
-            <td style="padding: 7px;">
+            <td>
                 <a href="/messages/delete/{{msg.id}}" class="cbutton">Удалить</a>
-             </td>
+            </td>
         </tr>
         {% endfor %}
 {% if not ajax %}
     </tbody>
 </table>
-<a href="#" onclick="ajaxLoadMessages('{{ u.id }}',10)" id="ajaxLoadBtn" class="cbutton">Старые сообщения</a>
+{{pager}}
+</div>
 {% endif %}
 

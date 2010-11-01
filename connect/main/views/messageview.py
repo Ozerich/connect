@@ -20,17 +20,17 @@ def viewmsg(request, id):
     msgs = sorted(msgs, key=lambda x: x.date)
     msgs = [m for m in reversed(msgs)]
     
-    if 'ajax' in request.GET:
-        st = int(request.GET['ajax'])
-        msgs = msgs[st:st+10]
-    else:
-        msgs = msgs[:10]
+    try:
+        st = int(request.GET['page'])*10-10
+    except:
+        st = 0
     
     content = make_template(
         'messages-view.html',
         u=user,
-        messages=msgs,
+        messages=msgs[st:st+10],
         me=cu,
+        pager=make_paginator(len(msgs), 10, st, '/messages/view/%s?page='%id),
         ajax=('ajax' in request.GET)
     )
 

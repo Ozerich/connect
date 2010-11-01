@@ -77,6 +77,9 @@ class Message(models.Model):
     unread = models.IntegerField('Unread')
     date = models.DateTimeField('Sent on')
 
+    def __unicode__(self):
+        return self.text[:50]
+
 
 class Community(models.Model):
     name = models.CharField('Name', max_length=200)
@@ -86,3 +89,24 @@ class Community(models.Model):
     def __unicode__(self):
         return self.name
     
+
+class Topic(models.Model):    
+    community = models.ForeignKey('Community')
+    name = models.CharField('Name', max_length=200)
+    date = models.DateTimeField('Last reply')
+    root = models.ForeignKey('Comment', related_name='+')
+
+    def __unicode__(self):
+        return self.name
+
+
+class Comment(models.Model):   
+    author = models.ForeignKey('User')
+    text = models.CharField('Text', max_length=2000)
+    date = models.DateTimeField('Sent on')
+    topic = models.ForeignKey('Topic')
+    parent = models.ForeignKey('Comment', blank=True, null=True)
+
+    def __unicode__(self):
+        return self.text[:50]
+

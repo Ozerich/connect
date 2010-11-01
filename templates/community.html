@@ -24,4 +24,15 @@
              </div>
         </td>
     </tr>
+    <tr>
+         <td class="users" colspan="2">
+             <span>Обсуждения:</span>
+             <ul>
+             {% for topic in topics %}
+                <li><a href="/topic/{{topic.id}}" class="inner">{{topic.name}}</a></li>
+             {% endfor %}
+             </ul>
+             {{pager}}
+         </td>
+    </tr>
 </table>

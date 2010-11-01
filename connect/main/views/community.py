@@ -52,11 +52,21 @@ def community(request, id):
         c = Community.objects.get(id=id)
     except Community.DoesNotExist:
         raise Http404
+        
+    topics = sorted(c.topic_set.all(), key=lambda x: x.date)
+    topics = list(reversed(topics))
+    
+    try:
+        st = int(request.GET['page'])*2-2
+    except:
+        st = 0
     
     content = make_template(
         'community.html',
         c=c,
-        ismygroup=c in current_user(request).communities.all()
+        ismygroup=c in current_user(request).communities.all(),
+        pager=make_paginator(len(topics), 2, st, '/community/%s?page='%id),
+        topics=topics[st:st+2]
     )
     
     return main_template(

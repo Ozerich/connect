@@ -1,0 +1,23 @@
+<div class="page-wrapper topic">
+    <span class="title">{{topic.name}}</span>
+    <br/>
+    <a class="inner" href="/community/{{topic.community.id}}">&lt; Назад к группе</a>
+    {{comments}}
+
+<div style="display:none" id="reply-form">
+    <div class="reply-form">
+        <form action="/topic/reply" method="POST">
+            <input id="reply-to" name="to" type="hidden"/>
+            <textarea name="text"></textarea>
+            <br/>
+            <input type="submit" class="cbutton" value="Отправить"/>
+        </form>
+    </div>
+</div>
+
+<script>
+    replyFormHTML = document.getElementById("reply-form").innerHTML;
+    document.getElementById("reply-form").innerHTML = '';
+</script>
+</div>
+

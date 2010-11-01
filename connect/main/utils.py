@@ -39,6 +39,14 @@ def make_template(template, **kwargs):
     c = Context(kwargs)
     return t.render(c)
     
+def make_paginator(l, pl, st, link):
+    return make_template(
+            'paginator.html',
+            pages=range(1,(l+pl-1)/pl+1),
+            link=link,
+            current=st/pl+1
+        )
+           
 def download_file(file, *path):
     srcf = os.path.join(settings.STORAGE_PATH, *path)
     open(srcf, 'w').write(file.read())

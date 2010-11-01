@@ -22,4 +22,6 @@ admin.site.register(Faculty)
 admin.site.register(Stream)
 admin.site.register(Friendship)
 admin.site.register(Community)
+admin.site.register(Topic)
+admin.site.register(Comment)
 

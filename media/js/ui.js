@@ -62,3 +62,23 @@ function ui_fullscreen(el) {
     e.style.width = sw + 'px';
     e.style.height = sh + 'px';
 }
+
+function ui_show_user_info(n, f) {
+    e = document.getElementById('user-info-popup');
+    evt = window.event;
+    e.style.left = (evt.clientX + window.pageXOffset + 10) + 'px';
+    e.style.top = (evt.clientY + window.pageYOffset + 10) + 'px'; 
+    e.style.display = 'block';
+    document.getElementById('user-info-name').innerHTML = n;
+    document.getElementById('user-info-fac').innerHTML = f;
+}
+
+function ui_hide_user_info(n, f) {
+    e = document.getElementById('user-info-popup');
+    e.style.display = 'none';
+}
+
+function ui_show_comment_form(where, reply) {
+    document.getElementById(where).innerHTML = replyFormHTML;
+    document.getElementById('reply-to').value = reply;
+}

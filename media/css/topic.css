@@ -1,0 +1,36 @@
+.topic .title {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.topic .comment {
+    margin: 15px 0px 0px 20px;
+}
+
+.topic .comment .avatar {
+    float: left;
+}
+
+.topic .comment .text {
+    display: block;
+}
+
+.topic .comment .date {
+    font-size: 10px;
+    color: #888;
+}
+
+.topic .comment .user {
+    font-size: 10px;
+    color: #888;
+    font-weight: bold;
+}
+
+.topic .comment .replylink {
+    font-size: 10px;
+    color: #888;
+}
+
+.topic .comment .reply-form {
+    margin: 5px 0px 10px 35px;
+}

@@ -19,7 +19,39 @@
 }
 
 
+.avatar-25 {
+    width: 25px;
+    height: 25px;
+    padding: 3px 6px 6px 3px;
+    margin: 2px;
+}
 
+.avatar-25 img {
+    width: 25px;
+    height: 25px;
+    -webkit-box-shadow: 0 0 2px #666;
+    -moz-box-shadow: 0 0 2px #666;
+}
+
+.avatar-25 img:hover {
+    -webkit-box-shadow: 0 0 4px #41d40d;
+    -moz-box-shadow: 0 0 4px #41d40d;
+}
+
+#user-info-popup {
+    position: absolute;
+    z-order: 10;
+    background: rgba(0,0,0,0.7);
+    color: #ccc;
+    padding: 5px;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    border: 1px solid #ddd;
+}
+
+#user-info-name {
+    font-weight: bold;
+}
 
 .profile-wr {
     border-top: 1px solid white;
@@ -132,6 +164,15 @@
 }
 
 .community .users span {
+    font-weight: bold;
+}
+
+.community .topics {
+    padding: 10px 20px 0px 20px;
+    width: 160px;
+}
+
+.community .topics span {
     font-weight: bold;
 }
 

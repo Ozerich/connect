@@ -6,3 +6,4 @@ from friends import *
 from messages import *
 from messageview import *
 from community import *
+from topic import *

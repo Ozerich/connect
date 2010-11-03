@@ -4,6 +4,7 @@ from models import *
 import settings
 import os
 import Image
+import datetime
 
 
 def login_user(request, user):
@@ -99,3 +100,9 @@ def save_avatar(request, user):
     os.unlink(srcf)
     user.avatar = fn
 
+def current_week():
+	today_date = datetime.date.today()
+	begin_study_date = datetime.date(2010, 8, 30)
+	days_dif = today_date - begin_study_date
+	weeks_dif = (divmod(days_dif.days, 7)[0] + 1) % 4;
+	return weeks_dif

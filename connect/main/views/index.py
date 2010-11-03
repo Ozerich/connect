@@ -32,6 +32,7 @@ def index(request):
             
         content = make_template(
             'dashboard.html',
+			week_number = current_week(),
         )
         return main_template(request, content, title='Домашняя')
     else:

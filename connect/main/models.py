@@ -76,7 +76,8 @@ class Message(models.Model):
     text = models.CharField('Text', max_length=2000)
     unread = models.IntegerField('Unread')
     date = models.DateTimeField('Sent on')
-
+    attachments = models.ManyToManyField('File')
+    
     def __unicode__(self):
         return self.text[:50]
 
@@ -85,7 +86,8 @@ class Community(models.Model):
     name = models.CharField('Name', max_length=200)
     parent = models.ForeignKey('Community', blank=True, null=True)
     rank = models.IntegerField('Rank')
-
+    files = models.ManyToManyField('File')
+    
     def __unicode__(self):
         return self.name
     
@@ -106,7 +108,17 @@ class Comment(models.Model):
     date = models.DateTimeField('Sent on')
     topic = models.ForeignKey('Topic')
     parent = models.ForeignKey('Comment', blank=True, null=True)
+    attachments = models.ManyToManyField('File')
 
     def __unicode__(self):
         return self.text[:50]
+
+
+class File(models.Model):   
+    author = models.ForeignKey('User')
+    name = models.CharField('Name', max_length=2000)
+    date = models.DateTimeField('Uploaded')
+
+    def __unicode__(self):
+        return self.name
 

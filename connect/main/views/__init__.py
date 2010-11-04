@@ -7,3 +7,4 @@ from messages import *
 from messageview import *
 from community import *
 from topic import *
+from files import *

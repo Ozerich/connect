@@ -148,7 +148,7 @@
 }
 
 
-.community .name {
+.community #title {
     padding: 5px 0px 10px 0px;
     font-size: 20px;
 }
@@ -182,5 +182,25 @@
     border-radius: 4px;
     -moz-border-radius: 4px;
     border: 1px solid #ddd;
+}
+
+
+.file-item {
+    padding: none;
+}
+
+.file-item .icon {
+    padding: 0px 5px 10px 5px;
+}
+
+.file-item .name {
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.file-item .info {
+    font-size: 10px;
+    color: #777;
+    padding-right: 5px;
 }
 

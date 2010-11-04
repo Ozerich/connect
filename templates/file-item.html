@@ -1,0 +1,16 @@
+<tr class="file-item">
+    <td rowspan="2" class="icon">
+        <a href="/file/download/{{file.id}}">
+            <img src="/static/images/files/{{file.name|slice:"-3:"}}.png"/>
+        </a>
+    </td>
+    <td colspan="2" class="name">
+        <a href="/file/download/{{file.id}}">
+            {{file.name}}
+        </a>
+    </td>
+</tr>
+<tr class="file-item">
+    <td class="info">{{file.author.full_name}}</td>
+    <td class="info">{{file.date}}</td>
+</tr>

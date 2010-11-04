@@ -1,5 +1,6 @@
 .messages {
     border-top: 1px solid #eee;
+    width: 700px;
 }
 
 .message-item td {

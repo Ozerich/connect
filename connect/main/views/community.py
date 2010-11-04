@@ -66,7 +66,8 @@ def community(request, id):
         c=c,
         ismygroup=c in current_user(request).communities.all(),
         pager=make_paginator(len(topics), 2, st, '/community/%s?page='%id),
-        topics=topics[st:st+2]
+        topics=topics[st:st+2],
+        files=c.files.all()[:5]
     )
     
     return main_template(

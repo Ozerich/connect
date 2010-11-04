@@ -24,4 +24,5 @@ admin.site.register(Friendship)
 admin.site.register(Community)
 admin.site.register(Topic)
 admin.site.register(Comment)
+admin.site.register(File)
 

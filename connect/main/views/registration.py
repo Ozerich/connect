@@ -49,14 +49,12 @@ def registration(request):
         
     content = make_template(
         'registration-form.html',
-        {
-            'error_msg': error,
-            'days': range(1,32),
-            'months': range(1,13),
-            'years': xrange(2010,1970,-1),
-            'groups': Group.objects.all(),
-            'langs': Language.objects.all()
-        }
+            error_msg = error,
+            days = range(1,32),
+            months = range(1,13),
+            years = xrange(2010,1970,-1),
+            groups = Group.objects.all(),
+            langs =  Language.objects.all()
     )
     
     return render_to_response(

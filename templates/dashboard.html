@@ -42,11 +42,11 @@
     
     </td><td style="width: 240px">
         <div class="block-header">
-            Завтра: Неделя {$week}
+            Завтра: Неделя {{ week_number }}
         </div>
         
         <div style="padding-left: 10px">
-            {$tomorrow_timetable}
+            {{ tomorrorow_timetable|safe }}
         </div>
 
         <div class="block-header">

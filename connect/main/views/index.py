@@ -29,11 +29,14 @@ def index(request):
             if 'deleteavatar' in request.POST:
                 delete_avatar(u)
             u.save()
-            
+
+        tomorrow_data = tomorrow_timetable(request)
+        tomorrow_content = make_template('tomorrow-timetable.html', tommorow_timetable = tomorrow_data,)
         content = make_template(
             'dashboard.html',
-            me=current_user(request)
+            me=current_user(request),
 			week_number = current_week(),
+            tomorrorow_timetable = tomorrow_content,
         )
         return main_template(request, content, title='Домашняя')
     else:

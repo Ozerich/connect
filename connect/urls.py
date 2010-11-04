@@ -22,6 +22,7 @@ urlpatterns = patterns('main.views',
     (r'^files$', 'files'),
     (r'^file/download/(?P<id>\d+)$', 'file_download'),
     (r'^file/delete/(?P<id>\d+)$', 'file_delete'),
+	(r'^timetable/(?P<group>\d*)/*(?P<subgroup>\d*)/*(?P<week>\d*)/*$', 'timetable'),
     (r'^admin/', include(admin.site.urls)),
 )
 

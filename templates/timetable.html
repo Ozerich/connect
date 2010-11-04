@@ -1,9 +1,48 @@
 <div class="timetable-wr">
-    <span class="label">Группа:</span> {$groups}
-    <span class="label">Подгруппа:</span> {$subgroups}
-    <span class="label">Неделя:</span> {$weeks}
+    <span class="label">Группа:</span> 
+	{% for group in groups %}
+		<a href="/timetable/{{ group }}/1/{{ selected_week }}">
+		<span class="cswitch{% if group.name == selected_group %} cswitch-active{% endif %}">
+			{{ group.name }}
+		</span>
+		</a>
+   	{% endfor %}
+    <span class="label">Подгруппа:</span> 
+	{% for subgroup in subgroups %}
+		<a href="/timetable/{{ selected_group }}/{{ subgroup }}/{{ selected_week }}">
+		<span class="cswitch{% if subgroup == selected_subgroup %} cswitch-active{% endif %}">
+			{{ subgroup }}
+		</span>
+		</a>
+   	{% endfor %}
+    <span class="label">Неделя:</span> 
+	{% for week in weeks %}
+		<a href="/timetable/{{ selected_group }}/{{ selected_subgroup }}/{{ week }}">
+		<span class="cswitch{% if week == selected_week %} cswitch-active{% endif %}">
+			{{ week }}
+		</span>
+		</a>
+   	{% endfor %}
+
     <table class="timetable">
-        {$days}
+        {% for day in timetable_data %}
+			<tr>
+				<td class="title" colspan="6">
+					{% cycle 'Поднедельник' 'Вторник' 'Среда' 'Четверг' 'Пятница' 'Суббота' %}
+				</td>
+			</tr>		
+			{% for lecture in day %}
+				<tr>
+					<td class="time">{{ lecture.start }}</td>
+					<td class="time">{{ lecture.end }}</td>
+					<td class="mode"><img src="/static/images/lecturemodes/{{ lecture.mode }}.png"/></td>
+					<td class="subj">{{ lecture.subject_name }}</td>
+					<td class="room">{{ lecture.room }}</td>
+					<td class="lector">{{ lecture.lector }}</td>
+				
+				</tr>
+			{% endfor %}
+		{% endfor %}
     </table>
 </div>
 

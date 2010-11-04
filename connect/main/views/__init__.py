@@ -8,3 +8,4 @@ from messageview import *
 from community import *
 from topic import *
 from files import *
+from timetable import *

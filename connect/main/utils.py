@@ -117,43 +117,41 @@ def current_week():
 	weeks_dif = (divmod(days_dif.days, 7)[0] + 1) % 4;
 	return weeks_dif
 
-def timetable_filename(request, week_number):
-    user = current_user(request)
-    user_group = user.group.name
-    user_subgroup = user.subgroup
-    filename = "../timetable/" + user_group + "-" + str(user_subgroup) + "-" + str(week_number) + ".xml"
+def timetable_filename(group, subgroup, week):
+    filename = "../timetable/" + group + "-" + str(subgroup) + "-" + str(week) + ".xml"
     return filename
 
 class Lecture:
     def __repr__(self):
         return str(self.__dict__)
 
-def parse_timetable(filename):
-    xml = etree.parse(filename)
-    root = xml.getroot();
-    result = []
-    for day_index in range(0,6):
-        day = root[day_index];
-        result_day = []
-        for lecture_index in range(0, len(day)):
-            lecture = day[lecture_index]
-            result_lecture = Lecture()
-            result_lecture.subject_name = lecture.get("subject")
-            result_lecture.lector = lecture.get("lector")
-            result_lecture.start = lecture.get("start")
-            result_lecture.end = lecture.get("end")
-            result_lecture.room = lecture.get("room")
-            result_lecture.mode = lecture.get("mode")
-            result_day.append(result_lecture);
-        result.append(result_day);
-    return result
+def parse_timetable(group, subgroup, week):
+	filename = timetable_filename(group, subgroup, week)
+	xml = etree.parse(filename)
+	root = xml.getroot()
+	result = []
+	for day_index in range(0, len(root)):
+		day = root[day_index]
+		result_day = []
+		for lecture_index in range(0, len(day)):
+			lecture = day[lecture_index]
+			result_lecture = Lecture()
+			result_lecture.subject_name = lecture.get("subject")
+			result_lecture.lector = lecture.get("lector")
+			result_lecture.start = lecture.get("start")
+			result_lecture.end = lecture.get("end")
+			result_lecture.room = lecture.get("room")
+			result_lecture.mode = lecture.get("mode")
+			result_day.append(result_lecture);
+		result.append(result_day)
+	return result
 
 def tomorrow_timetable(request):
-    today_date = datetime.date.today()
-    tomorrow_date = today_date + datetime.timedelta(days=1)
-    tomorrow_weekday = tomorrow_date.weekday() + 1
-    week_number = current_week()
-    fname = timetable_filename(request, current_week())
-    timetable_data = parse_timetable(fname)
-    return timetable_data[tomorrow_weekday - 1];
-    
+	today_date = datetime.date.today()
+	tomorrow_date = today_date + datetime.timedelta(days=1)
+	tomorrow_weekday = tomorrow_date.weekday() + 1
+	user = current_user(request)
+	fname = timetable_filename(user.group, user.subgroup, current_week())
+	timetable_data = parse_timetable(fname)
+	return timetable_data[tomorrow_weekday - 1];
+   

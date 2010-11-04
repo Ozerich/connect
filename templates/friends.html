@@ -6,7 +6,7 @@
     <tr>
         <td rowspan="2">
             {% with friend as user %}{% include "user-item.html" %}{% endwith %}
-`       </td>
+        </td>
         <td class="name">
             <a href="/{{ friend.id }}">{{ friend.name }} {{ friend.surname }}
             {% if friend.is_request %} - запрос дружбы{% endif %}</a>

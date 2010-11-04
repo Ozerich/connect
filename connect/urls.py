@@ -19,7 +19,9 @@ urlpatterns = patterns('main.views',
     (r'^community/leave/(?P<id>\d+)$', 'community_leave'),
     (r'^topic/(?P<id>\d+)$', 'topic'),
     (r'^topic/reply$', 'topic_reply'),
+    (r'^files$', 'files'),
     (r'^file/download/(?P<id>\d+)$', 'file_download'),
+    (r'^file/delete/(?P<id>\d+)$', 'file_delete'),
     (r'^admin/', include(admin.site.urls)),
 )
 

@@ -185,6 +185,12 @@
 }
 
 
+/* Files */
+
+.files .buttons {
+    padding-left: 10px;
+}
+
 .file-item {
     padding: none;
 }

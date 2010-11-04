@@ -151,7 +151,6 @@ def tomorrow_timetable(request):
 	tomorrow_date = today_date + datetime.timedelta(days=1)
 	tomorrow_weekday = tomorrow_date.weekday() + 1
 	user = current_user(request)
-	fname = timetable_filename(user.group, user.subgroup, current_week())
-	timetable_data = parse_timetable(fname)
+	timetable_data = parse_timetable(user.group.name, user.subgroup, current_week())
 	return timetable_data[tomorrow_weekday - 1];
    

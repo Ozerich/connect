@@ -68,7 +68,6 @@ class User(models.Model):
     def full_name(self):
         return self.__unicode__()
     
-    
 class Message(models.Model):   
     src = models.ForeignKey(User, related_name='outbox')
     dst = models.ForeignKey(User, related_name='inbox')
@@ -85,7 +84,7 @@ class Message(models.Model):
 class Community(models.Model):
     name = models.CharField('Name', max_length=200)
     parent = models.ForeignKey('Community', blank=True, null=True)
-    rank = models.IntegerField('Rank')
+    rank = models.IntegerField('Rank', blank=True)
     files = models.ManyToManyField('File')
     
     def __unicode__(self):
@@ -121,4 +120,46 @@ class File(models.Model):
 
     def __unicode__(self):
         return self.name
+
+
+class Subject(models.Model):
+    short_name = models.CharField("Short name", max_length = 20)
+    full_name = models.CharField("Full name", max_length = 100)
+    community = models.ForeignKey("Community")
+    
+    def __unicode__(self):
+        return self.short_name
+
+class RatingType(models.Model):
+    name = models.CharField("name", max_length = 100)
+    
+    def __unicode__(self):
+        return self.name
+    
+class Rating(models.Model):
+    plus = models.IntegerField("Plus")
+    minus = models.IntegerField("Minus")
+    cls = models.ForeignKey("RatingType")
+    
+    def __unicode__(self):
+        return '%s (%s)' % (self.cls.name, self.lector_set.all()[0].full_name)
+    
+class Lector(models.Model):
+    full_name = models.CharField("Full name", max_length = 100)
+    subjects = models.ManyToManyField("Subject")
+    photo = models.CharField("photo", max_length = 200)
+    rating = models.ManyToManyField("Rating")
+    
+    def __unicode__(self):
+        return self.full_name
+
+class LectorComment(models.Model):   
+    author = models.ForeignKey('User')
+    text = models.CharField('Text', max_length=2000)
+    date = models.DateTimeField('Sent on')
+    
+    lector = models.ForeignKey("Lector")   
+       
+    def __unicode__(self):
+        return self.text[:50]
 

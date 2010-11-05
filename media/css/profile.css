@@ -210,3 +210,12 @@
     padding-right: 5px;
 }
 
+.plus-rating {
+    font-size:20px;
+    color:green;
+}
+
+.minus-rating {
+    font-size:20px;
+    color:red;
+}

@@ -153,4 +153,4 @@ def tomorrow_timetable(request):
 	user = current_user(request)
 	timetable_data = parse_timetable(user.group.name, user.subgroup, current_week())
 	return timetable_data[tomorrow_weekday - 1];
-   
+	

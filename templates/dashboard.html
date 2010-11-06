@@ -43,7 +43,11 @@
         </div>
         
         <div style="padding-left: 10px">
+			{% if tomorrow_timetable|length %}
             {{ tomorrorow_timetable|safe }}
+			{% else %}
+			Выходной
+			{% endif %}
         </div>
 
         <div class="block-header">

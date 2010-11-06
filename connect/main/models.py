@@ -84,8 +84,8 @@ class Message(models.Model):
 class Community(models.Model):
     name = models.CharField('Name', max_length=200)
     parent = models.ForeignKey('Community', blank=True, null=True)
-    rank = models.IntegerField('Rank', blank=True)
-    files = models.ManyToManyField('File')
+    rank = models.IntegerField('Rank')
+    files = models.ManyToManyField('File', blank=True)
     
     def __unicode__(self):
         return self.name
@@ -131,8 +131,10 @@ class Subject(models.Model):
         return self.short_name
 
 class RatingType(models.Model):
-    name = models.CharField("name", max_length = 100)
-    
+    name = models.CharField("Name", max_length = 100)
+    plus = models.CharField("Plus", max_length = 100)
+    minus = models.CharField("Minus", max_length = 100)
+
     def __unicode__(self):
         return self.name
     
@@ -142,8 +144,11 @@ class Rating(models.Model):
     cls = models.ForeignKey("RatingType")
     
     def __unicode__(self):
-        return '%s (%s)' % (self.cls.name, self.lector_set.all()[0].full_name)
-    
+        try:
+            return '%s (%s)' % (self.cls.name, self.lector_set.all()[0].full_name)
+        except:
+            return self.cls.name
+            
 class Lector(models.Model):
     full_name = models.CharField("Full name", max_length = 100)
     subjects = models.ManyToManyField("Subject")

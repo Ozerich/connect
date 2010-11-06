@@ -1,5 +1,4 @@
 <div class="cpaginator">
-    Страницы:&nbsp;&nbsp;
     {% for page in pages %}<a href="{{link}}{{page}}" class="cswitch{% ifequal current page %} cswitch-active{% endifequal %}">{{page}}</a>{% endfor %}
 </div>
 

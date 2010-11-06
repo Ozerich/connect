@@ -79,7 +79,7 @@ CREATE TABLE `auth_message` (
   `message` longtext NOT NULL,
   PRIMARY KEY (`id`),
   KEY `auth_message_403f60f` (`user_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=40 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=45 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -106,7 +106,7 @@ CREATE TABLE `auth_permission` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `content_type_id` (`content_type_id`,`codename`),
   KEY `auth_permission_1bb8f392` (`content_type_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=34 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=73 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -115,7 +115,7 @@ CREATE TABLE `auth_permission` (
 
 LOCK TABLES `auth_permission` WRITE;
 /*!40000 ALTER TABLE `auth_permission` DISABLE KEYS */;
-INSERT INTO `auth_permission` VALUES (1,'Can add permission',1,'add_permission'),(2,'Can change permission',1,'change_permission'),(3,'Can delete permission',1,'delete_permission'),(4,'Can add group',2,'add_group'),(5,'Can change group',2,'change_group'),(6,'Can delete group',2,'delete_group'),(7,'Can add user',3,'add_user'),(8,'Can change user',3,'change_user'),(9,'Can delete user',3,'delete_user'),(10,'Can add message',4,'add_message'),(11,'Can change message',4,'change_message'),(12,'Can delete message',4,'delete_message'),(13,'Can add content type',5,'add_contenttype'),(14,'Can change content type',5,'change_contenttype'),(15,'Can delete content type',5,'delete_contenttype'),(16,'Can add session',6,'add_session'),(17,'Can change session',6,'change_session'),(18,'Can delete session',6,'delete_session'),(19,'Can add site',7,'add_site'),(20,'Can change site',7,'change_site'),(21,'Can delete site',7,'delete_site'),(22,'Can add group',8,'add_group'),(23,'Can change group',8,'change_group'),(24,'Can delete group',8,'delete_group'),(25,'Can add language',9,'add_language'),(26,'Can change language',9,'change_language'),(27,'Can delete language',9,'delete_language'),(28,'Can add user',10,'add_user'),(29,'Can change user',10,'change_user'),(30,'Can delete user',10,'delete_user'),(31,'Can add log entry',11,'add_logentry'),(32,'Can change log entry',11,'change_logentry'),(33,'Can delete log entry',11,'delete_logentry');
+INSERT INTO `auth_permission` VALUES (1,'Can add permission',1,'add_permission'),(2,'Can change permission',1,'change_permission'),(3,'Can delete permission',1,'delete_permission'),(4,'Can add group',2,'add_group'),(5,'Can change group',2,'change_group'),(6,'Can delete group',2,'delete_group'),(7,'Can add user',3,'add_user'),(8,'Can change user',3,'change_user'),(9,'Can delete user',3,'delete_user'),(10,'Can add message',4,'add_message'),(11,'Can change message',4,'change_message'),(12,'Can delete message',4,'delete_message'),(13,'Can add content type',5,'add_contenttype'),(14,'Can change content type',5,'change_contenttype'),(15,'Can delete content type',5,'delete_contenttype'),(16,'Can add session',6,'add_session'),(17,'Can change session',6,'change_session'),(18,'Can delete session',6,'delete_session'),(19,'Can add site',7,'add_site'),(20,'Can change site',7,'change_site'),(21,'Can delete site',7,'delete_site'),(22,'Can add group',8,'add_group'),(23,'Can change group',8,'change_group'),(24,'Can delete group',8,'delete_group'),(25,'Can add language',9,'add_language'),(26,'Can change language',9,'change_language'),(27,'Can delete language',9,'delete_language'),(28,'Can add user',10,'add_user'),(29,'Can change user',10,'change_user'),(30,'Can delete user',10,'delete_user'),(31,'Can add log entry',11,'add_logentry'),(32,'Can change log entry',11,'change_logentry'),(33,'Can delete log entry',11,'delete_logentry'),(34,'Can add faculty',12,'add_faculty'),(35,'Can change faculty',12,'change_faculty'),(36,'Can delete faculty',12,'delete_faculty'),(37,'Can add stream',15,'add_stream'),(38,'Can change stream',15,'change_stream'),(39,'Can delete stream',15,'delete_stream'),(40,'Can add friendship',14,'add_friendship'),(41,'Can change friendship',14,'change_friendship'),(42,'Can delete friendship',14,'delete_friendship'),(43,'Can add message',16,'add_message'),(44,'Can change message',16,'change_message'),(45,'Can delete message',16,'delete_message'),(46,'Can add community',17,'add_community'),(47,'Can change community',17,'change_community'),(48,'Can delete community',17,'delete_community'),(49,'Can add topic',18,'add_topic'),(50,'Can change topic',18,'change_topic'),(51,'Can delete topic',18,'delete_topic'),(52,'Can add comment',19,'add_comment'),(53,'Can change comment',19,'change_comment'),(54,'Can delete comment',19,'delete_comment'),(55,'Can add file',20,'add_file'),(56,'Can change file',20,'change_file'),(57,'Can delete file',20,'delete_file'),(58,'Can add subject',21,'add_subject'),(59,'Can change subject',21,'change_subject'),(60,'Can delete subject',21,'delete_subject'),(61,'Can add rating type',22,'add_ratingtype'),(62,'Can change rating type',22,'change_ratingtype'),(63,'Can delete rating type',22,'delete_ratingtype'),(64,'Can add rating',23,'add_rating'),(65,'Can change rating',23,'change_rating'),(66,'Can delete rating',23,'delete_rating'),(67,'Can add lector',24,'add_lector'),(68,'Can change lector',24,'change_lector'),(69,'Can delete lector',24,'delete_lector'),(70,'Can add lector comment',25,'add_lectorcomment'),(71,'Can change lector comment',25,'change_lectorcomment'),(72,'Can delete lector comment',25,'delete_lectorcomment');
 /*!40000 ALTER TABLE `auth_permission` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -149,7 +149,7 @@ CREATE TABLE `auth_user` (
 
 LOCK TABLES `auth_user` WRITE;
 /*!40000 ALTER TABLE `auth_user` DISABLE KEYS */;
-INSERT INTO `auth_user` VALUES (1,'root','','','john.pankov@gmail.com','sha1$70e41$d7a944177ffcbd070fa8da6b777982d464985645',1,1,1,'2010-11-04 09:10:25','2010-10-30 08:18:22');
+INSERT INTO `auth_user` VALUES (1,'root','','','john.pankov@gmail.com','sha1$70e41$d7a944177ffcbd070fa8da6b777982d464985645',1,1,1,'2010-11-04 08:47:49','2010-10-30 08:18:22');
 /*!40000 ALTER TABLE `auth_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -208,6 +208,33 @@ LOCK TABLES `auth_user_user_permissions` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `departments`
+--
+
+DROP TABLE IF EXISTS `departments`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `departments` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `type` int(11) DEFAULT NULL,
+  `parent_id` int(11) DEFAULT NULL,
+  `short_name` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `full_name` varchar(300) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `departments`
+--
+
+LOCK TABLES `departments` WRITE;
+/*!40000 ALTER TABLE `departments` DISABLE KEYS */;
+INSERT INTO `departments` VALUES (1,1,0,'КСиС','Компьютерные системы и сети'),(2,2,1,'Информатика','Информатика'),(3,2,1,'ПОИТ','Программное обеспечение информационных технологоий'),(4,2,1,'ВМСиС','Вычислительные машины и сети'),(5,3,2,'052001','052001'),(6,3,2,'052002','052002'),(7,3,2,'052003','052003'),(8,3,2,'052004','052004');
+/*!40000 ALTER TABLE `departments` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `django_admin_log`
 --
 
@@ -226,7 +253,7 @@ CREATE TABLE `django_admin_log` (
   PRIMARY KEY (`id`),
   KEY `django_admin_log_403f60f` (`user_id`),
   KEY `django_admin_log_1bb8f392` (`content_type_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=54 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=64 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -235,7 +262,7 @@ CREATE TABLE `django_admin_log` (
 
 LOCK TABLES `django_admin_log` WRITE;
 /*!40000 ALTER TABLE `django_admin_log` DISABLE KEYS */;
-INSERT INTO `django_admin_log` VALUES (1,'2010-10-30 08:18:55',1,8,'1','052004',1,''),(2,'2010-10-30 08:19:02',1,9,'1','Английский',1,''),(3,'2010-10-30 08:19:07',1,10,'1','Евгений Паньков',1,''),(4,'2010-10-30 10:43:22',1,9,'2','Французский',1,''),(5,'2010-10-30 13:25:53',1,8,'2','052001',1,''),(6,'2010-10-30 13:26:37',1,10,'3','Василий Пупкин',1,''),(7,'2010-10-30 13:29:00',1,7,'1','example.com',3,''),(8,'2010-10-30 15:45:55',1,12,'1','ФКСиС',1,''),(38,'2010-11-01 07:48:30',1,18,'1','Topic object',1,''),(10,'2010-10-30 16:13:09',1,8,'1','052004',2,'Изменен speciality и faculty.'),(11,'2010-10-30 16:13:14',1,8,'2','052001',2,'Изменен speciality и faculty.'),(12,'2010-10-30 16:23:31',1,10,'2','Евгений Паньков',2,'Изменен friends.'),(13,'2010-10-30 16:45:22',1,14,'1','Friendship object',1,''),(14,'2010-10-30 16:45:31',1,14,'2','Friendship object',1,''),(15,'2010-10-30 18:37:38',1,10,'4','Павел Дуров',1,''),(16,'2010-10-30 18:37:52',1,14,'3','Евгений Паньков > Павел Дуров',1,''),(17,'2010-10-30 18:39:27',1,14,'3','Павел Дуров > Евгений Паньков',2,'Изменен src и dst.'),(18,'2010-10-30 18:53:07',1,14,'4','Евгений Паньков > Павел Дуров',3,''),(19,'2010-10-30 18:53:13',1,14,'5','Евгений Паньков > Павел Дуров',3,''),(20,'2010-10-30 20:19:56',1,15,'1','Информатика',1,''),(21,'2010-10-31 10:47:56',1,10,'3','Василий Пупкин',2,'Изменен avatar.'),(22,'2010-10-31 11:34:06',1,16,'20','Message object',2,'Изменен date.'),(23,'2010-10-31 11:34:12',1,16,'1','Message object',2,'Изменен date.'),(24,'2010-10-31 17:43:41',1,17,'1','БГУИР',1,''),(25,'2010-10-31 17:44:15',1,17,'2','Факультет компьютерных систем и сетей',1,''),(26,'2010-10-31 17:44:17',1,12,'1','ФКСиС',2,'Изменен community.'),(27,'2010-10-31 17:44:36',1,17,'3','Информатика',1,''),(28,'2010-10-31 17:44:37',1,15,'1','Информатика',2,'Изменен community.'),(29,'2010-10-31 17:44:46',1,17,'4','052001',1,''),(30,'2010-10-31 17:44:47',1,8,'2','052001',2,'Изменен community.'),(31,'2010-10-31 17:44:57',1,17,'5','052004',1,''),(32,'2010-10-31 17:44:58',1,8,'1','052004',2,'Изменен community.'),(33,'2010-10-31 18:14:19',1,10,'4','Павел Дуров',2,'Изменен communities.'),(34,'2010-10-31 18:14:24',1,10,'2','Евгений Паньков',2,'Изменен communities.'),(35,'2010-10-31 18:14:28',1,10,'3','Василий Пупкин',2,'Изменен communities.'),(36,'2010-10-31 18:16:09',1,17,'1','БГУИР',2,'Изменен parent.'),(37,'2010-10-31 18:22:51',1,17,'1','БГУИР',2,'Изменен parent.'),(39,'2010-11-01 08:12:15',1,18,'2','Литрбол',1,''),(40,'2010-11-01 08:14:44',1,18,'3','Пиво или водка?',1,''),(41,'2010-11-01 08:14:59',1,18,'4','Где бухать в пятницу',1,''),(42,'2010-11-01 08:25:11',1,18,'3','Пиво или водка?',3,''),(43,'2010-11-01 08:25:11',1,18,'2','Литрбол',3,''),(44,'2010-11-01 08:25:11',1,18,'1','Я ололо, а вы?',3,''),(45,'2010-11-01 08:26:27',1,19,'1','Нажираемся в говно!',1,''),(46,'2010-11-01 08:26:32',1,18,'4','Где бухать в пятницу',2,'Изменен root.'),(47,'2010-11-01 08:32:18',1,19,'2','Точняк - воруй, убивай, еби гусей!',1,''),(48,'2010-11-01 08:34:31',1,19,'3','Чемпионат по литрболу!',1,''),(49,'2010-11-04 07:57:42',1,20,'1','File object',1,''),(50,'2010-11-04 08:09:18',1,20,'1','favicon.png',1,''),(51,'2010-11-04 08:09:31',1,17,'2','Факультет компьютерных систем и сетей',2,'Изменен files.'),(52,'2010-11-04 09:10:40',1,20,'2','Project.docx',1,''),(53,'2010-11-04 09:10:54',1,17,'2','Факультет компьютерных систем и сетей',2,'Изменен files.');
+INSERT INTO `django_admin_log` VALUES (1,'2010-10-30 08:18:55',1,8,'1','052004',1,''),(2,'2010-10-30 08:19:02',1,9,'1','Английский',1,''),(3,'2010-10-30 08:19:07',1,10,'1','Евгений Паньков',1,''),(4,'2010-10-30 10:43:22',1,9,'2','Французский',1,''),(5,'2010-10-30 13:25:53',1,8,'2','052001',1,''),(6,'2010-10-30 13:26:37',1,10,'3','Василий Пупкин',1,''),(7,'2010-10-30 13:29:00',1,7,'1','example.com',3,''),(8,'2010-10-30 15:45:55',1,12,'1','ФКСиС',1,''),(38,'2010-11-01 07:48:30',1,18,'1','Topic object',1,''),(10,'2010-10-30 16:13:09',1,8,'1','052004',2,'Изменен speciality и faculty.'),(11,'2010-10-30 16:13:14',1,8,'2','052001',2,'Изменен speciality и faculty.'),(12,'2010-10-30 16:23:31',1,10,'2','Евгений Паньков',2,'Изменен friends.'),(13,'2010-10-30 16:45:22',1,14,'1','Friendship object',1,''),(14,'2010-10-30 16:45:31',1,14,'2','Friendship object',1,''),(15,'2010-10-30 18:37:38',1,10,'4','Павел Дуров',1,''),(16,'2010-10-30 18:37:52',1,14,'3','Евгений Паньков > Павел Дуров',1,''),(17,'2010-10-30 18:39:27',1,14,'3','Павел Дуров > Евгений Паньков',2,'Изменен src и dst.'),(18,'2010-10-30 18:53:07',1,14,'4','Евгений Паньков > Павел Дуров',3,''),(19,'2010-10-30 18:53:13',1,14,'5','Евгений Паньков > Павел Дуров',3,''),(20,'2010-10-30 20:19:56',1,15,'1','Информатика',1,''),(21,'2010-10-31 10:47:56',1,10,'3','Василий Пупкин',2,'Изменен avatar.'),(22,'2010-10-31 11:34:06',1,16,'20','Message object',2,'Изменен date.'),(23,'2010-10-31 11:34:12',1,16,'1','Message object',2,'Изменен date.'),(24,'2010-10-31 17:43:41',1,17,'1','БГУИР',1,''),(25,'2010-10-31 17:44:15',1,17,'2','Факультет компьютерных систем и сетей',1,''),(26,'2010-10-31 17:44:17',1,12,'1','ФКСиС',2,'Изменен community.'),(27,'2010-10-31 17:44:36',1,17,'3','Информатика',1,''),(28,'2010-10-31 17:44:37',1,15,'1','Информатика',2,'Изменен community.'),(29,'2010-10-31 17:44:46',1,17,'4','052001',1,''),(30,'2010-10-31 17:44:47',1,8,'2','052001',2,'Изменен community.'),(31,'2010-10-31 17:44:57',1,17,'5','052004',1,''),(32,'2010-10-31 17:44:58',1,8,'1','052004',2,'Изменен community.'),(33,'2010-10-31 18:14:19',1,10,'4','Павел Дуров',2,'Изменен communities.'),(34,'2010-10-31 18:14:24',1,10,'2','Евгений Паньков',2,'Изменен communities.'),(35,'2010-10-31 18:14:28',1,10,'3','Василий Пупкин',2,'Изменен communities.'),(36,'2010-10-31 18:16:09',1,17,'1','БГУИР',2,'Изменен parent.'),(37,'2010-10-31 18:22:51',1,17,'1','БГУИР',2,'Изменен parent.'),(39,'2010-11-01 08:12:15',1,18,'2','Литрбол',1,''),(40,'2010-11-01 08:14:44',1,18,'3','Пиво или водка?',1,''),(41,'2010-11-01 08:14:59',1,18,'4','Где бухать в пятницу',1,''),(42,'2010-11-01 08:25:11',1,18,'3','Пиво или водка?',3,''),(43,'2010-11-01 08:25:11',1,18,'2','Литрбол',3,''),(44,'2010-11-01 08:25:11',1,18,'1','Я ололо, а вы?',3,''),(45,'2010-11-01 08:26:27',1,19,'1','Нажираемся в говно!',1,''),(46,'2010-11-01 08:26:32',1,18,'4','Где бухать в пятницу',2,'Изменен root.'),(47,'2010-11-01 08:32:18',1,19,'2','Точняк - воруй, убивай, еби гусей!',1,''),(48,'2010-11-01 08:34:31',1,19,'3','Чемпионат по литрболу!',1,''),(49,'2010-11-04 07:57:42',1,20,'1','File object',1,''),(50,'2010-11-04 08:09:18',1,20,'1','favicon.png',1,''),(51,'2010-11-04 08:09:31',1,17,'2','Факультет компьютерных систем и сетей',2,'Изменен files.'),(52,'2010-11-04 08:49:15',1,9,'5','Виталий Озерский',1,''),(53,'2010-11-05 11:34:05',1,21,'1','Subject object',1,''),(54,'2010-11-05 11:36:19',1,22,'1','RatingType object',1,''),(55,'2010-11-05 11:36:23',1,23,'1','Rating object',1,''),(56,'2010-11-05 11:36:32',1,24,'1','Синицын Михалыч',1,''),(57,'2010-11-05 11:38:28',1,24,'1','Синицын Михалыч',2,'Ни одно поле не изменено.'),(58,'2010-11-05 11:54:13',1,24,'1','Синицын Михалыч',2,'Изменен photo.'),(59,'2010-11-05 11:55:25',1,24,'1','Синицын Михалыч',2,'Изменен photo.'),(60,'2010-11-05 12:12:51',1,17,'6','Изучаемые дисциплины',1,''),(61,'2010-11-05 12:13:55',1,17,'7','ОАиП',1,''),(62,'2010-11-05 12:13:58',1,21,'1','Delphi',2,'Изменен community.'),(63,'2010-11-05 13:44:08',1,25,'1','Синицын лучший!!',1,'');
 /*!40000 ALTER TABLE `django_admin_log` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -253,7 +280,7 @@ CREATE TABLE `django_content_type` (
   `model` varchar(100) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `app_label` (`app_label`,`model`)
-) ENGINE=MyISAM AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -262,7 +289,7 @@ CREATE TABLE `django_content_type` (
 
 LOCK TABLES `django_content_type` WRITE;
 /*!40000 ALTER TABLE `django_content_type` DISABLE KEYS */;
-INSERT INTO `django_content_type` VALUES (1,'permission','auth','permission'),(2,'group','auth','group'),(3,'user','auth','user'),(4,'message','auth','message'),(5,'content type','contenttypes','contenttype'),(6,'session','sessions','session'),(7,'site','sites','site'),(8,'group','main','group'),(9,'language','main','language'),(10,'user','main','user'),(11,'log entry','admin','logentry'),(12,'faculty','main','faculty'),(19,'comment','main','comment'),(14,'friendship','main','friendship'),(15,'stream','main','stream'),(16,'message','main','message'),(17,'community','main','community'),(18,'topic','main','topic'),(20,'file','main','file');
+INSERT INTO `django_content_type` VALUES (1,'permission','auth','permission'),(2,'group','auth','group'),(3,'user','auth','user'),(4,'message','auth','message'),(5,'content type','contenttypes','contenttype'),(6,'session','sessions','session'),(7,'site','sites','site'),(8,'group','main','group'),(9,'language','main','language'),(10,'user','main','user'),(11,'log entry','admin','logentry'),(12,'faculty','main','faculty'),(19,'comment','main','comment'),(14,'friendship','main','friendship'),(15,'stream','main','stream'),(16,'message','main','message'),(17,'community','main','community'),(18,'topic','main','topic'),(20,'file','main','file'),(21,'subject','main','subject'),(22,'rating type','main','ratingtype'),(23,'rating','main','rating'),(24,'lector','main','lector'),(25,'lector comment','main','lectorcomment');
 /*!40000 ALTER TABLE `django_content_type` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -287,7 +314,7 @@ CREATE TABLE `django_session` (
 
 LOCK TABLES `django_session` WRITE;
 /*!40000 ALTER TABLE `django_session` DISABLE KEYS */;
-INSERT INTO `django_session` VALUES ('e1762165ecd98cac21e1c498bee70bb0','gAJ9cQEoVRJfYXV0aF91c2VyX2JhY2tlbmRxAlUpZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5k\ncy5Nb2RlbEJhY2tlbmRxA1UNX2F1dGhfdXNlcl9pZHEEigEBdS42ZjgyZDMwNjQ5NWU5YzhhNmUw\nZjQ4ZTRhNDJmOThhOQ==\n','2010-11-13 08:18:35'),('9a47dd3ca1c3e9a0443a0b4d54d3c91b','gAJ9cQEoVRJfYXV0aF91c2VyX2JhY2tlbmRxAlUpZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5k\ncy5Nb2RlbEJhY2tlbmRxA1UNX2F1dGhfdXNlcl9pZHEEigEBVQR1c2VycQVYDAAAAGR1cm92QHZr\nLmNvbXEGdS4yODdiNjY1MjBlNGRmYjk1ZTgzMDQ5NjAzYTRlOGM5Yg==\n','2010-11-14 12:41:23'),('a2d2e569077d7cd53e0f5a1371be1dd0','gAJ9cQEoVRJfYXV0aF91c2VyX2JhY2tlbmRxAlUpZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5k\ncy5Nb2RlbEJhY2tlbmRxA1UEdXNlcnEEWAUAAABhQGEuYXEFVQ1fYXV0aF91c2VyX2lkcQaKAQF1\nLmVkMWZkMTlkZjExODY2YWY4ODVhMTMyMDIxZTI5Y2U3\n','2010-11-18 07:57:27'),('80c2ad8e4d0ce026c30ec7fa3db3a510','gAJ9cQEoVRJfYXV0aF91c2VyX2JhY2tlbmRxAlUpZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5k\ncy5Nb2RlbEJhY2tlbmRxA1UEdXNlcnEEWAUAAABhQGEuYXEFVQ1fYXV0aF91c2VyX2lkcQaKAQF1\nLmVkMWZkMTlkZjExODY2YWY4ODVhMTMyMDIxZTI5Y2U3\n','2010-11-18 09:10:25');
+INSERT INTO `django_session` VALUES ('b8246fed84283fcd9026b7a2907ef1ab','gAJ9cQFVBHVzZXJxAlgFAAAAYUBhLmFxA3MuYzQ3YTBjYTlmZDMwNjg1MzVlNjdhNDVlZTZkMGY3\nNTM=\n','2010-11-18 08:25:08'),('e1762165ecd98cac21e1c498bee70bb0','gAJ9cQEoVRJfYXV0aF91c2VyX2JhY2tlbmRxAlUpZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5k\ncy5Nb2RlbEJhY2tlbmRxA1UNX2F1dGhfdXNlcl9pZHEEigEBdS42ZjgyZDMwNjQ5NWU5YzhhNmUw\nZjQ4ZTRhNDJmOThhOQ==\n','2010-11-13 08:18:35'),('9a47dd3ca1c3e9a0443a0b4d54d3c91b','gAJ9cQEoVRJfYXV0aF91c2VyX2JhY2tlbmRxAlUpZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5k\ncy5Nb2RlbEJhY2tlbmRxA1UNX2F1dGhfdXNlcl9pZHEEigEBVQR1c2VycQVYDAAAAGR1cm92QHZr\nLmNvbXEGdS4yODdiNjY1MjBlNGRmYjk1ZTgzMDQ5NjAzYTRlOGM5Yg==\n','2010-11-14 12:41:23'),('a2d2e569077d7cd53e0f5a1371be1dd0','gAJ9cQEoVRJfYXV0aF91c2VyX2JhY2tlbmRxAlUpZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5k\ncy5Nb2RlbEJhY2tlbmRxA1UEdXNlcnEEWAUAAABhQGEuYXEFVQ1fYXV0aF91c2VyX2lkcQaKAQF1\nLmVkMWZkMTlkZjExODY2YWY4ODVhMTMyMDIxZTI5Y2U3\n','2010-11-18 07:57:27'),('8c3cd99110dbb73567b7df01f6b40e30','gAJ9cQEuNGQzN2QzN2YyNTBkNDQ1MmM2ODJmNWIwZmI5NTc3ZGY=\n','2010-11-19 16:09:29'),('e0c0cada8286a7856bc4428106182bae','gAJ9cQEoVQ1fYXV0aF91c2VyX2lkcQKKAQFVEl9hdXRoX3VzZXJfYmFja2VuZHEDVSlkamFuZ28u\nY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZHEEVQR1c2VycQVYEgAAAE96aWNvZGVy\nQGdtYWlsLmNvbXEGdS5jMWUzYTYxMzQyMTI3OWVhZTM0NmEwZGYwOGYyYTc5OA==\n','2010-11-18 08:49:35');
 /*!40000 ALTER TABLE `django_session` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -313,6 +340,154 @@ CREATE TABLE `django_site` (
 LOCK TABLES `django_site` WRITE;
 /*!40000 ALTER TABLE `django_site` DISABLE KEYS */;
 /*!40000 ALTER TABLE `django_site` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `friends`
+--
+
+DROP TABLE IF EXISTS `friends`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `friends` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_from` int(11) DEFAULT NULL,
+  `id_to` int(11) DEFAULT NULL,
+  `new` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `friends`
+--
+
+LOCK TABLES `friends` WRITE;
+/*!40000 ALTER TABLE `friends` DISABLE KEYS */;
+/*!40000 ALTER TABLE `friends` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `group_albums`
+--
+
+DROP TABLE IF EXISTS `group_albums`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `group_albums` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `description` text COLLATE utf8_unicode_ci,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `group_albums`
+--
+
+LOCK TABLES `group_albums` WRITE;
+/*!40000 ALTER TABLE `group_albums` DISABLE KEYS */;
+/*!40000 ALTER TABLE `group_albums` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `group_files`
+--
+
+DROP TABLE IF EXISTS `group_files`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `group_files` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `description` varchar(1000) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `file` varchar(1000) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `group_files`
+--
+
+LOCK TABLES `group_files` WRITE;
+/*!40000 ALTER TABLE `group_files` DISABLE KEYS */;
+/*!40000 ALTER TABLE `group_files` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `group_messages`
+--
+
+DROP TABLE IF EXISTS `group_messages`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `group_messages` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `topic_id` int(11) DEFAULT NULL,
+  `parent_id` int(11) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `time` bigint(20) DEFAULT NULL,
+  `text` text COLLATE utf8_unicode_ci,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `group_messages`
+--
+
+LOCK TABLES `group_messages` WRITE;
+/*!40000 ALTER TABLE `group_messages` DISABLE KEYS */;
+/*!40000 ALTER TABLE `group_messages` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `group_photos`
+--
+
+DROP TABLE IF EXISTS `group_photos`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `group_photos` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `description` text COLLATE utf8_unicode_ci,
+  `image` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `group_photos`
+--
+
+LOCK TABLES `group_photos` WRITE;
+/*!40000 ALTER TABLE `group_photos` DISABLE KEYS */;
+/*!40000 ALTER TABLE `group_photos` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `group_topics`
+--
+
+DROP TABLE IF EXISTS `group_topics`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `group_topics` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `group_id` int(11) DEFAULT NULL,
+  `first_message` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `group_topics`
+--
+
+LOCK TABLES `group_topics` WRITE;
+/*!40000 ALTER TABLE `group_topics` DISABLE KEYS */;
+/*!40000 ALTER TABLE `group_topics` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -385,7 +560,7 @@ CREATE TABLE `main_community` (
   `parent_id` int(11) DEFAULT NULL,
   `rank` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -394,7 +569,7 @@ CREATE TABLE `main_community` (
 
 LOCK TABLES `main_community` WRITE;
 /*!40000 ALTER TABLE `main_community` DISABLE KEYS */;
-INSERT INTO `main_community` VALUES (1,'БГУИР',NULL,5),(2,'Факультет компьютерных систем и сетей',1,4),(3,'Информатика',2,3),(4,'052001',3,2),(5,'052004',3,2);
+INSERT INTO `main_community` VALUES (1,'БГУИР',NULL,5),(2,'Факультет компьютерных систем и сетей',1,4),(3,'Информатика',2,3),(4,'052001',3,2),(5,'052004',3,2),(6,'Изучаемые дисциплины',1,2),(7,'ОАиП',6,1);
 /*!40000 ALTER TABLE `main_community` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -419,7 +594,7 @@ CREATE TABLE `main_community_files` (
 
 LOCK TABLES `main_community_files` WRITE;
 /*!40000 ALTER TABLE `main_community_files` DISABLE KEYS */;
-INSERT INTO `main_community_files` VALUES (3,2,2);
+INSERT INTO `main_community_files` VALUES (1,2,1),(2,6,1),(3,7,1);
 /*!40000 ALTER TABLE `main_community_files` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -462,7 +637,7 @@ CREATE TABLE `main_file` (
   `date` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `main_file_337b96ff` (`author_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -471,7 +646,7 @@ CREATE TABLE `main_file` (
 
 LOCK TABLES `main_file` WRITE;
 /*!40000 ALTER TABLE `main_file` DISABLE KEYS */;
-INSERT INTO `main_file` VALUES (2,2,'Project.docx','2010-11-04 09:10:38');
+INSERT INTO `main_file` VALUES (1,2,'favicon.png','2010-11-04 08:09:16');
 /*!40000 ALTER TABLE `main_file` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -556,6 +731,116 @@ INSERT INTO `main_language` VALUES (1,'Английский'),(2,'Француз
 UNLOCK TABLES;
 
 --
+-- Table structure for table `main_lector`
+--
+
+DROP TABLE IF EXISTS `main_lector`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `main_lector` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `full_name` varchar(100) NOT NULL,
+  `photo` varchar(200) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `main_lector`
+--
+
+LOCK TABLES `main_lector` WRITE;
+/*!40000 ALTER TABLE `main_lector` DISABLE KEYS */;
+INSERT INTO `main_lector` VALUES (1,'Синицын Михалыч','default.png');
+/*!40000 ALTER TABLE `main_lector` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `main_lector_rating`
+--
+
+DROP TABLE IF EXISTS `main_lector_rating`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `main_lector_rating` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `lector_id` int(11) NOT NULL,
+  `rating_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `lector_id` (`lector_id`,`rating_id`),
+  KEY `main_lector_rating_667daf1f` (`lector_id`),
+  KEY `main_lector_rating_2404d475` (`rating_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `main_lector_rating`
+--
+
+LOCK TABLES `main_lector_rating` WRITE;
+/*!40000 ALTER TABLE `main_lector_rating` DISABLE KEYS */;
+INSERT INTO `main_lector_rating` VALUES (4,1,1);
+/*!40000 ALTER TABLE `main_lector_rating` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `main_lector_subjects`
+--
+
+DROP TABLE IF EXISTS `main_lector_subjects`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `main_lector_subjects` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `lector_id` int(11) NOT NULL,
+  `subject_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `lector_id` (`lector_id`,`subject_id`),
+  KEY `main_lector_subjects_667daf1f` (`lector_id`),
+  KEY `main_lector_subjects_638462f1` (`subject_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `main_lector_subjects`
+--
+
+LOCK TABLES `main_lector_subjects` WRITE;
+/*!40000 ALTER TABLE `main_lector_subjects` DISABLE KEYS */;
+INSERT INTO `main_lector_subjects` VALUES (4,1,1);
+/*!40000 ALTER TABLE `main_lector_subjects` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `main_lectorcomment`
+--
+
+DROP TABLE IF EXISTS `main_lectorcomment`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `main_lectorcomment` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `author_id` int(11) NOT NULL,
+  `text` varchar(2000) NOT NULL,
+  `date` datetime NOT NULL,
+  `lector_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `main_lectorcomment_337b96ff` (`author_id`),
+  KEY `main_lectorcomment_667daf1f` (`lector_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `main_lectorcomment`
+--
+
+LOCK TABLES `main_lectorcomment` WRITE;
+/*!40000 ALTER TABLE `main_lectorcomment` DISABLE KEYS */;
+INSERT INTO `main_lectorcomment` VALUES (1,2,'Синицын лучший!!','2010-11-05 13:44:01',1);
+/*!40000 ALTER TABLE `main_lectorcomment` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `main_message`
 --
 
@@ -585,27 +870,54 @@ INSERT INTO `main_message` VALUES (20,2,3,3,'ASD',0,'2010-10-31 11:34:05'),(34,4
 UNLOCK TABLES;
 
 --
--- Table structure for table `main_message_attachments`
+-- Table structure for table `main_rating`
 --
 
-DROP TABLE IF EXISTS `main_message_attachments`;
+DROP TABLE IF EXISTS `main_rating`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `main_message_attachments` (
+CREATE TABLE `main_rating` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `message_id` int(11) DEFAULT NULL,
-  `file_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `plus` int(11) NOT NULL,
+  `minus` int(11) NOT NULL,
+  `cls_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `main_rating_62ea709f` (`cls_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `main_message_attachments`
+-- Dumping data for table `main_rating`
 --
 
-LOCK TABLES `main_message_attachments` WRITE;
-/*!40000 ALTER TABLE `main_message_attachments` DISABLE KEYS */;
-/*!40000 ALTER TABLE `main_message_attachments` ENABLE KEYS */;
+LOCK TABLES `main_rating` WRITE;
+/*!40000 ALTER TABLE `main_rating` DISABLE KEYS */;
+INSERT INTO `main_rating` VALUES (1,15,101,1);
+/*!40000 ALTER TABLE `main_rating` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `main_ratingtype`
+--
+
+DROP TABLE IF EXISTS `main_ratingtype`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `main_ratingtype` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `main_ratingtype`
+--
+
+LOCK TABLES `main_ratingtype` WRITE;
+/*!40000 ALTER TABLE `main_ratingtype` DISABLE KEYS */;
+INSERT INTO `main_ratingtype` VALUES (1,'Моск');
+/*!40000 ALTER TABLE `main_ratingtype` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -633,6 +945,32 @@ LOCK TABLES `main_stream` WRITE;
 /*!40000 ALTER TABLE `main_stream` DISABLE KEYS */;
 INSERT INTO `main_stream` VALUES (1,'Информатика','052',1,3);
 /*!40000 ALTER TABLE `main_stream` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `main_subject`
+--
+
+DROP TABLE IF EXISTS `main_subject`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `main_subject` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `short_name` varchar(20) NOT NULL,
+  `full_name` varchar(100) NOT NULL,
+  `community_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `main_subject`
+--
+
+LOCK TABLES `main_subject` WRITE;
+/*!40000 ALTER TABLE `main_subject` DISABLE KEYS */;
+INSERT INTO `main_subject` VALUES (1,'Delphi','Основы бездумного и необдуманого программирования на языке дельфи',7);
+/*!40000 ALTER TABLE `main_subject` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -685,7 +1023,7 @@ CREATE TABLE `main_user` (
   PRIMARY KEY (`id`),
   KEY `main_user_425ae3c4` (`group_id`),
   KEY `main_user_7ab48146` (`language_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -694,7 +1032,7 @@ CREATE TABLE `main_user` (
 
 LOCK TABLES `main_user` WRITE;
 /*!40000 ALTER TABLE `main_user` DISABLE KEYS */;
-INSERT INTO `main_user` VALUES (2,'a@a.a','123','1234567','Евгений','Паньков','2010-05-05',1,1,1,'2.jpg'),(3,'v@a.com','123','3214567','Василий','Пупкин','2010-10-30',2,2,1,'default.png'),(4,'durov@vk.com','123','7463252','Павел','Дуров','2010-10-04',2,1,2,'4.jpg');
+INSERT INTO `main_user` VALUES (2,'a@a.a','123','1234567','Евгений','Паньков','2010-05-05',1,1,1,'2.jpg'),(3,'v@a.com','123','3214567','Василий','Пупкин','2010-10-30',2,2,1,'default.png'),(4,'durov@vk.com','123','7463252','Павел','Дуров','2010-10-04',2,1,2,'4.jpg'),(5,'Ozicoder@gmail.com','12','1234567','Виталий','Озерский','2010-11-04',1,2,1,'default.png');
 /*!40000 ALTER TABLE `main_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -711,7 +1049,7 @@ CREATE TABLE `main_user_communities` (
   `community_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `user_id` (`user_id`,`community_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -720,8 +1058,70 @@ CREATE TABLE `main_user_communities` (
 
 LOCK TABLES `main_user_communities` WRITE;
 /*!40000 ALTER TABLE `main_user_communities` DISABLE KEYS */;
-INSERT INTO `main_user_communities` VALUES (1,4,1),(13,4,2),(14,4,3),(4,4,4),(5,2,1),(6,2,2),(7,2,3),(8,2,5),(9,3,1),(10,3,2),(11,3,3),(12,3,4);
+INSERT INTO `main_user_communities` VALUES (1,4,1),(13,4,2),(14,4,3),(4,4,4),(5,2,1),(6,2,2),(7,2,3),(8,2,5),(9,3,1),(10,3,2),(11,3,3),(12,3,4),(15,5,1),(16,5,2),(17,5,3),(18,5,5);
 /*!40000 ALTER TABLE `main_user_communities` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `messages`
+--
+
+DROP TABLE IF EXISTS `messages`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `messages` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `owner` int(11) DEFAULT NULL,
+  `id_from` int(11) DEFAULT NULL,
+  `id_to` int(11) DEFAULT NULL,
+  `message` text COLLATE utf8_unicode_ci,
+  `datetime` int(11) DEFAULT NULL,
+  `_read` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=25 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `messages`
+--
+
+LOCK TABLES `messages` WRITE;
+/*!40000 ALTER TABLE `messages` DISABLE KEYS */;
+INSERT INTO `messages` VALUES (1,2,2,1,'1',1288164985,0),(2,1,2,1,'1',1288164985,1),(3,2,2,1,'2',1288165004,0),(4,1,2,1,'2',1288165004,1),(5,2,2,1,'3',1288165006,0),(6,1,2,1,'3',1288165006,1),(7,2,2,1,'4',1288165010,0),(8,1,2,1,'4',1288165010,1),(9,2,2,1,'5',1288165013,0),(10,1,2,1,'5',1288165013,1),(11,2,2,1,'6',1288165016,0),(12,1,2,1,'6',1288165016,1),(13,2,2,1,'7',1288165018,0),(14,1,2,1,'7',1288165018,1),(15,2,2,1,'8sdfs\nsd\nf\ns\ndf\n',1288165021,0),(16,1,2,1,'8sdfs\nsd\nf\ns\ndf\n',1288165021,1),(17,2,2,1,'9',1288165024,0),(18,1,2,1,'9',1288165024,1),(19,2,2,1,'10',1288165029,0),(20,1,2,1,'10',1288165029,1),(21,2,2,1,'11',1288165032,0),(22,1,2,1,'11',1288165032,1),(23,2,2,1,'12',1288165035,0),(24,1,2,1,'12',1288165035,1);
+/*!40000 ALTER TABLE `messages` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `private_number` int(11) DEFAULT NULL,
+  `email` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `password` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `name` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `surname` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `birthday` varchar(15) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `group_id` int(11) DEFAULT NULL,
+  `subgroup` int(11) DEFAULT NULL,
+  `languageId` int(11) DEFAULT NULL,
+  `avatar` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=87 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `users`
+--
+
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (1,1234567,'ozicoder@gmail.com','12','Виталь','Озерский','25.04.1993',8,2,1,NULL),(2,1234568,'ozicoder2@gmail.com','12','Евгений','Паньков','25.04.1992',8,2,1,NULL),(3,NULL,NULL,NULL,'sd\"dfdf',NULL,NULL,NULL,NULL,NULL,NULL),(4,NULL,NULL,NULL,'sd\"dfdf',NULL,NULL,NULL,NULL,NULL,NULL),(5,NULL,NULL,NULL,'sd\"dfdf',NULL,NULL,NULL,NULL,NULL,NULL),(6,NULL,NULL,NULL,'sd\"dfdf',NULL,NULL,NULL,NULL,NULL,NULL),(7,NULL,NULL,NULL,'sd\"dfdf',NULL,NULL,NULL,NULL,NULL,NULL),(8,NULL,NULL,NULL,'sd\"dfdf',NULL,NULL,NULL,NULL,NULL,NULL),(9,NULL,NULL,NULL,'sd\"dfdf',NULL,NULL,NULL,NULL,NULL,NULL),(10,NULL,NULL,NULL,'sd\"dfdf',NULL,NULL,NULL,NULL,NULL,NULL),(11,NULL,NULL,NULL,'sd\"dfdf',NULL,NULL,NULL,NULL,NULL,NULL),(12,NULL,NULL,NULL,'sd\"dfdf',NULL,NULL,NULL,NULL,NULL,NULL),(13,NULL,NULL,NULL,'sd\"dfdf',NULL,NULL,NULL,NULL,NULL,NULL),(14,NULL,NULL,NULL,'sd\"dfdf',NULL,NULL,NULL,NULL,NULL,NULL),(15,NULL,NULL,NULL,'sd\"dfdf',NULL,NULL,NULL,NULL,NULL,NULL),(16,NULL,NULL,NULL,'sd\"dfdf',NULL,NULL,NULL,NULL,NULL,NULL),(17,NULL,NULL,NULL,'sd\"dfdf',NULL,NULL,NULL,NULL,NULL,NULL),(18,NULL,NULL,NULL,'sd\"dfdf',NULL,NULL,NULL,NULL,NULL,NULL),(19,NULL,NULL,NULL,'sd\"dfdf',NULL,NULL,NULL,NULL,NULL,NULL),(20,NULL,NULL,NULL,'sd\"dfdf',NULL,NULL,NULL,NULL,NULL,NULL),(21,NULL,NULL,NULL,'sd\"dfdf',NULL,NULL,NULL,NULL,NULL,NULL),(22,NULL,NULL,NULL,'sd\"dfdf',NULL,NULL,NULL,NULL,NULL,NULL),(23,NULL,NULL,NULL,'sd\"dfdf',NULL,NULL,NULL,NULL,NULL,NULL),(24,NULL,NULL,NULL,'sd\"dfdf',NULL,NULL,NULL,NULL,NULL,NULL),(25,NULL,NULL,NULL,'sd\"dfdf',NULL,NULL,NULL,NULL,NULL,NULL),(26,NULL,NULL,NULL,'sd\"dfdf',NULL,NULL,NULL,NULL,NULL,NULL),(27,NULL,NULL,NULL,'sd\"dfdf',NULL,NULL,NULL,NULL,NULL,NULL),(28,NULL,NULL,NULL,'sd\"dfdf',NULL,NULL,NULL,NULL,NULL,NULL),(29,NULL,NULL,NULL,'sd\"dfdf',NULL,NULL,NULL,NULL,NULL,NULL),(30,NULL,NULL,NULL,'sd\"dfdf',NULL,NULL,NULL,NULL,NULL,NULL),(31,NULL,NULL,NULL,'sd\"dfdf',NULL,NULL,NULL,NULL,NULL,NULL),(32,NULL,NULL,NULL,'sd\"dfdf',NULL,NULL,NULL,NULL,NULL,NULL),(33,NULL,NULL,NULL,'sd\"dfdf',NULL,NULL,NULL,NULL,NULL,NULL),(34,NULL,NULL,NULL,'sd\"dfdf',NULL,NULL,NULL,NULL,NULL,NULL),(35,NULL,NULL,NULL,'sd\"dfdf',NULL,NULL,NULL,NULL,NULL,NULL),(36,NULL,NULL,NULL,'sd\"dfdf',NULL,NULL,NULL,NULL,NULL,NULL),(37,NULL,NULL,NULL,'sd\"dfdf',NULL,NULL,NULL,NULL,NULL,NULL),(38,NULL,NULL,NULL,'sd\"dfdf',NULL,NULL,NULL,NULL,NULL,NULL),(39,NULL,NULL,NULL,'sd\"dfdf',NULL,NULL,NULL,NULL,NULL,NULL),(40,NULL,NULL,NULL,'sd\"dfdf',NULL,NULL,NULL,NULL,NULL,NULL),(41,NULL,NULL,NULL,'sd\"dfdf',NULL,NULL,NULL,NULL,NULL,NULL),(42,NULL,NULL,NULL,'sd\"dfdf',NULL,NULL,NULL,NULL,NULL,NULL),(43,NULL,NULL,NULL,'sd\"dfdf',NULL,NULL,NULL,NULL,NULL,NULL),(44,NULL,NULL,NULL,'sd\"dfdf',NULL,NULL,NULL,NULL,NULL,NULL),(45,NULL,NULL,NULL,'sd\"dfdf',NULL,NULL,NULL,NULL,NULL,NULL),(46,NULL,NULL,NULL,'sd\"dfdf',NULL,NULL,NULL,NULL,NULL,NULL),(47,NULL,NULL,NULL,'sd\"dfdf',NULL,NULL,NULL,NULL,NULL,NULL),(48,NULL,NULL,NULL,'sd\"dfdf',NULL,NULL,NULL,NULL,NULL,NULL),(49,NULL,NULL,NULL,'sd\"dfdf',NULL,NULL,NULL,NULL,NULL,NULL),(50,NULL,NULL,NULL,'sd\"dfdf',NULL,NULL,NULL,NULL,NULL,NULL),(51,NULL,NULL,NULL,'sd\"dfdf',NULL,NULL,NULL,NULL,NULL,NULL),(52,NULL,NULL,NULL,'sd\"dfdf',NULL,NULL,NULL,NULL,NULL,NULL),(53,NULL,NULL,NULL,'sd\"dfdf',NULL,NULL,NULL,NULL,NULL,NULL),(54,NULL,NULL,NULL,'sd\"dfdf',NULL,NULL,NULL,NULL,NULL,NULL),(55,NULL,NULL,NULL,'sd\"dfdf',NULL,NULL,NULL,NULL,NULL,NULL),(56,NULL,NULL,NULL,'sd\"dfdf',NULL,NULL,NULL,NULL,NULL,NULL),(57,NULL,NULL,NULL,'sd\"dfdf',NULL,NULL,NULL,NULL,NULL,NULL),(58,NULL,NULL,NULL,'sd\"dfdf',NULL,NULL,NULL,NULL,NULL,NULL),(59,NULL,NULL,NULL,'sd\"dfdf',NULL,NULL,NULL,NULL,NULL,NULL),(60,NULL,NULL,NULL,'sd\"dfdf',NULL,NULL,NULL,NULL,NULL,NULL),(61,NULL,NULL,NULL,'sd\"dfdf',NULL,NULL,NULL,NULL,NULL,NULL),(62,NULL,NULL,NULL,'sd\"dfdf',NULL,NULL,NULL,NULL,NULL,NULL),(63,NULL,NULL,NULL,'sd\"dfdf',NULL,NULL,NULL,NULL,NULL,NULL),(64,NULL,NULL,NULL,'sd\"dfdf',NULL,NULL,NULL,NULL,NULL,NULL),(65,NULL,NULL,NULL,'sd\"dfdf',NULL,NULL,NULL,NULL,NULL,NULL),(66,NULL,NULL,NULL,'sd\"dfdf',NULL,NULL,NULL,NULL,NULL,NULL),(67,NULL,NULL,NULL,'sd\"dfdf',NULL,NULL,NULL,NULL,NULL,NULL),(68,NULL,NULL,NULL,'sd\"dfdf',NULL,NULL,NULL,NULL,NULL,NULL),(69,NULL,NULL,NULL,'sd\"dfdf',NULL,NULL,NULL,NULL,NULL,NULL),(70,NULL,NULL,NULL,'sd\"dfdf',NULL,NULL,NULL,NULL,NULL,NULL),(71,NULL,NULL,NULL,'sd\"dfdf',NULL,NULL,NULL,NULL,NULL,NULL),(72,NULL,NULL,NULL,'sd\"dfdf',NULL,NULL,NULL,NULL,NULL,NULL),(73,NULL,NULL,NULL,'sd\"dfdf',NULL,NULL,NULL,NULL,NULL,NULL),(74,NULL,NULL,NULL,'sd\"dfdf',NULL,NULL,NULL,NULL,NULL,NULL),(75,NULL,NULL,NULL,'sd\"dfdf',NULL,NULL,NULL,NULL,NULL,NULL),(76,NULL,NULL,NULL,'sd\"dfdf',NULL,NULL,NULL,NULL,NULL,NULL),(77,NULL,NULL,NULL,'sd\"dfdf',NULL,NULL,NULL,NULL,NULL,NULL),(78,NULL,NULL,NULL,'sd\"dfdf',NULL,NULL,NULL,NULL,NULL,NULL),(79,NULL,NULL,NULL,'sd\"dfdf',NULL,NULL,NULL,NULL,NULL,NULL),(80,NULL,NULL,NULL,'sd\"dfdf',NULL,NULL,NULL,NULL,NULL,NULL),(81,NULL,NULL,NULL,'sd\"dfdf',NULL,NULL,NULL,NULL,NULL,NULL),(82,NULL,NULL,NULL,'sd\"dfdf',NULL,NULL,NULL,NULL,NULL,NULL),(83,NULL,NULL,NULL,'sd\"dfdf',NULL,NULL,NULL,NULL,NULL,NULL),(84,NULL,NULL,NULL,'sd\"dfdf',NULL,NULL,NULL,NULL,NULL,NULL),(85,NULL,NULL,NULL,'sd\"dfdf',NULL,NULL,NULL,NULL,NULL,NULL),(86,NULL,NULL,NULL,'sd\"dfdf',NULL,NULL,NULL,NULL,NULL,NULL);
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -733,4 +1133,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2010-11-04 10:34:32
+-- Dump completed on 2010-11-05 21:20:09

@@ -45,4 +45,13 @@
             </table>
         </td>
     </tr>
+    {% if lectors|length > 0 %}
+    <tr>
+        <td colspan="2">
+        <span>Преподаватели</span><br/>
+        {% for lector in lectors %}
+            <a href="/lector/{{ lector.id }}">{{ lector.full_name }}</a><br/>
+        {% endfor %}
+    </tr>
+    {% endif %}
 </table>

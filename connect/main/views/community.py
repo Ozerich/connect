@@ -56,6 +56,12 @@ def community(request, id):
     topics = sorted(c.topic_set.all(), key=lambda x: x.date)
     topics = list(reversed(topics))
     
+    subject = c.subject_set.all();
+    if len(subject) != 0:
+        subject = subject[0]
+        lectors = subject.lector_set.all()
+    else:  
+        lectors = []
     try:
         st = int(request.GET['page'])*2-2
     except:
@@ -64,6 +70,7 @@ def community(request, id):
     content = make_template(
         'community.html',
         c=c,
+        lectors=lectors,
         ismygroup=c in current_user(request).communities.all(),
         pager=make_paginator(len(topics), 2, st, '/community/%s?page='%id),
         topics=topics[st:st+2],

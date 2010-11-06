@@ -13,7 +13,7 @@ function ajax(URL, ajaxHandler)
 	xmlReq.send (null);
     return false;
 }
-
+/*
 function ajaxLoadMessages(id, start) {
     ajax("/messages/view/" + id + "?ajax=" + start,
         function(html) {
@@ -26,3 +26,6 @@ function ajaxLoadMessages(id, start) {
                 document.getElementById("ajaxLoadBtn").style.display = 'none';
         });
 }
+*/
+
+

@@ -13,6 +13,15 @@ function ajax(URL, ajaxHandler)
 	xmlReq.send (null);
     return false;
 }
+
+function ajaxLectorRating(id, v) {
+    ajax('/rating/' + id + '/' + v); 
+    document.getElementById('title-' + id).innerHTML = 'Ваш голос записан';
+    document.getElementById('plus-' + id).innerHTML = '';
+    document.getElementById('minus-' + id).innerHTML = '';
+}
+
+
 /*
 function ajaxLoadMessages(id, start) {
     ajax("/messages/view/" + id + "?ajax=" + start,

@@ -1,57 +1,39 @@
-<table class="community">
-    <tr>
-        <td id="title">
-            <a class="inner" href="/community/{{c.parent.id}}">{{ c.parent.name }}</a> > {{ c.name }}
-        </td>
-        <td class="buttons">
-            {% if ismygroup %}
+<div class="profile">
+    <div class="community-buttons">
+        {% if ismygroup %}
             <a href="/community/leave/{{c.id}}" class="cbutton">Покинуть</a>
-            {% else %}
+        {% else %}
             <a href="/community/join/{{c.id}}" class="cbutton">Вступить</a>
-            {% endif %}
-        </td>
-    </tr>
-    <tr>
-        <td colspan="2" class="sep"></td>
-    </tr>
-    <tr>
-         <td class="users" colspan="2">
-             <span>Участники:</span>
-             <div class="usersbox">
-                {% for user in c.user_set.all %}
-                    {% include "user-item.html" %}
-                {% endfor %}                    
-             </div>
-        </td>
-    </tr>
-    <tr>
-         <td class="users" colspan="2">
-             <span>Обсуждения:</span>
-             <ul>
-             {% for topic in topics %}
-                <li><a href="/topic/{{topic.id}}" class="inner">{{topic.name}}</a></li>
-             {% endfor %}
-             </ul>
-             {{pager}}
-         </td>
-    </tr>
-    <tr>
-        <td class="files" colspan="2">
-            <span>Файлы:</span>
-            <table>
-            {% for file in files %}
-                {% include "file-item.html" %}                       
-            {% endfor %}
-            </table>
-        </td>
-    </tr>
-    {% if lectors|length > 0 %}
-    <tr>
-        <td colspan="2">
-        <span>Преподаватели</span><br/>
-        {% for lector in lectors %}
-            <a href="/lector/{{ lector.id }}">{{ lector.full_name }}</a><br/>
+        {% endif %}
+    </div>
+    
+    <div class="name">
+        <a class="name inner" href="/community/{{c.parent.id}}">{{ c.parent.name }}</a> > {{ c.name }}
+    </div>
+    
+    <div style="width:240px; float:right" class="block">
+        <div style="width:240px" class="block-title">Файлы</div>
+        <table>
+        {% for file in files %}
+           {% include "file-item.html" %}                       
         {% endfor %}
-    </tr>
-    {% endif %}
-</table>
+        </table>
+    </div>
+    
+    <div style="width:400px" class="block-title">Участники</div>
+    <div style="width:400px" class="block">
+        {% for user in c.user_set.all %}
+            {% include "user-item.html" %}
+        {% endfor %}                    
+    </div>
+    
+    <div style="width:400px" class="block-title">Обсуждения</div>
+    <div style="width:400px" class="block">
+        <ul>
+        {% for topic in topics %}
+            <li><a href="/topic/{{topic.id}}" class="inner">{{topic.name}}</a></li>
+        {% endfor %}
+        </ul>
+        {{pager}}
+    </div>
+</div>

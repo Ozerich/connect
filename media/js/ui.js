@@ -63,11 +63,12 @@ function ui_fullscreen(el) {
     e.style.height = sh + 'px';
 }
 
-function ui_show_user_info(n, f) {
+function ui_show_user_info(evnt, n, f) {
     e = document.getElementById('user-info-popup');
-    evt = window.event;
-    e.style.left = (evt.clientX + window.pageXOffset + 10) + 'px';
-    e.style.top = (evt.clientY + window.pageYOffset + 10) + 'px'; 
+	if(!evnt)
+		evnt = window.event;
+    e.style.left = (evnt.clientX + window.pageXOffset + 10) + 'px';
+    e.style.top = (evnt.clientY + window.pageYOffset + 10) + 'px'; 
     e.style.display = 'block';
     document.getElementById('user-info-name').innerHTML = n;
     document.getElementById('user-info-fac').innerHTML = f;

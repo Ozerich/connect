@@ -147,12 +147,13 @@ def parse_timetable(group, subgroup, week):
     return result
 
 def tomorrow_timetable(request):
-    today_date = datetime.date.today()
-    tomorrow_date = today_date + datetime.timedelta(days=1)
-    tomorrow_weekday = tomorrow_date.weekday()
-    if tomorrow_weekday == 6:
-        tomorrow_weekday = 0
-    user = current_user(request)
-    timetable_data = parse_timetable(user.group.name, user.subgroup, current_week())
-    return timetable_data[tomorrow_weekday];
+	today_date = datetime.date.today()
+	tomorrow_date = today_date + datetime.timedelta(days=1)
+	tomorrow_weekday = tomorrow_date.weekday()
+	user = current_user(request)
+	timetable_data = parse_timetable(user.group.name, user.subgroup, current_week())
+	if (tomorrow_weekday - 1) < len(timetable_data):
+		return timetable_data[tomorrow_weekday - 1]
+	else:
+		return []
 

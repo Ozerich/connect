@@ -3,9 +3,9 @@
     <span class="name">{{ user.full_name }}</span>
     <br/>
     <span class="group">
-        <a href="#" class="inner">{{ user.group.faculty.name }}</a> -
-        <a href="#" class="inner">{{ user.group.stream.name }}</a> -
-        <a href="#" class="inner">{{ user.group.name }}</a> -
+        <a href="community/{{ user.group.faculty.community.id }}" class="inner">{{ user.group.faculty.name }}</a> -
+        <a href="community/{{ user.group.stream.community.id }}" class="inner">{{ user.group.stream.name }}</a> -
+        <a href="community/{{ user.group.community.id }}" class="inner">{{ user.group.name }}</a> -
         {{ user.subgroup }}
     </span>
     <br/>
@@ -15,10 +15,10 @@
     <br/>
     <div class="buttons">
         {% if notmyfriend %}
-        <a href="/friends/add/{{user.id}}" class="cbutton">В друзья</a>
+        <a href="/friends?add={{user.id}}" class="cbutton">В друзья</a>
         {% endif %}
         <a href="/messages/view/{{user.id}}" class="cbutton">Написать</a>
-        <a href="timetable.php?group={$group}&subgroup={$subgroup}"><input type="submit" class="cbutton" value="Расписание"/></a>
+        <a href="timetable/{{ group }}/{{ subgroup }}"><input type="submit" class="cbutton" value="Расписание"/></a>
     </div>
 
     <br/>

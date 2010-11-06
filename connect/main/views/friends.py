@@ -6,7 +6,6 @@ from ..models import *
 from ..forms import *
 from ..utils import *
 
-
 def friends(request):
     cu = current_user(request)
     notify = None

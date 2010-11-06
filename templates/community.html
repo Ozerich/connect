@@ -11,7 +11,8 @@
         <a class="name inner" href="/community/{{c.parent.id}}">{{ c.parent.name }}</a> > {{ c.name }}
     </div>
     
-    <div style="width:240px; float:right" class="block">
+	<div style="width:260px; float:right">
+    <div style="width:240px;" class="block">
         <div style="width:240px" class="block-title">Файлы</div>
         <table>
         {% for file in files %}
@@ -19,6 +20,18 @@
         {% endfor %}
         </table>
     </div>
+	{% if lectors|length > 0 %}
+	<div style="width:240px;" class="block">
+        <div style="width:240px" class="block-title">Преподаватели</div>
+        <table>
+        {% for lector in lectors %}
+            <a href="/lector/{{ lector.id }}">{{ lector.full_name }}</a><br/>
+        {% endfor %}
+        </table>
+    </div>
+	    {% endif %}
+	</div>
+
     
     <div style="width:400px" class="block-title">Участники</div>
     <div style="width:400px" class="block">
@@ -36,4 +49,5 @@
         </ul>
         {{pager}}
     </div>
+	
 </div>

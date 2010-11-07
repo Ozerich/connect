@@ -24,8 +24,9 @@ urlpatterns = patterns('main.views',
     (r'^file/download/(?P<id>\d+)$', 'file_download'),
     (r'^file/delete/(?P<id>\d+)$', 'file_delete'),
     (r'^lector/(?P<id>\d+)$', 'lector'),
+    (r'^lector/(?P<id>\d+)/comment$', 'lector_comment'),
     (r'^rating/(?P<id>\d+)/(?P<mode>\d)', 'ajax_rating'),
-	(r'^timetable/(?P<group>\d*)/*(?P<subgroup>\d*)/*(?P<week>\d*)/*$', 'timetable'),
+    (r'^timetable/(?P<group>\d*)/*(?P<subgroup>\d*)/*(?P<week>\d*)/*$', 'timetable'),
     (r'^admin/', include(admin.site.urls)),
 )
 

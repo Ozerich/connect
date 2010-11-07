@@ -36,7 +36,7 @@
 {% endfor %}
 
 <div class="reply-form">
-    <form action="/lector/comment" method="POST">
+    <form action="/lector/{{ lector.id }}/comment" method="POST">
         <input name="lector" type="hidden" value="{{lector.id}}"/>
         <textarea name="text"></textarea>
         <br/>

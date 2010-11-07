@@ -1,5 +1,5 @@
 <a href="/{{user.id}}" 
-    onmousemove="ui_show_user_info('{{user.full_name}}', '{{user.group.faculty.name}} - {{user.group.stream.name}} - {{user.group.name}}')"
+    onmousemove="ui_show_user_info(event, '{{user.full_name}}', '{{user.group.faculty.name}} - {{user.group.stream.name}} - {{user.group.name}}')"
     onmouseout="ui_hide_user_info()">
     <div class="avatar-25" style="display: inline-block; margin: 5px;">
         <img src="/static/storage/avatars/25.{{user.avatar}}"/>

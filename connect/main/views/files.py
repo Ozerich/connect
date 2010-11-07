@@ -42,7 +42,7 @@ def files(req):
     cu = current_user(req)
 
     ff = File.objects.filter(author=cu)
-        
+
     content = make_template(
         'files.html',
         files=ff,

@@ -5,15 +5,10 @@ function ui_init()
 {
     var body = document.getElementsByClassName("dialog-blackout")[0];
     body.onclick = function(e){
-        if(showed == 1)
-            showed = 2;
-        else if(showed == 2)
-        {
-            var x = e.clientX, y = e.clientY;
-            if(x < openedDialog.offsetLeft || y < openedDialog.offsetTop || x > openedDialog.offsetLeft + openedDialog.clientWidth 
-            || y > openedDialog.offsetTop + openedDialog.clientHeight)
-                ui_hide_dialog(openedDialog.id);
-        }
+        var x = e.clientX, y = e.clientY;
+        if(x < openedDialog.offsetLeft || y < openedDialog.offsetTop || x > openedDialog.offsetLeft + openedDialog.clientWidth 
+        || y > openedDialog.offsetTop + openedDialog.clientHeight)
+            ui_hide_dialog(openedDialog.id);
     }
 }
 

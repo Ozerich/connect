@@ -5,6 +5,7 @@ from django.template import Context, loader
 from ..models import *
 from ..forms import *
 from ..utils import *
+from datetime import *
 
 
 def community_tree(request):
@@ -45,7 +46,27 @@ def community_leave(request, id):
         return HttpResponseRedirect('/community/'+id)
     except Community.DoesNotExist:
         raise Http404
-        
+     
+def community_addtopic(request, id):
+    topic = Topic()
+    topic.community = Community.objects.get(id=id)
+    topic.name = request.POST['header']
+    topic.date = datetime.now()
+    topic.root = Comment();
+    topic.save()
+
+    first_comment = Comment()
+    first_comment.author = current_user(request)
+    first_comment.date = datetime.now()
+    first_comment.text = request.POST['text']
+    first_comment.topic = topic
+    first_comment.save()
+    
+    topic.root = first_comment
+    topic.save()
+    
+    return HttpResponseRedirect("/topic/"+str(topic.id))
+    
         
 def community(request, id):
     try:

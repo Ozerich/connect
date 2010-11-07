@@ -13,13 +13,13 @@ def topic(request, id):
         t = Topic.objects.get(id=id)
     except Topic.DoesNotExist:
         raise Http404
-    
-    content = make_template(
-        'topic.html',
-        topic=t,
-        comments=make_tree(t.root)
-    )
-    
+	
+    if not t.root:
+        c = Comment(text = t.name, author = current_user(request), date = datetime.now(), topic = t)
+        c.save()
+        t.root = c
+        t.save()
+    content = make_template('topic.html', topic=t,comments=make_tree(t.root))
     return main_template(
         request, 
         content=content,

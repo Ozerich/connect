@@ -42,6 +42,7 @@
     
     <div style="width:400px" class="block-title">Обсуждения</div>
     <div style="width:400px" class="block">
+		<a href="#" onclick="ui_show_dialog('dialog-addtopic')">Новое обсуждение</a>
         <ul>
         {% for topic in topics %}
             <li><a href="/topic/{{topic.id}}" class="inner">{{topic.name}}</a></li>
@@ -50,4 +51,41 @@
         {{pager}}
     </div>
 	
+</div>
+
+<div class="dialog-blackout" id="blackout" style="display:none"></div>                  
+<div class="dialog" id="dialog-addtopic" style="display:none">
+    <div class="dialog-content">
+    <form method="POST" action="/community/{{ c.id }}/addtopic"  enctype="multipart/form-data">
+	{% if error_msg %}
+		<div id = "error_div" class="notify-error">
+	{% else %}
+		<div id = "error_div" class="notify-error" style="display:none" >
+	{% endif %}
+			{{ error_msg }}
+		</div>
+    <table class="reg-main">
+ 		<tr>
+   			<td>Заголовок</td>
+      		<td width="250">
+            	<input class="text" id="header" name="header"/>
+        	</td>
+        </tr>
+ 		<tr>
+   			<td colspan="2">Текст</td>
+        </tr>
+ 		<tr>
+   			<td colspan="2">
+				<textarea name="text" rows="20"></textarea>
+			</td>
+        </tr>
+      
+	 	<tr>
+        	<td colspan="2" class="reg-btn">
+            	<input id="submit" class="cbutton" name="submit_add" type="submit" value="Создать"/>
+            </td>
+        </tr>
+  	</table>
+    </form>
+    </div>
 </div>

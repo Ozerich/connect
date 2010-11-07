@@ -95,7 +95,7 @@ class Topic(models.Model):
     community = models.ForeignKey('Community')
     name = models.CharField('Name', max_length=200)
     date = models.DateTimeField('Last reply')
-    root = models.ForeignKey('Comment', related_name='+')
+    root = models.ForeignKey('Comment', related_name='+',null=True)
 
     def __unicode__(self):
         return self.name

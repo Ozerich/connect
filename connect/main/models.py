@@ -117,6 +117,7 @@ class File(models.Model):
     author = models.ForeignKey('User')
     name = models.CharField('Name', max_length=2000)
     date = models.DateTimeField('Uploaded')
+    description = models.CharField('Description', max_length=5000)
 
     def __unicode__(self):
         return self.name

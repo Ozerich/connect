@@ -1,10 +1,10 @@
 <div class="profile-wr">
 
-
+<a href="#" onclick="ui_show_dialog('dialog-addfile')">Добавить файл</a>
 <table class="files">
     {% for file in files %}
 <tr class="file-item">
-    <td rowspan="2" class="icon">
+    <td rowspan="3" class="icon">
         <a href="/file/download/{{file.id}}">
             <img src="/static/images/files/{{file.name|slice:"-3:"}}.png"/>
         </a>
@@ -18,6 +18,11 @@
         <a class="cbutton" href="/file/delete/{{file.id}}">Удалить</a>
     </td>
 </tr>
+<tr>
+    <td colspan="2">
+        {{ file.description }}
+    </td>
+</tr>
 <tr class="file-item">
     <td class="info">{{file.author.full_name}}</td>
     <td class="info">{{file.date}}</td>
@@ -26,3 +31,38 @@
 
 </div>
 
+<div class="dialog-blackout" id="blackout" style="display:none"></div>                  
+<div class="dialog" id="dialog-addfile" style="display:none">
+    <div class="dialog-content">
+    <form method="POST" action="/files/add"  enctype="multipart/form-data">
+	{% if error_msg %}
+		<div id = "error_div" class="notify-error">
+	{% else %}
+		<div id = "error_div" class="notify-error" style="display:none" >
+	{% endif %}
+			{{ error_msg }}
+		</div>
+    <table class="reg-main">
+ 		<tr>
+   			<td>Файл</td>
+      		<td width="250">
+            	<input class="text" type="file" id="file" name="file"/>
+        	</td>
+ 		<tr>
+   			<td colspan="2">Описание</td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <textarea name="description"></textarea>
+            </td>
+        </tr>
+      
+	 	<tr>
+        	<td colspan="2" class="reg-btn">
+            	<input id="submit" class="cbutton" name="submit_add" type="submit" value="Добавить"/>
+            </td>
+        </tr>
+  	</table>
+    </form>
+    </div>
+</div>

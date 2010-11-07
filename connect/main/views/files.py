@@ -7,6 +7,7 @@ from ..forms import *
 from ..utils import *
 import settings
 import os
+from datetime import *
 
 
 def file_download(req, id):
@@ -23,6 +24,19 @@ def file_delete(req, id):
         os.unlink(os.path.join(settings.STORAGE_PATH, 'files', id))
     return HttpResponseRedirect('/files')
     
+def file_add(request):
+    upload_file = request.FILES['file']
+    
+    file = File()
+    file.name = upload_file.name
+    file.date = datetime.now()
+    file.author = current_user(request)
+    file.description = request.POST['description']
+    file.save()
+    
+    download_file(upload_file, "files", str(file.id))
+    
+    return HttpResponseRedirect('/files')
     
 def files(req):
     cu = current_user(req)

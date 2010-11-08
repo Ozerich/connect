@@ -25,11 +25,6 @@ div {
     overflow: hidden;
 }
 
-textarea {
-    width: 300px;
-    height: 100px;
-}
-
 body * {
     line-height: normal;
 }
@@ -281,7 +276,7 @@ input.text:focus, textarea:focus {
 }
 
 textarea {
-    width: 300px;
+    width: 250px;
     height: 100px;
 }
 
@@ -314,7 +309,7 @@ a.inner:hover {
 
 .cpaginator {
     line-height: 21px;
-    padding: 4px 10px 10px 10px;
+    padding: 8px 10px 10px 0px;
 }
 
 /* Popups */

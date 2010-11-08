@@ -1,19 +1,49 @@
-<h1>{{ lector.full_name }}</h1>
-<img src="/static/storage/avatars/100.{{ lector.photo }}"/>
+<div class="profile">
+<span class="name">{{ lector.full_name }}</span>
+
+
+<div class="block" style="width:350px;float: right">
+<div class="block-title" style="width:350px">Рейтинги</div>
+{% for rating_item in lector.rating.all %}
+    <table class="rating">
+        <tr><td colspan="4" class="name" id="title-{{rating_item.id}}">{{ rating_item.cls.name }}</td></tr>
+        <tr>
+            <td colspan="2" class="choicel">{{ rating_item.cls.plus }}</td>
+            <td colspan="2" class="choicer">{{ rating_item.cls.minus }}</td>
+        </tr>
+        <tr>
+            <td class="plusbtn" id="plus-{{rating_item.id}}"><a href="#" onclick="ajaxLectorRating('{{ rating_item.id }}', '1')"><img src="/static/images/icons/rating-plus.png"/></a></td>
+            <td class="plus">+ {{ rating_item.plus }}</td>
+            <td class="minus">- {{ rating_item.minus }}</td>
+            <td class="minusbtn" id="minus-{{rating_item.id}}"><a href="#" onclick="ajaxLectorRating('{{ rating_item.id }}', '0')"><img src="/static/images/icons/rating-minus.png"/></a></td>
+        </tr>
+    </table>
+{% endfor %}
+</div>
+
+<img class="photo" src="/static/storage/avatars/100.{{ lector.photo }}"/>
+
 <h1>Преподаваемые дисциплины :</h1>
+
 {% for subject in lector.subjects.all %}
     <a href="/community/{{ subject.community.id }}">{{ subject.short_name }}</a><br/>
 {% endfor %}
-<h1>Рейтинг</h1>
-{% for rating_item in lector.rating.all %}
-    {{ rating_item.cls.name }} - {{ rating_item.plus }} / {{ rating_item.minus }}
-    <br/>
-    <a href="#" onclick="ajax('/rating/{{ rating_item.id }}/1');" class="plus-rating">+<a>&nbsp
-    <a href="#" onclick="ajax('/rating/{{ rating_item.id }}/0');" class="minus-rating">-</a>
-{% endfor %}
-<h1>Отзывы</h1>
-<div class="topic">
+
+<div class="block-title" style="width:300px">Отзывы</div>
+<div class="topic block" style="width:300px">
 {% for comment in lector.lectorcomment_set.all|dictsortreversed:"date" %}
     {% include "lector-comment.html" %}    
 {% endfor %}
+
+<div class="reply-form">
+    <form action="/lector/comment" method="POST">
+        <input name="lector" type="hidden" value="{{lector.id}}"/>
+        <textarea name="text"></textarea>
+        <br/>
+        <input type="submit" class="cbutton" value="Отправить"/>
+    </form>
+</div>
+
+</div>
+
 </div>

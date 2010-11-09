@@ -38,10 +38,14 @@ def index(request):
             'tomorrow-timetable.html', 
             tommorow_timetable = tomorrow_data
         )
+        
+        events = my_events(request)
+        
         return HttpResponse(make_template(
             request,
             'dashboard.html',
             current=1,
+            events=events,
 			week_number = tomorrow_week(),
             tomorrow_timetable = tomorrow_content,
             title='Домашняя'

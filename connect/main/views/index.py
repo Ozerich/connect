@@ -10,9 +10,10 @@ import datetime
 
 
 def index(request):
+    init(request)
     if logged_in(request):
         if request.POST:
-            u = current_user(request)
+            u = req.user
             u.email = request.POST['email']
             u.birthday = datetime.date(
                 int(request.POST['birth_year']),
@@ -32,14 +33,19 @@ def index(request):
 
         tomorrow_data = tomorrow_timetable(request)
 
-        tomorrow_content = make_template('tomorrow-timetable.html', tommorow_timetable = tomorrow_data,)
-        content = make_template(
+        tomorrow_content = make_template(
+            request,
+            'tomorrow-timetable.html', 
+            tommorow_timetable = tomorrow_data
+        )
+        return HttpResponse(make_template(
+            request,
             'dashboard.html',
-            me=current_user(request),
+            current=1,
 			week_number = tomorrow_week(),
             tomorrow_timetable = tomorrow_content,
-        )
-        return main_template(request, content, title='Домашняя')
+            title='Домашняя'
+        ))
     else:
         return HttpResponseRedirect('/login')
         

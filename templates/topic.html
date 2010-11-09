@@ -1,3 +1,5 @@
+{% extends "main.html" %}
+{% block content %}
 <div class="page-wrapper topic">
     <span class="title">{{topic.name}}</span>
     <br/>
@@ -10,7 +12,9 @@
             <input id="reply-to" name="to" type="hidden"/>
             <textarea name="text"></textarea>
             <br/>
+            <div id="attach-preview"></div>
             <input type="submit" class="cbutton" value="Отправить"/>
+            <a class="cbutton" href="#" onclick="ui_show_dialog('dialog-files')">Вложить</a>
         </form>
     </div>
 </div>
@@ -21,3 +25,5 @@
 </script>
 </div>
 
+{% include "files-window.html" %}
+{% endblock %}

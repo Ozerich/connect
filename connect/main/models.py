@@ -51,7 +51,6 @@ class User(models.Model):
     name = models.CharField('First name', max_length=200)
     surname = models.CharField('Surname', max_length=200)
     birthday = models.DateField('Birthday')
-    stream = models.ForeignKey(Stream)
     group = models.ForeignKey(Group)
     subgroup = models.IntegerField('Subgroup')
     language = models.ForeignKey(Language)

@@ -1,0 +1,46 @@
+<div class="dialog" id="dialog-files" style="display:none">
+    <div class="dialog-content">
+    <table>
+    {% for file in me.file_set.all %}
+<tr class="file-item">
+    <td rowspan="2" class="icon">
+        <a href="#" onclick="attach_file('{{file.id}}')">
+            <img src="/static/images/files/{{file.name|slice:"-3:"}}.png"/>
+        </a>
+    </td>
+    <td colspan="2" class="name">
+        <a href="#" onclick="attach_file('{{file.id}}')">
+            {{file.name}}
+        </a>
+    </td>
+</tr>
+<tr class="file-item">
+    <td class="info">
+    
+    <div style="display:none" id="file-template-{{file.id}}">
+    <input type="hidden" name="attachment[]" value="{{file.id}}"/>
+    <table>
+    <tr class="file-item">
+    <td rowspan="2" class="icon">
+        <a href="#" onclick="detach_file('{{file.id}}')">
+            <img src="/static/images/files/{{file.name|slice:"-3:"}}.png"/>
+        </a>
+    </td>
+    <td colspan="2" class="name">
+        <a href="#" onclick="detach_file('{{file.id}}')">
+            {{file.name}}
+        </a>
+    </td>
+    </tr>
+    </table>
+    </div>
+    
+    </td>
+    <td class="info">{{file.date}}</td>
+</tr>
+
+
+    {% endfor %}
+    </table>
+    </div>
+</div>

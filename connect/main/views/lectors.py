@@ -7,12 +7,11 @@ from ..forms import *
 from ..utils import *
 
 def lectors(request):
-    lectors_data = Lector.objects.all()
-    content = make_template('lectors.html',
-        lectors=lectors_data,)
-    return main_template(
+    init(request)
+    return HttpResponse(make_template(
         request, 
-        content, 
+        'lectors.html', 
+        lectors=Lector.objects.all(),
         title='Преподаватели',
         current=3
-    )
+    ))

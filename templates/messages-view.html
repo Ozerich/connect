@@ -1,10 +1,12 @@
-{% if not ajax %}
+{% extends "main.html" %}
+{% block content %}
+
 <div class="page-wrapper">
+<form method="POST" action="/messages/send/{{u.id}}">
 
 <table class="messages-writebox">
         <tbody id="messages">
         <tr>
-        <form method="POST" action="/messages/send/{{u.id}}">
             <td class="avatar">
                 {% with me as user %}
                     {% include "user-item.html" %}
@@ -12,13 +14,14 @@
             </td>
             <td>
                 <textarea name="text" class="message"></textarea>
+                <br/>
+                <div id="attach-preview"></div>
             </td>
             <td>
                 <input type="submit" value="Отправить" class="cbutton"/>
+                <a href="#" class="cbutton" onclick="ui_show_dialog('dialog-files')">Вложить</a>
             </td>
-        </form>
         </tr>
-{% endif %}
         {% for msg in messages %}
         <tr>
             <td class="avatar">
@@ -26,16 +29,25 @@
                     {% include "user-item.html" %}
                 {% endwith %}
             </td>
-            <td><div class="message">{{ msg.text }}</div></td>
+            <td>
+                <div class="message">{{ msg.text }}
+                <table>
+                    {% for file in msg.attachments.all %}
+                        {% include "file-item.html" %}
+                    {% endfor %}
+                </table>
+                </div>
+            </td>
             <td>
                 <a href="/messages/delete/{{msg.id}}" class="cbutton">Удалить</a>
             </td>
         </tr>
         {% endfor %}
-{% if not ajax %}
     </tbody>
 </table>
+</form>
 {{pager}}
 </div>
-{% endif %}
 
+{% include "files-window.html" %}
+{% endblock %}

@@ -7,7 +7,8 @@ from ..forms import *
 from ..utils import *
 
 def friends(request):
-    cu = current_user(request)
+    init(request)
+    cu = request.user
     notify = None
     friends = []
     requests = []
@@ -61,15 +62,13 @@ def friends(request):
             (-1 if f.is_my_request else 0)
     )
     
-    content = make_template(
+    return HttpResponse(make_template(
+        request, 
         'friends.html',
         friends=friends,
-        requests=requests
-    )
-    return main_template(
-        request, 
-        content, 
+        requests=requests,
         notification=notify, 
         title='Друзья',
         current=3
-    )
+    ))
+    

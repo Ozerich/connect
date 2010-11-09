@@ -1,8 +1,12 @@
-<div class="profile-wr">
+{% extends "main.html" %}
+{% block content %}
+<div class="profile">
 
-<a href="#" onclick="ui_show_dialog('dialog-addfile')">Добавить файл</a>
+<a href="#" class="cbutton" onclick="ui_show_dialog('dialog-addfile')">Добавить файл</a>
+<br/>
 <table class="files">
-    {% for file in files %}
+
+{% for file in files %}
 <tr class="file-item">
     <td rowspan="3" class="icon">
         <a href="/file/download/{{file.id}}">
@@ -24,9 +28,10 @@
     </td>
 </tr>
 <tr class="file-item">
-    <td class="info">{{file.author.full_name}}</td>
+    <td class="info"></td>
     <td class="info">{{file.date}}</td>
-</tr>    {% endfor %}
+</tr>    
+{% endfor %}
 </table>
 
 </div>
@@ -35,27 +40,12 @@
 <div class="dialog" id="dialog-addfile" style="display:none">
     <div class="dialog-content">
     <form method="POST" action="/files/add"  enctype="multipart/form-data">
-    <table class="reg-main">
- 		<tr>
-   			<td>Файл</td>
-      		<td width="250">
-            	<input class="text" type="file" id="file" name="file"/>
-        	</td>
- 		<tr>
-   			<td colspan="2">Описание</td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <textarea name="description"></textarea>
-            </td>
-        </tr>
-      
-	 	<tr>
-        	<td colspan="2" class="reg-btn">
-            	<input id="submit" class="cbutton" name="submit_add" type="submit" value="Добавить"/>
-            </td>
-        </tr>
-  	</table>
+        Файл:<br/>
+       	<input class="text" type="file" name="file"/><br/>
+   	    Описание:<br/>
+        <textarea name="description"></textarea><br/>
+      	<input id="submit" class="cbutton" name="submit_add" type="submit" value="Добавить"/>
     </form>
     </div>
 </div>
+{% endblock %}

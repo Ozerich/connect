@@ -8,6 +8,7 @@ from ..utils import *
 
 
 def profile(request, userid):
+    init(request)
     try:
         user = User.objects.get(id=userid)
     except User.DoesNotExist:
@@ -21,17 +22,13 @@ def profile(request, userid):
             
     friends = [f.dst for f in Friendship.objects.filter(src=user)]
     
-    content = make_template(
+    return HttpResponse(make_template(
+        request,
         'profile.html',
         user=user,
         friends=friends,
-        notmyfriend=nmf
-    )
-    
-    return main_template(
-        request, 
-        content, 
+        notmyfriend=nmf,
         title=user.full_name,
         current=3
-    )
+    ))
 

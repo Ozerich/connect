@@ -9,19 +9,22 @@ from datetime import *
 
 
 def community_tree(request):
+    init(request)
     c = Community.objects.get(id=1)
     
-    return main_template(
-        request, 
-        content=make_tree(c),
+    return HttpResponse(make_template(
+        request,
+        'main.html',
+        content=make_tree(request, c),
         title='Группы',
         current=4
-    )
+    ))
 
-def make_tree(c):
-    ch = ''.join(make_tree(cm) for cm in
+def make_tree(req, c):
+    ch = ''.join(make_tree(req, cm) for cm in
         sorted(c.community_set.all(), key=lambda x:x.name))
     return make_template(
+        req,
         'community-tree.html',
         community=c,
         children=ch
@@ -29,6 +32,7 @@ def make_tree(c):
 
 
 def community_join(request, id):
+    init(request)
     cu = current_user(request)
     try:
         cu.communities.add(Community.objects.get(id=id))
@@ -39,6 +43,7 @@ def community_join(request, id):
 
         
 def community_leave(request, id):
+    init(request)
     cu = current_user(request)
     try:
         cu.communities.remove(Community.objects.get(id=id))
@@ -48,18 +53,22 @@ def community_leave(request, id):
         raise Http404
      
 def community_addtopic(request, id):
-    topic = Topic()
-    topic.community = Community.objects.get(id=id)
-    topic.name = request.POST['header']
-    topic.date = datetime.now()
-    topic.root = Comment();
+    init(request)
+    
+    topic = Topic(
+        community = Community.objects.get(id=id),
+        name = request.POST['header'],
+        date = datetime.now(),
+        root = Comment()
+    )
     topic.save()
 
-    first_comment = Comment()
-    first_comment.author = current_user(request)
-    first_comment.date = datetime.now()
-    first_comment.text = request.POST['text']
-    first_comment.topic = topic
+    first_comment = Comment(
+        author = request.user,
+        date = datetime.now(),
+        text = request.POST['text'],
+        topic = topic
+    )
     first_comment.save()
     
     topic.root = first_comment
@@ -67,26 +76,14 @@ def community_addtopic(request, id):
     
     return HttpResponseRedirect("/topic/"+str(topic.id))
     
+
 def community_addfile(request, id):
-    upload_file = request.FILES['file']
-    
-    file = File()
-    file.name = upload_file.name
-    file.description = request.POST['description']
-    file.author = current_user(request)
-    file.date = datetime.now()
-    file.save()
-    
-    community = Community.objects.get(id=id)
-    community.files.add(file)
-    community.save()
-    
-    download_file(upload_file, "files", str(file.id))
-    
+    init(request)
     return HttpResponseRedirect("/community/"+id)
     
         
 def community(request, id):
+    init(request)
     try:
         c = Community.objects.get(id=id)
     except Community.DoesNotExist:
@@ -106,20 +103,17 @@ def community(request, id):
     except:
         st = 0
     
-    content = make_template(
+    return HttpResponse(make_template(
+        request,
         'community.html',
         c=c,
         lectors=lectors,
-        my_files = current_user(request).file_set.all(),
-        ismygroup=c in current_user(request).communities.all(),
-        pager=make_paginator(len(topics), 2, st, '/community/%s?page='%id),
+        my_files = request.user.file_set.all(),
+        ismygroup=c in request.user.communities.all(),
+        pager=make_paginator(request, len(topics), 2, st, '/community/%s?page='%id),
         topics=topics[st:st+2],
-        files=c.files.all()[:5]
-    )
-    
-    return main_template(
-        request, 
-        content=content,
+        files=c.files.all()[:5],
         title=c.name,
         current=4
-    )
+    ))
+    

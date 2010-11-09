@@ -1,3 +1,5 @@
+{% extends "main.html" %}
+{% block content %}
 <div class="profile">
     <img class="photo" src="/static/storage/avatars/100.{{ user.avatar }}" class="photo"/>
     <span class="name">{{ user.full_name }}</span>
@@ -26,9 +28,11 @@
     
     <div style="width:650px" class="block-title">Друзья:</div>
     <div style="width:650px" class="block">
+        <div class="friendsbox">
         {% for user in friends %}
             {% include "user-item.html" %}
-        {% endfor %}                    
+        {% endfor %}            
+        </div>        
     </div>
 </div>
-
+{% endblock %}

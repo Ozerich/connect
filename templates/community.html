@@ -1,3 +1,5 @@
+{% extends "main.html" %}
+{% block content %}
 <div class="profile">
     <div class="community-buttons">
         {% if ismygroup %}
@@ -12,33 +14,36 @@
     </div>
     
 	<div style="width:260px; float:right">
-    <div style="width:240px;" class="block">
-        <div style="width:240px" class="block-title">Файлы</div>
-        <table>
-        {% for file in files %}
-           {% include "file-item.html" %}                       
-        {% endfor %}
-        </table>
-        <a href="#" class="cbutton" onclick="ui_show_dialog('dialog-addfile')">Добавить файл</a>
-    </div>
-	{% if lectors|length > 0 %}
-	<div style="width:240px;" class="block">
-        <div style="width:240px" class="block-title">Преподаватели</div>
-        <table>
-        {% for lector in lectors %}
-            <a href="/lector/{{ lector.id }}">{{ lector.full_name }}</a><br/>
-        {% endfor %}
-        </table>
-    </div>
+        <div style="width:240px;" class="block">
+            <div style="width:240px" class="block-title">Файлы</div>
+            <table>
+            {% for file in files %}
+               {% include "file-item.html" %}                       
+            {% endfor %}
+            </table>
+            <a href="#" class="cbutton" onclick="ui_show_dialog('dialog-addfile')">Добавить файл</a>
+        </div>
+    
+	    {% if lectors|length > 0 %}
+	    <div style="width:240px;" class="block">
+            <div style="width:240px" class="block-title">Преподаватели</div>
+            <table>
+            {% for lector in lectors %}
+                <a class="inner" href="/lector/{{ lector.id }}">{{ lector.full_name }}</a><br/>
+            {% endfor %}
+            </table>
+        </div>
 	    {% endif %}
 	</div>
 
     
     <div style="width:400px" class="block-title">Участники</div>
     <div style="width:400px" class="block">
+        <div class="usersbox">
         {% for user in c.user_set.all %}
             {% include "user-item.html" %}
-        {% endfor %}                    
+        {% endfor %}         
+        </div>           
     </div>
     
     <div style="width:400px" class="block-title">Обсуждения</div>
@@ -53,7 +58,6 @@
 	
 </div>
 
-<div class="dialog-blackout" id="blackout" style="display:none"></div>                  
 <div class="dialog" id="dialog-addtopic" style="display:none">
     <div class="dialog-content">
     <form method="POST" action="/community/{{ c.id }}/addtopic"  enctype="multipart/form-data">
@@ -99,3 +103,4 @@
     </form>
     </div>
 </div>
+{% endblock %}

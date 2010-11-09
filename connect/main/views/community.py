@@ -67,6 +67,24 @@ def community_addtopic(request, id):
     
     return HttpResponseRedirect("/topic/"+str(topic.id))
     
+def community_addfile(request, id):
+    upload_file = request.FILES['file']
+    
+    file = File()
+    file.name = upload_file.name
+    file.description = request.POST['description']
+    file.author = current_user(request)
+    file.date = datetime.now()
+    file.save()
+    
+    community = Community.objects.get(id=id)
+    community.files.add(file)
+    community.save()
+    
+    download_file(upload_file, "files", str(file.id))
+    
+    return HttpResponseRedirect("/community/"+id)
+    
         
 def community(request, id):
     try:
@@ -92,6 +110,7 @@ def community(request, id):
         'community.html',
         c=c,
         lectors=lectors,
+        my_files = current_user(request).file_set.all(),
         ismygroup=c in current_user(request).communities.all(),
         pager=make_paginator(len(topics), 2, st, '/community/%s?page='%id),
         topics=topics[st:st+2],

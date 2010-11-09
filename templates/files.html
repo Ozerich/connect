@@ -35,13 +35,6 @@
 <div class="dialog" id="dialog-addfile" style="display:none">
     <div class="dialog-content">
     <form method="POST" action="/files/add"  enctype="multipart/form-data">
-	{% if error_msg %}
-		<div id = "error_div" class="notify-error">
-	{% else %}
-		<div id = "error_div" class="notify-error" style="display:none" >
-	{% endif %}
-			{{ error_msg }}
-		</div>
     <table class="reg-main">
  		<tr>
    			<td>Файл</td>

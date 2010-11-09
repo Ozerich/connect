@@ -2,18 +2,24 @@
 <a href="/friends"><span class="cswitch">Друзья</span>&nbsp;</a>
 <a href="/lectors"><span class="cswitch cswitch-active">Преподаватели</span></a>
 <table class="lectors">
-
-    {% for lector in lectors %}
-    <tr>
+    {% for lector in lectors.all %}
+     <tr>
+        <td rowspan="2">
+            <a href="/lector/{{ lector.id }}">
+                <div class="avatar-50" style="display: inline-block; margin: 5px;">
+                    <img src="/static/storage/lectors/{{ lector.photo }}"/>
+                </div>
+            </a>
+        </td>
         <td class="name">
             <a href="/lector/{{ lector.id }}">{{ lector.full_name }}</a>
         </td>
     </tr>
     <tr>
-        <td class="subjects" colspan="2">
-			{% for subject in lector.subjects.all %}
-				<a href="/community/{{ subject.community.id }}">{{ subject.short_name }}</a>&nbsp;
-			{% endfor %}
+        <td class="group" colspan="2">
+            {% for subject in lector.subjects.all %}
+                <a href="/community/{{ subject.community.id }}" class="inner">{{ subject.short_name }}</a>&nbsp;&nbsp;
+            {% endfor %}
         </td>
     </tr>
     {% endfor %}

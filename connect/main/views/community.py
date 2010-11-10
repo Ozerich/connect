@@ -99,7 +99,7 @@ def community(request, id):
     else:  
         lectors = []
     try:
-        st = int(request.GET['page'])*2-2
+        st = int(request.GET['page'])*5-5
     except:
         st = 0
     
@@ -110,8 +110,8 @@ def community(request, id):
         lectors=lectors,
         my_files = request.user.file_set.all(),
         ismygroup=c in request.user.communities.all(),
-        pager=make_paginator(request, len(topics), 2, st, '/community/%s?page='%id),
-        topics=topics[st:st+2],
+        pager=make_paginator(request, len(topics), 5, st, '/community/%s?page='%id),
+        topics=topics[st:st+5],
         files=c.files.all()[:5],
         title=c.name,
         current=4

@@ -15,7 +15,7 @@ def profile(request, userid):
         raise Http404
         
     try:
-        Friendship.objects.get(src=current_user(request), dst=user)
+        Friendship.objects.get(src=request.user, dst=user)
         nmf = False
     except Friendship.DoesNotExist:
         nmf = True

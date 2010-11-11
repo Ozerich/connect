@@ -134,6 +134,11 @@ def parse_timetable(group, subgroup, week):
             result_lecture = Lecture()
             result_lecture.subject_name = lecture.get("subject")
             result_lecture.lector = lecture.get("lector")
+            try:
+                l = Lector.objects.get(full_name=lecture.get("lector"))
+                result_lecture.lector_id = l.id
+            except Lector.DoesNotExist:
+                pass
             result_lecture.start = lecture.get("start")
             result_lecture.end = lecture.get("end")
             result_lecture.room = lecture.get("room")

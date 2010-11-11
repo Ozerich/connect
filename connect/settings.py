@@ -15,7 +15,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'bsuir',
         'USER': 'root',
-        'PASSWORD': 'admin',
+        'PASSWORD': '123',
         'HOST': '',
         'PORT': '',
     }

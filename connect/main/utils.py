@@ -184,7 +184,7 @@ def my_events(request, community = None):
         communities = [community]
     events = []
     for community in communities:
-        events.extend(Event.objects.filter(community=community).order_by("event_date"))
+        events.extend(Event.objects.filter(community=community).order_by("date"))
     
     result = []
     current_date = 0

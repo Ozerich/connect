@@ -76,7 +76,23 @@ def community_addtopic(request, id):
     topic.save()
     
     return HttpResponseRedirect("/topic/"+str(topic.id))
+
+def community_addevent(request, id):
+    init(request)
+    event = Event()
+    event.community = Community.objects.get(id=id)
+    event.name = request.POST['event_name']
+    event.date_added = datetime.now()
+    event.user_added = request.user
     
+    date = request.POST['date'].split('/');
+    event.date = datetime(int(date[2]), int(date[0]), int(date[1]))
+    event.save()
+
+    return HttpResponseRedirect("/community/"+str(id))
+
+    
+   
 def community_addfile(request, id):
     upload_file = request.FILES['file']
     

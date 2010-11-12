@@ -181,7 +181,7 @@ class Event(models.Model):
     description = models.CharField('Description', max_length=10000)
     date_added = models.DateField('Date ddded')
     user_added = models.ForeignKey('User')
-    event_date = models.DateField('Event date')
+    date = models.DateField('Event date')
     
     def __unicode__(self):
         return unicode(self.community) + ": " + self.name

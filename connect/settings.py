@@ -1,11 +1,4 @@
-# Config
-
-HIDDEN_COMMUNITY_NODES = [6]
-
-
-# Django variables
-
-STORAGE_PATH = '/home/ozerich/Work/connect/media/storage'
+STORAGE_PATH = '/home/eugeny/Work/connect/media/storage'
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -22,7 +15,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'bsuir',
         'USER': 'root',
-        'PASSWORD': '123',
+        'PASSWORD': 'admin',
         'HOST': '',
         'PORT': '',
     }
@@ -52,11 +45,10 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'connect.urls'
 
 TEMPLATE_DIRS = (
-    '/home/ozerich/work/connect/templates'
+    '/home/eugeny/Work/connect/templates'
 )
 
 INSTALLED_APPS = (
-    'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.admin',

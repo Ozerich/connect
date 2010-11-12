@@ -1,5 +1,20 @@
 {% extends "main.html" %}
 {% block content %}
+
+        <script>
+            $(function() {
+                //$( "#datepicker" ).datepicker({ dayNamesMin: ['Di', 'Lu', 'Ma', 'Me', 'Je', 'Ve', 'Sa']});
+                $( "#datepicker" ).datepicker({ monthNames: ['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'] });
+
+                var nextText = $( "#datepicker" ).datepicker( "option", "nextText" );
+                $( "#datepicker" ).datepicker( "option", "nextText", '>>' );
+                var prevText = $( "#datepicker" ).datepicker( "option", "prevText" );
+                $( "#datepicker" ).datepicker( "option", "prevText", '<<' );
+                var dayNamesMin = $( "#datepicker" ).datepicker( "option", "dayNamesMin" );
+                $( "#datepicker" ).datepicker( "option", "dayNamesMin", ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вск'] );  
+                $( "#datepicker" ).datepicker();
+            });
+        </script>
 <div class="profile">
     <div class="community-buttons">
         {% if ismygroup %}
@@ -38,9 +53,9 @@
 	    {% if events|length > 0 %}
 	    <div style="width:240px;" class="block">
             <div style="width:240px" class="block-title">События</div>
-            {% for event in events|dictsort:'event_date' %}
-                {% ifchanged event.event_date %}
-                    {{event.event_date}}<br/>
+            {% for event in events|dictsort:'date' %}
+                {% ifchanged event.date %}
+                    {{event.date}}<br/>
                 {% endifchanged %}
                 --{{ event.name }}<br/>
             {% endfor %}
@@ -94,20 +109,18 @@
 {% if admin %}
 <div class="dialog" id="dialog-addevent" style="display:none">
     <div class="dialog-content">
-    <form method="POST" action="/community/{{ c.id }}/addtopic"  enctype="multipart/form-data">
+    <form method="POST" action="/community/{{ c.id }}/addevent"  enctype="multipart/form-data">
 	{% if error_msg %}
 		<div id = "error_div" class="notify-error">
 	{% else %}
 		<div id = "error_div" class="notify-error" style="display:none" >
 	{% endif %}
-			{{ error_msg }}
-		</div>
-        Тема<br/>
-      	<input class="text" id="header" name="header"/><br/>
-   	    Текст<br/>
-        <textarea name="text" rows="20"></textarea><br/>
-       	<input id="submit" class="cbutton" name="submit_add" type="submit" value="Создать"/>
-    </form>
+        {{ error_msg }}
+	</div>
+        Событие:<br>
+        <textarea name="event_name"></textarea><br>
+        <p>Дата: <input id="datepicker" name="date" type="text"></p>
+        <input type="submit" name="addevent_submit" value="Добавить"/>
     </div>
 </div>
 {% endif %}

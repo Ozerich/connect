@@ -9,7 +9,8 @@ from datetime import *
 
 
 def viewmsg(request, id):
-    cu = current_user(request)
+    init(request)
+    cu = request.user
     notify = None
     senders = []
     
@@ -25,27 +26,24 @@ def viewmsg(request, id):
     except:
         st = 0
     
-    content = make_template(
-        'messages-view.html',
-        u=user,
-        messages=msgs[st:st+10],
-        me=cu,
-        pager=make_paginator(len(msgs), 10, st, '/messages/view/%s?page='%id),
-        ajax=('ajax' in request.GET)
-    )
-
-    if 'ajax' in request.GET:
-        return HttpResponse(content)
-    
     for m in msgs:
         if m.unread == 1:
             m.unread = 0
             m.save()
                     
-    return main_template(
+    return HttpResponse(make_template(
         request, 
-        content, 
+        'messages-view.html',
         title='Сообщения',
-        current=2
-    )
+        current=2,
+        u=user,
+        messages=msgs[st:st+10],
+        pager=make_paginator(
+            request,
+            len(msgs), 
+            10, 
+            st, 
+            '/messages/view/%s?page='%id
+        ),
+    ))
 

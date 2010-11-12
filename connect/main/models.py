@@ -51,7 +51,6 @@ class User(models.Model):
     name = models.CharField('First name', max_length=200)
     surname = models.CharField('Surname', max_length=200)
     birthday = models.DateField('Birthday')
-
     group = models.ForeignKey(Group)
     subgroup = models.IntegerField('Subgroup')
     language = models.ForeignKey(Language)
@@ -95,7 +94,7 @@ class Topic(models.Model):
     community = models.ForeignKey('Community')
     name = models.CharField('Name', max_length=200)
     date = models.DateTimeField('Last reply')
-    root = models.ForeignKey('Comment', related_name='+')
+    root = models.ForeignKey('Comment', related_name='+',null=True)
 
     def __unicode__(self):
         return self.name
@@ -117,6 +116,7 @@ class File(models.Model):
     author = models.ForeignKey('User')
     name = models.CharField('Name', max_length=2000)
     date = models.DateTimeField('Uploaded')
+    description = models.CharField('Description', max_length=5000)
 
     def __unicode__(self):
         return self.name
@@ -168,3 +168,22 @@ class LectorComment(models.Model):
     def __unicode__(self):
         return self.text[:50]
 
+class CommunityAdmin(models.Model):
+    user = models.ForeignKey("User")
+    community = models.ForeignKey("Community")
+    
+    def __unicode__(self):
+        return '%s --> %s' % (unicode(self.user), unicode(self.community))
+    
+class Event(models.Model):
+    community = models.ForeignKey('Community')
+    name = models.CharField('Name', max_length=200)
+    description = models.CharField('Description', max_length=10000)
+    date_added = models.DateField('Date ddded')
+    user_added = models.ForeignKey('User')
+    event_date = models.DateField('Event date')
+    
+    def __unicode__(self):
+        return unicode(self.community) + ": " + self.name
+    
+    

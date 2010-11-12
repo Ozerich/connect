@@ -1,3 +1,6 @@
+{% extends "main.html" %}
+{% block content %}
+
 <div class="profile">
 <span class="name">{{ lector.full_name }}</span>
 
@@ -23,11 +26,14 @@
 
 <img class="photo" src="/static/storage/avatars/100.{{ lector.photo }}"/>
 
-<h1>Преподаваемые дисциплины :</h1>
+<h1>Преподаваемые дисциплины</h1>
 
 {% for subject in lector.subjects.all %}
-    <a href="/community/{{ subject.community.id }}">{{ subject.short_name }}</a><br/>
+    <a class="inner" href="/community/{{ subject.community.id }}">{{ subject.short_name }}</a><br/>
 {% endfor %}
+
+<br/>
+<br/>
 
 <div class="block-title" style="width:300px">Отзывы</div>
 <div class="topic block" style="width:300px">
@@ -36,7 +42,7 @@
 {% endfor %}
 
 <div class="reply-form">
-    <form action="/lector/comment" method="POST">
+    <form action="/lector/{{ lector.id }}/comment" method="POST">
         <input name="lector" type="hidden" value="{{lector.id}}"/>
         <textarea name="text"></textarea>
         <br/>
@@ -47,3 +53,4 @@
 </div>
 
 </div>
+{% endblock %}

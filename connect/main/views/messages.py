@@ -9,29 +9,39 @@ from datetime import *
 
 
 def sendmsg(request, id):
-    cu = current_user(request)
+    init(request)
+    cu = request.user
     user = User.objects.get(id=id)
-    Message(
+    m1 = Message(
         src=cu,
         dst=user,
         owner=cu,
         date=datetime.now(),
         text=request.POST['text'],
         unread=0
-    ).save()
-    Message(
+    )
+    m2 = Message(
         src=cu,
         dst=user,
         owner=user,
         date=datetime.now(),
         text=request.POST['text'],
         unread=1
-    ).save()
+    )
+    m1.save()
+    m2.save()
+    if 'attachment[]' in request.POST:
+        for k in request.POST.getlist('attachment[]'):
+            m1.attachments.add(File.objects.get(id=k))  
+            m2.attachments.add(File.objects.get(id=k))
+    m1.save()
+    m2.save()
     return HttpResponseRedirect('/messages/view/%i'%user.id)
 
 
 def deletemsg(request, id):
-    cu = current_user(request)
+    init(request)
+    cu = request.user
     try:
         m = Message.objects.get(owner=cu, id=id)
         user = m.src if m.src != cu else m.dst
@@ -43,7 +53,8 @@ def deletemsg(request, id):
 
 
 def messages(request):
-    cu = current_user(request)
+    init(request)
+    cu = request.user
     notify = None
     senders = []
 
@@ -71,15 +82,12 @@ def messages(request):
     senders = sorted(senders, key=lambda f: f.msg_date)
     senders = reversed(senders)
     
-    content = make_template(
+    return HttpResponse(make_template(
+        request, 
         'messages.html',
         senders=senders,
-    )
-    return main_template(
-        request, 
-        content, 
-        notification=notify, 
         title='Сообщения',
-        current=2
-    )
-    
+        current=2,
+        notification=notify, 
+    ))
+

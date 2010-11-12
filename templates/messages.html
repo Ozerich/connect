@@ -1,3 +1,5 @@
+{% extends "main.html" %}
+{% block content %}
 <table class="messages">
     {% for u in senders %}
     <tr class="message-item" onclick="window.location.href='/messages/view/{{u.id}}'">
@@ -20,3 +22,4 @@
     <tr><td>Нет сообщений</td></tr>
     {% endfor %}
 </table>
+{% endblock %}

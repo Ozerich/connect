@@ -1,6 +1,9 @@
-<div class="profile-wr">
+{% extends "main.html" %}
+{% block content %}
 
 
+<div class="profile">
+<a href="/friends"><span class="cswitch cswitch-active">Друзья</span></a><a href="/lectors"><span class="cswitch">Преподаватели</span></a>
 <table class="friends">
     {% for friend in friends %}
     <tr>
@@ -37,4 +40,4 @@
 </table>
 
 </div>
-
+{% endblock %}

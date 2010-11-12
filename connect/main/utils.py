@@ -9,41 +9,37 @@ from pprint import pprint
 from lxml import etree
 
 
-def login_user(request, user):
-    request.session['user'] = user
-    
-def current_user(request):
-    return User.objects.get(email=request.session['user'])
-
-def logged_in(request):
-    return 'user' in request.session
-    
-def main_template(request, content, current=1, title='', notification=None, error=None):
-    t = loader.get_template('main.html')
-    c = Context({
-        'page_title': title + ' | Connect',
-        'content': content,
+def init(request):
+    try: 
+        request.user = User.objects.get(email=request.session['user'])
+    except:
+        request.user = None
+    request.templatevars = {
+        'me': request.user,
         'has_menu': True,
-        'current': current,
-        'error': error,
-        'notification': notification,
         'friend_request_count': friend_request_count(request),
         'unread_messages_count': unread_messages_count(request),
         'days': range(1,32),
         'months': range(1,13),
         'years': xrange(2010,1970,-1),
         'langs': Language.objects.all(),
-        'me': current_user(request),
-    })
-    return HttpResponse(t.render(c))
-    
-def make_template(template, **kwargs):
+    }
+
+def make_template(request, template, **kwargs):
     t = loader.get_template(template)
+    kwargs.update(request.templatevars)
     c = Context(kwargs)
     return t.render(c)
+
+def login_user(request, user):
+    request.session['user'] = user
+
+def logged_in(request):
+    return 'user' in request.session
     
-def make_paginator(l, pl, st, link):
+def make_paginator(req, l, pl, st, link):
     return make_template(
+            req,
             'paginator.html',
             pages=range(1,(l+pl-1)/pl+1),
             link=link,
@@ -61,13 +57,13 @@ def resize_image(file, size, path):
     img.save(path)
 
 def unread_messages_count(request):
-    cu = current_user(request)
+    cu = request.user
     c = len(Message.objects.filter(owner=cu, unread=1))
     return c if c > 0 else ''
 
 def friend_request_count(request):
     c = 0
-    cu = current_user(request)
+    cu = request.user
     for fs in Friendship.objects.filter(dst=cu):
         try:
             Friendship.objects.get(src=cu, dst=fs.src)
@@ -146,13 +142,48 @@ def parse_timetable(group, subgroup, week):
         result.append(result_day)
     return result
 
+def tomorrow_week():
+	today_date = datetime.date.today()
+	tomorrow_date = today_date + datetime.timedelta(days=1)
+	tomorrow_weekday = tomorrow_date.weekday()
+	tomorrow_week = current_week()
+	if tomorrow_weekday == 0:
+		tomorrow_week += 1
+	return tomorrow_week
+	
 def tomorrow_timetable(request):
-    today_date = datetime.date.today()
-    tomorrow_date = today_date + datetime.timedelta(days=1)
-    tomorrow_weekday = tomorrow_date.weekday()
-    if tomorrow_weekday == 6:
-        tomorrow_weekday = 0
-    user = current_user(request)
-    timetable_data = parse_timetable(user.group.name, user.subgroup, current_week())
-    return timetable_data[tomorrow_weekday];
+	today_date = datetime.date.today()
+	tomorrow_date = today_date + datetime.timedelta(days=1)
+	tomorrow_weekday = tomorrow_date.weekday()
+	user = request.user
+	timetable_data = parse_timetable(user.group.name, user.subgroup, tomorrow_week())
+	if (tomorrow_weekday) < len(timetable_data):
+		return timetable_data[tomorrow_weekday]
+	else:
+		return []
+ 
+def my_events(request):
+    communities = request.user.communities.all()
+    events = []
+    for community in communities:
+        c_e = Event.objects.filter(community=community).order_by("event_date")
+        for event in c_e:
+            events.append(event)
     
+    result = []
+    current_date = 0
+    result_item = []
+    
+    for event in events:
+        if event.event_date == current_date:
+            result_item.append(event)
+        else:
+            if len(result_item) != 0:
+                result.append({"date" : result_item[0].event_date, "items" : result_item})
+            result_item = []
+            result_item.append(event)
+            current_date = event.event_date
+    if len(result_item) != 0:
+        result.append({"date" : result_item[0].event_date, "items" : result_item})     
+    return result
+

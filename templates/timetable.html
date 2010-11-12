@@ -1,3 +1,5 @@
+{% extends "main.html" %}
+{% block content %}
 <div class="timetable-wr">
     <span class="label">Группа:</span> 
 	{% for group in groups %}
@@ -45,4 +47,4 @@
 		{% endfor %}
     </table>
 </div>
-
+{% endblock %}

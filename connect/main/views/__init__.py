@@ -11,3 +11,4 @@ from files import *
 from timetable import *
 from lector import *
 from rating import *
+from lectors import *

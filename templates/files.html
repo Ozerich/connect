@@ -1,10 +1,14 @@
-<div class="profile-wr">
+{% extends "main.html" %}
+{% block content %}
+<div class="profile">
 
-
+<a href="#" class="cbutton" onclick="ui_show_dialog('dialog-addfile')">Добавить файл</a>
+<br/>
 <table class="files">
-    {% for file in files %}
+
+{% for file in files %}
 <tr class="file-item">
-    <td rowspan="2" class="icon">
+    <td rowspan="3" class="icon">
         <a href="/file/download/{{file.id}}">
             <img src="/static/images/files/{{file.name|slice:"-3:"}}.png"/>
         </a>
@@ -18,11 +22,30 @@
         <a class="cbutton" href="/file/delete/{{file.id}}">Удалить</a>
     </td>
 </tr>
+<tr>
+    <td colspan="2">
+        {{ file.description }}
+    </td>
+</tr>
 <tr class="file-item">
-    <td class="info">{{file.author.full_name}}</td>
+    <td class="info"></td>
     <td class="info">{{file.date}}</td>
-</tr>    {% endfor %}
+</tr>    
+{% endfor %}
 </table>
 
 </div>
 
+<div class="dialog-blackout" id="blackout" style="display:none"></div>                  
+<div class="dialog" id="dialog-addfile" style="display:none">
+    <div class="dialog-content">
+    <form method="POST" action="/files/add"  enctype="multipart/form-data">
+        Файл:<br/>
+       	<input class="text" type="file" name="file"/><br/>
+   	    Описание:<br/>
+        <textarea name="description"></textarea><br/>
+      	<input id="submit" class="cbutton" name="submit_add" type="submit" value="Добавить"/>
+    </form>
+    </div>
+</div>
+{% endblock %}

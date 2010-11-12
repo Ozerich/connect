@@ -7,9 +7,11 @@ from ..forms import *
 from ..utils import *
 import settings
 import os
+from datetime import *
 
 
 def file_download(req, id):
+    init(req)
     file = File.objects.get(id=id)
     response = HttpResponse(mimetype='application/force-download')
     response['Content-Disposition'] = 'attachment; filename=' + file.name
@@ -17,25 +19,41 @@ def file_download(req, id):
     return response
 
 def file_delete(req, id):
+    init(req)
     file = File.objects.get(id=id)
     if file.author == current_user(req):
         file.delete()
         os.unlink(os.path.join(settings.STORAGE_PATH, 'files', id))
     return HttpResponseRedirect('/files')
     
+def file_add(request):
+    init(request)
+    upload_file = request.FILES['file']
+    
+    file = File(
+        name = upload_file.name,
+        date = datetime.now(),
+        author = current_user(request),
+        description = request.POST['description'],
+    )
+    file.save()
+    
+    download_file(upload_file, "files", str(file.id))
+    
+    return HttpResponseRedirect('/files')
     
 def files(req):
-    cu = current_user(req)
+    init(req)
+    cu = req.user
 
     ff = File.objects.filter(author=cu)
-        
-    content = make_template(
+
+
+    return HttpResponse(make_template(
+        req, 
         'files.html',
         files=ff,
-    )
-    return main_template(
-        req, 
-        content, 
         title='Файлы',
         current=1
-    )
+    ))
+

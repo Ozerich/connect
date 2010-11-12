@@ -6,7 +6,7 @@ from ..models import *
 from ..forms import *
 from ..utils import *
 from datetime import *
-
+from settings import *
 
 def community_tree(request):
     init(request)
@@ -23,17 +23,19 @@ def community_tree(request):
 def make_tree(req, c):
     ch = ''.join(make_tree(req, cm) for cm in
         sorted(c.community_set.all(), key=lambda x:x.name))
+    
     return make_template(
         req,
         'community-tree.html',
         community=c,
-        children=ch
+        children=ch,
+        is_link=c.id not in HIDDEN_COMMUNITY_NODES
     )
 
 
 def community_join(request, id):
     init(request)
-    cu = current_user(request)
+    cu = request.user
     try:
         cu.communities.add(Community.objects.get(id=id))
         cu.save()
@@ -44,10 +46,9 @@ def community_join(request, id):
         
 def community_leave(request, id):
     init(request)
-    cu = current_user(request)
     try:
-        cu.communities.remove(Community.objects.get(id=id))
-        cu.save()
+        request.user.communities.remove(Community.objects.get(id=id))
+        request.user.save()
         return HttpResponseRedirect('/community/'+id)
     except Community.DoesNotExist:
         raise Http404
@@ -82,7 +83,7 @@ def community_addfile(request, id):
     file = File()
     file.name = upload_file.name
     file.description = request.POST['description']
-    file.author = current_user(request)
+    file.author = request.user
     file.date = datetime.now()
     file.save()
     
@@ -104,7 +105,13 @@ def community(request, id):
         c = Community.objects.get(id=id)
     except Community.DoesNotExist:
         raise Http404
-        
+    
+    try:
+        admins = CommunityAdmin.objects.filter(user=request.user,community=c)
+        admin = len(admins) > 0
+    except Community.DoesNotExist:
+        admin = False
+           
     topics = sorted(c.topic_set.all(), key=lambda x: x.date)
     topics = list(reversed(topics))
     
@@ -114,6 +121,9 @@ def community(request, id):
         lectors = subject.lector_set.all()
     else:  
         lectors = []
+    
+    events = my_events(request, community=c)
+    
     try:
         st = int(request.GET['page'])*2-2
     except:
@@ -123,6 +133,8 @@ def community(request, id):
         request,
         'community.html',
         c=c,
+        admin=admin,
+        events=events,
         lectors=lectors,
         my_files = request.user.file_set.all(),
         ismygroup=c in request.user.communities.all(),

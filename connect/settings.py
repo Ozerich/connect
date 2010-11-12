@@ -1,3 +1,10 @@
+# Config
+
+HIDDEN_COMMUNITY_NODES = [6]
+
+
+# Django variables
+
 STORAGE_PATH = '/home/ozerich/Work/connect/media/storage'
 
 DEBUG = True

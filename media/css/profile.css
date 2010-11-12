@@ -55,7 +55,7 @@
 
 
 .profile {
-    width: 100%;
+    width: 685px;
     padding: 15px 15px;
 }
 
@@ -87,8 +87,12 @@
     border-top: none;
 }
 
+.profile .left-separator {
+    border-left: 1px solid #ccc;
+}
+
 .profile .block-title {
-    background: url('/static/images/icons/block.png') 3px 3px no-repeat #ddd;
+    background: url('/static/images/icons/block.png') 3px 4px no-repeat #ddd;
     padding: 2px 0px 2px 20px;
     font-weight: bold;
     color: #555;
@@ -96,7 +100,7 @@
 }
 
 .profile .community-buttons {
-    margin: 0px 10px 0px 0px;
+    padding: 3px 20px 0px 0px;
     float: right;
 }
 
@@ -146,7 +150,7 @@
 }
 
 .community .buttons {
-    padding: 8px 0px 0px 0px;
+    padding: 18px 0px 0px 0px;
     text-align: right;
 }
 

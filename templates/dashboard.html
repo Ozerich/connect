@@ -1,11 +1,50 @@
 {% extends "main.html" %}
 {% block content %}
-<table><tr><td style="width:500px">
+<div class="profile">
 
-    <div class="block-header">
-    Что нового:
+
+<div style="width:260px; float:right" class="left-separator">
+    <div style="width:240px;" class="block">
+        <div style="width:240px" class="block-title">Завтра: Неделя {{ week_number }}</div>
+        {{ tomorrow_timetable }}
+		{% if tomorrow_timetable|length %}
+           {{ tomorrorow_timetable|safe }}
+		{% else %}
+			Выходной
+		{% endif %}
     </div>
 
+    <div style="width:240px;" class="block">
+        <div style="width:240px" class="block-title">Группы</div>
+        <div style="padding-left: 30px">
+            <ul style="list-style: square outside">
+            {% for c in me.communities.all|dictsort:"name"|dictsortreversed:"rank" %}
+                <li><a class="inner" href="/community/{{c.id}}">{{c.name}}</a></li>
+            {% endfor %}
+            </ul>
+        </div>
+    </div>
+    
+    
+    <div style="width:240px;" class="block">
+        <div style="width:240px" class="block-title">События</div>
+        <div style="padding-left: 10px">
+            {% for event in events|dictsort:'event_date' %}
+                {% ifchanged event.event_date %}
+                    {{event.event_date}}<br/>
+                {% endifchanged %}
+                --{{ event.name }}<br/>
+            {% empty %}
+                Нет событий
+            {% endfor %}
+        </div>
+    </div>
+
+</div>
+
+
+    <div style="width:400px" class="block-title">Новости</div>
+    <div style="width:400px" class="block">
     <table class="news">
         <tr>
             <td class="date">
@@ -19,44 +58,8 @@
             </td>
         </tr>
     </table>
+    </div>
     
-    </td><td style="width: 240px">
-        <div class="block-header">
-            Завтра: Неделя {{ week_number }}
-        </div>
-        
-        <div style="padding-left: 10px">
-		{{ tomorrow_timetable }}
-			{% if tomorrow_timetable|length %}
-            {{ tomorrorow_timetable|safe }}
-			{% else %}
-			Выходной
-			{% endif %}
-        </div>
-
-        <div class="block-header">
-            Группы
-        </div>
-
-        <div style="padding-left: 30px">
-            <ul style="list-style: square outside">
-            {% for c in me.communities.all|dictsort:"name"|dictsortreversed:"rank" %}
-                <li><a class="inner" href="/community/{{c.id}}">{{c.name}}</a></li>
-            {% endfor %}
-            </ul>
-        </div>
-        
-         <div class="block-header">
-            События:
-        </div>       
-        <div style="padding-left: 10px">
-            {% for event in events|dictsort:'event_date' %}
-                {% ifchanged event.event_date %}
-                    {{event.event_date}}<br/>
-                {% endifchanged %}
-                --{{ event.name }}<br/>
-            {% endfor %}
-        </div>
-    </td></tr>
-</table>    
+    
+</div>
 {% endblock %}

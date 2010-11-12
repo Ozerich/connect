@@ -1,3 +1,4 @@
+#coding: utf8
 from django.template import Context, loader
 from django.http import HttpResponse
 from models import *
@@ -122,6 +123,12 @@ class Lecture:
         return str(self.__dict__)
 
 def parse_timetable(group, subgroup, week):
+    mode_map = {
+        u'пз': 'practical',
+        u'л': 'lecture',
+        u'лекция': 'lecture',
+        u'лр': 'labs',
+    }
     filename = timetable_filename(group, subgroup, week)
     xml = etree.parse(filename)
     root = xml.getroot()
@@ -143,6 +150,9 @@ def parse_timetable(group, subgroup, week):
             result_lecture.end = lecture.get("end")
             result_lecture.room = lecture.get("room")
             result_lecture.mode = lecture.get("mode")
+            if result_lecture.mode in mode_map:
+                print result_lecture.mode
+                result_lecture.mode = mode_map[result_lecture.mode]
             result_day.append(result_lecture);
         result.append(result_day)
     return result

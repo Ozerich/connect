@@ -1,4 +1,11 @@
-STORAGE_PATH = '/home/eugeny/Work/connect/media/storage'
+# Config
+
+HIDDEN_COMMUNITY_NODES = [6]
+
+
+# Django variables
+
+STORAGE_PATH = '/home/ozerich/Work/connect/media/storage'
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -45,10 +52,11 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'connect.urls'
 
 TEMPLATE_DIRS = (
-    '/home/eugeny/Work/connect/templates'
+    '/home/ozerich/work/connect/templates'
 )
 
 INSTALLED_APPS = (
+    'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.admin',

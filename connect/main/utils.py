@@ -167,27 +167,18 @@ def tomorrow_timetable(request):
 	else:
 		return []
  
-def my_events(request):
-    communities = request.user.communities.all()
+def my_events(request, community = None):
+    if community == None:
+        communities = request.user.communities.all()
+    else:
+        communities = [community]
     events = []
     for community in communities:
-        c_e = Event.objects.filter(community=community).order_by("event_date")
-        for event in c_e:
-            events.append(event)
+        events.extend(Event.objects.filter(community=community).order_by("event_date"))
     
     result = []
     current_date = 0
     result_item = []
-    
-    for event in events:
-        if event.event_date == current_date:
-            result_item.append(event)
-        else:
-            if len(result_item) != 0:
-                result.append({"date" : result_item[0].event_date, "items" : result_item})
-            result_item = []
-            result_item.append(event)
-            current_date = event.event_date
-    if len(result_item) != 0:
-        result.append({"date" : result_item[0].event_date, "items" : result_item})     
-    return result
+
+    return events    
+

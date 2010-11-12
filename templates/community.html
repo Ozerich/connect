@@ -14,7 +14,7 @@
     </div>
     
 	<div style="width:260px; float:right" class="left-separator">
-    <div style="width:240px;" class="block">
+        <div style="width:240px;" class="block">
             <div style="width:240px" class="block-title">Файлы</div>
             <table>
             {% for file in files %}
@@ -34,8 +34,22 @@
             </table>
         </div>
 	    {% endif %}
+	    
+	    {% if events|length > 0 %}
+	    <div style="width:240px;" class="block">
+            <div style="width:240px" class="block-title">События</div>
+            {% for event in events|dictsort:'event_date' %}
+                {% ifchanged event.event_date %}
+                    {{event.event_date}}<br/>
+                {% endifchanged %}
+                --{{ event.name }}<br/>
+            {% endfor %}
+        </div>
+	    {% endif %}
+	    {% if admin %} <a href="#" class="cbutton" onclick="ui_show_dialog('dialog-addevent')">Добавить событие</a>{% endif %}
 	</div>
 
+   
     
     <div style="width:400px" class="block-title">Участники</div>
     <div style="width:400px" class="block">
@@ -76,6 +90,27 @@
     </form>
     </div>
 </div>
+
+{% if admin %}
+<div class="dialog" id="dialog-addevent" style="display:none">
+    <div class="dialog-content">
+    <form method="POST" action="/community/{{ c.id }}/addtopic"  enctype="multipart/form-data">
+	{% if error_msg %}
+		<div id = "error_div" class="notify-error">
+	{% else %}
+		<div id = "error_div" class="notify-error" style="display:none" >
+	{% endif %}
+			{{ error_msg }}
+		</div>
+        Тема<br/>
+      	<input class="text" id="header" name="header"/><br/>
+   	    Текст<br/>
+        <textarea name="text" rows="20"></textarea><br/>
+       	<input id="submit" class="cbutton" name="submit_add" type="submit" value="Создать"/>
+    </form>
+    </div>
+</div>
+{% endif %}
 
 <div class="dialog" id="dialog-addfile" style="display:none">
     <div class="dialog-content">

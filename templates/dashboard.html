@@ -50,12 +50,11 @@
             События:
         </div>       
         <div style="padding-left: 10px">
-            {% for event_day in events %}
-                {{ event_day.date }}<br>
-                {% for event in event_day.items %}
-                    --{{ event.name }}<br>
-                {% endfor %}
-                <br>
+            {% for event in events|dictsort:'event_date' %}
+                {% ifchanged event.event_date %}
+                    {{event.event_date}}<br/>
+                {% endifchanged %}
+                --{{ event.name }}<br/>
             {% endfor %}
         </div>
     </td></tr>

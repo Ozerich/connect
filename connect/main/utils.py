@@ -151,7 +151,6 @@ def parse_timetable(group, subgroup, week):
             result_lecture.room = lecture.get("room")
             result_lecture.mode = lecture.get("mode")
             if result_lecture.mode in mode_map:
-                print result_lecture.mode
                 result_lecture.mode = mode_map[result_lecture.mode]
             result_day.append(result_lecture);
         result.append(result_day)

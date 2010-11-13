@@ -19,7 +19,13 @@ function ui_show_dialog(id) {
         $('#'+id).fadeTo("normal", 0);
         $('#blackout').fadeTo("normal", 0, function() {
             $('#blackout').hide();
-        });
+            $('textarea').val('');
+            $('#error_dialog_div').css('display','none');
+            $('.dialog input[type="text"]').val('');
+            $('.dialog input[type="file"]').val('');
+            var a = 1;
+        });      
+        
     });
     ui_center(id);
     ui_fullscreen('blackout');
@@ -62,4 +68,74 @@ function attach_file(id) {
 
 function detach_file(id) {
     $('#file-template-'+id+':first').detach();
+}
+
+function check_sendmsg_form()
+{
+    var error_div = $('#error_div');
+    if($('#text').val() == "" && document.getElementById('attach-preview').childNodes.length == 0)
+    {
+        error_div.css('display','block');
+        error_div.html('Cообщение не может быть пустым');
+        return false;
+    }
+    else
+    {
+        error_div.css('display','none');
+        return true;
+    }
+}
+
+function check_addtopic_form()
+{
+    var error_div = $('#error_dialog_div');
+    if($('#header').val() == "")
+    {
+        error_div.css('display','block');
+        error_div.html('Заголовок темы не может быть пустым');
+        return false;
+    }
+    else
+    {
+        error_div.css('display','none');
+        return true;
+    }
+}
+
+function check_addevent_form()
+{
+    var error_div = $('#error_dialog_div');
+    if($('#event_name').val() == "")
+    {
+        error_div.css('display','block');
+        error_div.html('Событие не может быть пустым');
+        return false;
+    }
+    else if($('#datepicker').val() == "")
+    {
+        error_div.css('display','block');
+        error_div.html('Не указана дата события');
+        return false;
+    }
+    else
+    {
+        error_div.css('display','none');
+        return true;
+    }
+}
+
+function check_addfile_form()
+{
+    var error_div = $('#error_dialog_div');
+    if($('#file').val() == "")
+    {
+        error_div.css('display','block');
+        error_div.html('Не указан загружаемый файл');
+        return false;
+    }
+    else
+    {
+        error_div.css('display','none');
+        return true;
+    }
 }

@@ -1,9 +1,11 @@
 {% extends "main.html" %}
 {% block content %}
 
+
+
 <div class="page-wrapper">
 <form method="POST" action="/messages/send/{{u.id}}">
-
+ 
 <table class="messages-writebox">
         <tbody id="messages">
         <tr>
@@ -13,12 +15,12 @@
                 {% endwith %}
             </td>
             <td>
-                <textarea name="text" class="message"></textarea>
+                <textarea name="text" id="text" class="message"></textarea>
                 <br/>
                 <div id="attach-preview"></div>
             </td>
             <td>
-                <input type="submit" value="Отправить" class="cbutton"/>
+                <input type="submit" value="Отправить" onclick="return check_sendmsg_form();" class="cbutton"/>
                 <a href="#" class="cbutton" onclick="ui_show_dialog('dialog-files')">Вложить</a>
             </td>
         </tr>

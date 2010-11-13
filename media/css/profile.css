@@ -104,6 +104,19 @@
     float: right;
 }
 
+.profile .status {
+    float: right;
+    margin-right: 20px;
+    text-align: center;
+    vertical-align: baseline;
+    background: url('/static/images/cloud.png') no-repeat;
+    width: 133px;
+    height: 60px;
+    padding: 20px 30px 30px 80px;
+    font-size: 14px;
+    color: #444;
+}
+
 
 .friendsbox {
     width: 100%;

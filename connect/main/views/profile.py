@@ -32,3 +32,11 @@ def profile(request, userid):
         current=3
     ))
 
+def change_status(request):
+    init(request)
+    
+    new_status = request.POST['status']
+    request.user.status = new_status
+    request.user.save()
+    
+    return HttpResponseRedirect('/')

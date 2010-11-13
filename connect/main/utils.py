@@ -53,6 +53,7 @@ def download_file(file, *path):
     return srcf
 
 def resize_image(file, size, path):
+    assert FALSE
     img = Image.open(file)
     img.thumbnail((size, size), Image.ANTIALIAS)
     img.save(path)

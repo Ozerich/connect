@@ -139,3 +139,17 @@ function check_addfile_form()
         return true;
     }
 }
+
+function change_status(status)
+{
+    $('#status_label').hide();
+    $('#statusbox').val(status);
+    $('#edit-status').show();  
+    return false;
+}
+
+function cancel_status()
+{
+    $('#status_label').show();
+    $('#edit-status').hide();
+}

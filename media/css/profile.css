@@ -54,9 +54,16 @@
 }
 
 
+.cancel-status
+{
+    font-size:8px;
+    float:right;
+    padding-right:20px;
+}
+
 .profile {
     width: 685px;
-    padding: 15px 15px;
+    padding: 5px 15px;
 }
 
 .profile .photo {

@@ -54,6 +54,7 @@ class User(models.Model):
     group = models.ForeignKey(Group)
     subgroup = models.IntegerField('Subgroup')
     language = models.ForeignKey(Language)
+    status = models.CharField('Status', max_length=1000)
     
     friends = models.ManyToManyField('self', symmetrical=False, through=Friendship)
     communities = models.ManyToManyField('Community')

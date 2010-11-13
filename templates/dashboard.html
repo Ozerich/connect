@@ -47,19 +47,25 @@
         </div>
     </div>
 
-</div>
+    </div>
 
-<a style="line-height: 22px;" href="/{{me.id}}" class="inner">{{me.full_name}}:</a>&nbsp;&nbsp;
-<a class="inner" style="line-height: 22px" href="#" onclick="$('#edit-status').show(); $(this).hide(); return false;">LOL</a>
-
-<span id="edit-status" style="display: none">
-<input class="text" type="text" id="statusbox"><a href="#" class="cbutton">Установить</a>
-</span>
-</span>
+<form action="/change_status" method="POST">
+<a href="/{{me.id}}" class="inner">{{me.full_name}}:</a>&nbsp;&nbsp;
+<a class="inner" id="status_label" href="#" onclick="change_status('{{ me.status }}')">
+{% if me.status|length > 0 %}
+    {{ me.status }}
+{% else %}
+    Установить статус
+{% endif %}
+</a>
+    <span id="edit-status" style="display: none">
+        <input class="text" type="text" name="status" id="statusbox">
+        <input type="submit" name="setststus_submit" value="Установить"><br>
+        <a href='#' onclick="cancel_status();return false;" class="cancel-status">Отменить</a>
+    </span>
+</form>
 
 <br/>
-<br/>
-
     <div style="width:400px" class="block-title">Новости</div>
     <div style="width:400px" class="block">
     <table class="news">

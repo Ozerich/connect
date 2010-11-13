@@ -13,7 +13,7 @@ def index(request):
     init(request)
     if logged_in(request):
         if request.POST:
-            u = req.user
+            u = request.user
             u.email = request.POST['email']
             u.birthday = datetime.date(
                 int(request.POST['birth_year']),

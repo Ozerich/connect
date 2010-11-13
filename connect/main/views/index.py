@@ -33,12 +33,6 @@ def index(request):
 
         tomorrow_data = tomorrow_timetable(request)
 
-        tomorrow_content = make_template(
-            request,
-            'tomorrow-timetable.html', 
-            tommorow_timetable = tomorrow_data
-        )
-        
         events = my_events(request)
         
         return HttpResponse(make_template(
@@ -47,7 +41,7 @@ def index(request):
             current=1,
             events=events,
 			week_number = tomorrow_week(),
-            tomorrow_timetable = tomorrow_content,
+            tomorrow_timetable = tomorrow_data,
             title='Домашняя'
         ))
     else:

@@ -175,7 +175,7 @@ def tomorrow_timetable(request):
 	if (tomorrow_weekday) < len(timetable_data):
 		return timetable_data[tomorrow_weekday]
 	else:
-		return []
+		return ''
  
 def my_events(request, community = None):
     if community == None:

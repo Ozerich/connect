@@ -1,3 +1,6 @@
+# Config
+
+HIDDEN_COMMUNITY_NODES = [6]
 STORAGE_PATH = '/home/eugeny/Work/connect/media/storage'
 
 DEBUG = True
@@ -15,7 +18,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'bsuir',
         'USER': 'root',
-        'PASSWORD': 'admin',
+        'PASSWORD': '123',
         'HOST': '',
         'PORT': '',
     }

@@ -36,7 +36,7 @@ function ui_fullscreen(el) {
 
 function ui_show_user_info(evnt, n, f) {
     e = document.getElementById('user-info-popup');
-	if(!evnt)
+	if (!evnt)
 		evnt = window.event;
     e.style.left = (evnt.clientX + window.pageXOffset + 10) + 'px';
     e.style.top = (evnt.clientY + window.pageYOffset + 10) + 'px'; 

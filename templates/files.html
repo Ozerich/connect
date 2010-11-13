@@ -39,12 +39,13 @@
 <div class="dialog-blackout" id="blackout" style="display:none"></div>                  
 <div class="dialog" id="dialog-addfile" style="display:none">
     <div class="dialog-content">
+		<div id = "error_dialog_div" class="notify-error" style="display:none" ></div>
     <form method="POST" action="/files/add"  enctype="multipart/form-data">
         Файл:<br/>
-       	<input class="text" type="file" name="file"/><br/>
+       	<input class="text" id="file" type="file" name="file"/><br/>
    	    Описание:<br/>
         <textarea name="description"></textarea><br/>
-      	<input id="submit" class="cbutton" name="submit_add" type="submit" value="Добавить"/>
+      	<input id="submit" class="cbutton" name="submit_add" onclick="return check_addfile_form()" type="submit" value="Добавить"/>
     </form>
     </div>
 </div>

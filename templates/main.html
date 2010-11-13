@@ -76,9 +76,8 @@
     </div>
       
     <div class="main-wr">
-        {% if notification %}
-            <div class="notify-new">{{ notification }}</div>
-        {% endif %}
+        <div class="notify-new" id="notify_div" style="display:{% if notification %}block{% else %}none{% endif %}">{{ notification }}</div>
+		<div id = "error_div" class="notify-error" style="display:{% if error_msg %}block{% else %}none{% endif %}">{{ error_msg }}</div>
         {%block content%}{%endblock%}
         {{content}}
     </div>

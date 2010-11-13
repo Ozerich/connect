@@ -3,7 +3,6 @@
 
         <script>
             $(function() {
-                //$( "#datepicker" ).datepicker({ dayNamesMin: ['Di', 'Lu', 'Ma', 'Me', 'Je', 'Ve', 'Sa']});
                 $( "#datepicker" ).datepicker({ monthNames: ['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'] });
 
                 var nextText = $( "#datepicker" ).datepicker( "option", "nextText" );
@@ -81,7 +80,7 @@
             <li><a href="/topic/{{topic.id}}" class="inner">{{topic.name}}</a></li>
         {% endfor %}
         </ul>
-        {{pager}}<a class="cbutton" href="#" onclick="ui_show_dialog('dialog-addtopic')">Новое обсуждение</a>
+        {{pager}}<a class="cbutton" href="#" onclick="ui_show_dialog('dialog-addtopic');">Новое обсуждение</a>
     </div>
 	
 </div>
@@ -90,17 +89,17 @@
     <div class="dialog-content">
     <form method="POST" action="/community/{{ c.id }}/addtopic"  enctype="multipart/form-data">
 	{% if error_msg %}
-		<div id = "error_div" class="notify-error">
+		<div id = "error_dialog_div" class="notify-error">
 	{% else %}
-		<div id = "error_div" class="notify-error" style="display:none" >
+		<div id = "error_dialog_div" class="notify-error" style="display:none" >
 	{% endif %}
 			{{ error_msg }}
 		</div>
         Тема<br/>
-      	<input class="text" id="header" name="header"/><br/>
+      	<input class="text" type="text" id="header" name="header"/><br/>
    	    Текст<br/>
         <textarea name="text" rows="20"></textarea><br/>
-       	<input id="submit" class="cbutton" name="submit_add" type="submit" value="Создать"/>
+       	<input id="submit" class="cbutton" name="submit_add" onclick="return check_addtopic_form()" type="submit" value="Создать"/>
     </form>
     </div>
 </div>
@@ -110,16 +109,16 @@
     <div class="dialog-content">
     <form method="POST" action="/community/{{ c.id }}/addevent"  enctype="multipart/form-data">
 	{% if error_msg %}
-		<div id = "error_div" class="notify-error">
+		<div id = "error_dialog_div" class="notify-error">
 	{% else %}
-		<div id = "error_div" class="notify-error" style="display:none" >
+		<div id = "error_dialog_div" class="notify-error" style="display:none" >
 	{% endif %}
-        {{ error_msg }}
-	</div>
+			{{ error_msg }}
+		</div>
         Событие:<br>
-        <textarea name="event_name"></textarea><br>
+        <textarea id="event_name" name="event_name"></textarea><br>
         <p>Дата: <input id="datepicker" name="date" type="text"></p>
-        <input type="submit" name="addevent_submit" value="Добавить"/>
+        <input type="submit" id="submit" class="cbutton" name="addevent_submit" onclick="return check_addevent_form()" value="Добавить"/>
     </div>
 </div>
 {% endif %}

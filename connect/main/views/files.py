@@ -23,7 +23,9 @@ def file_delete(req, id):
     file = File.objects.get(id=id)
     if file.author == req.user:
         file.delete()
-        os.unlink(os.path.join(settings.STORAGE_PATH, 'files', id))
+        file_name = os.path.join(settings.STORAGE_PATH, 'files', id)
+        if os.path.exists(file_name):
+            os.unlink(file_name)
     return HttpResponseRedirect('/files')
     
 def file_add(request):
@@ -33,7 +35,7 @@ def file_add(request):
     file = File(
         name = upload_file.name,
         date = datetime.now(),
-        author = req.user,
+        author = request.user,
         description = request.POST['description'],
     )
     file.save()

@@ -11,7 +11,7 @@ from datetime import *
 def sendmsg(request, id):
     init(request)
     cu = request.user
-    user = User.objects.get(id=id)
+    user = User.objects.get(id=id)     
     m1 = Message(
         src=cu,
         dst=user,

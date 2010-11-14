@@ -8,7 +8,8 @@ from ..utils import *
 from datetime import *
 
 def lector(request, id):
-    init(request)
+    if not init(request):
+        return HttpResponseRedirect('/login')
     l = Lector.objects.get(id=id)
     return HttpResponse(make_template(
         request,

@@ -8,7 +8,8 @@ from ..utils import *
 
 
 def profile(request, userid):
-    init(request)
+    if not init(request):
+        return HttpResponseRedirect('/login')
     try:
         user = User.objects.get(id=userid)
     except User.DoesNotExist:
@@ -33,7 +34,8 @@ def profile(request, userid):
     ))
 
 def change_status(request):
-    init(request)
+    if not init(request):
+        return HttpResponseRedirect('/login')
     
     new_status = request.POST['status']
     request.user.status = new_status

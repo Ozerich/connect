@@ -9,7 +9,8 @@ from datetime import *
 
 
 def viewmsg(request, id):
-    init(request)
+    if not init(request):
+        return HttpResponseRedirect('/login')
     cu = request.user
     notify = None
     senders = []

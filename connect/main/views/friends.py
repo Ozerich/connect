@@ -7,7 +7,8 @@ from ..forms import *
 from ..utils import *
 
 def friends(request):
-    init(request)
+    if not init(request):
+        return HttpResponseRedirect('/login')
     cu = request.user
     notify = None
     friends = []

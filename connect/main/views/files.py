@@ -11,7 +11,8 @@ from datetime import *
 
 
 def file_download(req, id):
-    init(req)
+    if not init(req):
+        return HttpResponseRedirect('/login')
     file = File.objects.get(id=id)
     response = HttpResponse(mimetype='application/force-download')
     response['Content-Disposition'] = 'attachment; filename=' + file.name
@@ -19,7 +20,8 @@ def file_download(req, id):
     return response
 
 def file_delete(req, id):
-    init(req)
+    if not init(req):
+        return HttpResponseRedirect('/login')
     file = File.objects.get(id=id)
     if file.author == req.user:
         file.delete()
@@ -29,7 +31,8 @@ def file_delete(req, id):
     return HttpResponseRedirect('/files')
     
 def file_add(request):
-    init(request)
+    if not init(request):
+        return HttpResponseRedirect('/login')
     upload_file = request.FILES['file']
     
     file = File(
@@ -45,7 +48,8 @@ def file_add(request):
     return HttpResponseRedirect('/files')
     
 def files(req):
-    init(req)
+    if not init(req):
+        return HttpResponseRedirect('/login')
     cu = req.user
 
     ff = File.objects.filter(author=cu)

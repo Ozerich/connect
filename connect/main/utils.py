@@ -1,5 +1,6 @@
 #coding: utf8
 from django.template import Context, loader
+from django.shortcuts import *
 from django.http import HttpResponse
 from models import *
 import settings
@@ -8,6 +9,7 @@ import Image
 import datetime
 from pprint import pprint
 from lxml import etree
+from forms import *
 
 
 def init(request):
@@ -25,6 +27,7 @@ def init(request):
         'years': xrange(2010,1970,-1),
         'langs': Language.objects.all(),
     }
+    return request.user
 
 def make_template(request, template, **kwargs):
     t = loader.get_template(template)

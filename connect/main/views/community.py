@@ -9,7 +9,8 @@ from datetime import *
 from settings import *
 
 def community_tree(request):
-    init(request)
+    if not init(request):
+        return HttpResponseRedirect('/login')
     c = Community.objects.get(id=1)
     
     return HttpResponse(make_template(
@@ -34,7 +35,8 @@ def make_tree(req, c):
 
 
 def community_join(request, id):
-    init(request)
+    if not init(request):
+        return HttpResponseRedirect('/login')
     cu = request.user
     try:
         cu.communities.add(Community.objects.get(id=id))
@@ -45,7 +47,8 @@ def community_join(request, id):
 
         
 def community_leave(request, id):
-    init(request)
+    if not init(request):
+        return HttpResponseRedirect('/login')
     try:
         request.user.communities.remove(Community.objects.get(id=id))
         request.user.save()
@@ -54,7 +57,8 @@ def community_leave(request, id):
         raise Http404
      
 def community_addtopic(request, id):
-    init(request)
+    if not init(request):
+        return HttpResponseRedirect('/login')
     
     topic = Topic(
         community = Community.objects.get(id=id),
@@ -78,7 +82,8 @@ def community_addtopic(request, id):
     return HttpResponseRedirect("/topic/"+str(topic.id))
 
 def community_addevent(request, id):
-    init(request)
+    if not init(request):
+        return HttpResponseRedirect('/login')
     event = Event()
     event.community = Community.objects.get(id=id)
     event.name = request.POST['event_name']
@@ -111,12 +116,14 @@ def community_addfile(request, id):
     
 
 def community_addfile(request, id):
-    init(request)
+    if not init(request):
+        return HttpResponseRedirect('/login')
     return HttpResponseRedirect("/community/"+id)
     
         
 def community(request, id):
-    init(request)
+    if not init(request):
+        return HttpResponseRedirect('/login')
     try:
         c = Community.objects.get(id=id)
     except Community.DoesNotExist:

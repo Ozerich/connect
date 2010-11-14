@@ -9,7 +9,8 @@ from datetime import *
 
         
 def topic(request, id):
-    init(request)
+    if not init(request):
+        return HttpResponseRedirect('/login')
     try:
         t = Topic.objects.get(id=id)
     except Topic.DoesNotExist:
@@ -48,7 +49,8 @@ def make_tree(r, c):
     
     
 def topic_reply(request):
-    init(request)
+    if not init(request):
+        return HttpResponseRedirect('/login')
     try:
         c = Comment.objects.get(id=request.POST['to'])
     except Comment.DoesNotExist:

@@ -7,7 +7,8 @@ from ..forms import *
 from ..utils import *
 
 def lectors(request):
-    init(request)
+    if not init(request):
+        return HttpResponseRedirect('/login')
     return HttpResponse(make_template(
         request, 
         'lectors.html', 

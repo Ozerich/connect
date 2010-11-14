@@ -31,6 +31,9 @@ def login(request):
     )
     
 def logout(request):
-    del request.session['user']    
+    try:
+        del request.session['user']
+    except:
+        pass
     return HttpResponseRedirect('/')
 

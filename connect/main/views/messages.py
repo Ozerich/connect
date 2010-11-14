@@ -9,7 +9,8 @@ from datetime import *
 
 
 def sendmsg(request, id):
-    init(request)
+    if not init(request):
+        return HttpResponseRedirect('/login')
     cu = request.user
     user = User.objects.get(id=id)     
     m1 = Message(
@@ -40,7 +41,8 @@ def sendmsg(request, id):
 
 
 def deletemsg(request, id):
-    init(request)
+    if not init(request):
+        return HttpResponseRedirect('/login')
     cu = request.user
     try:
         m = Message.objects.get(owner=cu, id=id)
@@ -53,7 +55,8 @@ def deletemsg(request, id):
 
 
 def messages(request):
-    init(request)
+    if not init(request):
+        return HttpResponseRedirect('/login')
     cu = request.user
     notify = None
     senders = []

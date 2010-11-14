@@ -10,7 +10,7 @@ import os
 
 
 def timetable(req, group, subgroup, week):
-    if not init(request):
+    if not init(req):
         return HttpResponseRedirect('/login')
     if not week:
         week = current_week()

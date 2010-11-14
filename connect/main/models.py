@@ -57,7 +57,7 @@ class User(models.Model):
     status = models.CharField('Status', max_length=1000)
     
     friends = models.ManyToManyField('self', symmetrical=False, through=Friendship)
-    communities = models.ManyToManyField('Community')
+    communities = models.ManyToManyField('Community', blank=True, null = True)
     
     avatar = models.CharField('Avatar file', max_length=200)
 

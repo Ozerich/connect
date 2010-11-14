@@ -20,12 +20,14 @@ def lector(request, id):
     ))
 
 def lector_comment(request, id):
-	text = request.POST['text']
-	comment = LectorComment()
-	comment.text = text
-	comment.author = current_user(request)
-	comment.date = datetime.now()
-	comment.lector = Lector.objects.get(id=id)
-	comment.save()
-	
-	return HttpResponseRedirect('/lector/%s' % id)
+    if not init(request):
+        return HttpResponceRedirect('/login')
+    text = request.POST['text']
+    comment = LectorComment()
+    comment.text = text
+    comment.author = request.user
+    comment.date = datetime.now()
+    comment.lector = Lector.objects.get(id=id)
+    comment.save()
+    
+    return HttpResponseRedirect('/lector/%s' % id)

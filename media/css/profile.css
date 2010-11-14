@@ -114,16 +114,24 @@
 .profile .status {
     float: right;
     margin-right: 20px;
-    text-align: center;
     vertical-align: baseline;
-    background: url('/static/images/cloud.png') no-repeat;
-    width: 133px;
-    height: 60px;
-    padding: 20px 30px 30px 80px;
+    padding: 5px;
     font-size: 14px;
     color: #444;
+    max-width: 200px;
+    border: 1px solid #888;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    position: relative;
+    overflow: visible;
 }
 
+.profile .status img {
+    position: absolute;
+    bottom: -26px;
+    left: 20px;
+}
 
 .friendsbox {
     width: 100%;

@@ -98,27 +98,15 @@ def community_addevent(request, id):
 
     
    
-def community_addfile(request, id):
-    upload_file = request.FILES['file']
+def community_addfile(request, c_id, f_id):
+
+    file = File.objects.get(id=f_id)
+    community = Community.objects.get(id=c_id)
     
-    file = File()
-    file.name = upload_file.name
-    file.description = request.POST['description']
-    file.author = request.user
-    file.date = datetime.now()
-    file.save()
-    
-    community = Community.objects.get(id=id)
     community.files.add(file)
     community.save()
     
-    download_file(upload_file, "files", str(file.id))
-    
-
-def community_addfile(request, id):
-    if not init(request):
-        return HttpResponseRedirect('/login')
-    return HttpResponseRedirect("/community/"+id)
+    return HttpResponseRedirect('/community/' + str(c_id))
     
         
 def community(request, id):

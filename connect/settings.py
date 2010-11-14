@@ -1,7 +1,7 @@
 # Config
 
 HIDDEN_COMMUNITY_NODES = [6]
-STORAGE_PATH = '/home/eugeny/Work/connect/media/storage'
+STORAGE_PATH = 'D:\Coding\Work\connect\media\storage'
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -18,7 +18,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'bsuir',
         'USER': 'root',
-        'PASSWORD': '123',
+        'PASSWORD': '',
         'HOST': '',
         'PORT': '',
     }
@@ -48,7 +48,7 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'connect.urls'
 
 TEMPLATE_DIRS = (
-    '/home/eugeny/Work/connect/templates'
+    'D:/Coding/Work/connect/templates'
 )
 
 INSTALLED_APPS = (

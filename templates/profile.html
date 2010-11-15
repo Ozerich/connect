@@ -3,7 +3,11 @@
 <div class="profile">
     <img class="photo" src="/static/storage/avatars/100.{{ user.avatar }}" class="photo"/>
     <div class="status">
-    {{ user.status }}
+    {% if user.status %}
+        {{ user.status }}
+    {% else %}
+        Нечего сказать
+    {% endif %}
     <img src="/static/images/status.png"/>
     </div>
     <span class="name">{{ user.full_name }}</span>

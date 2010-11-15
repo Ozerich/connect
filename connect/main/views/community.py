@@ -79,6 +79,8 @@ def community_addtopic(request, id):
     topic.root = first_comment
     topic.save()
     
+    NewsTopic.newtopic(request.user, topic)
+    
     return HttpResponseRedirect("/topic/"+str(topic.id))
 
 def community_addevent(request, id):

@@ -101,7 +101,7 @@ function checkRegisterErrors()
 
 function checkEditProfileErrors()
 {
-    var errorDiv = document.getElementById('error_div');
+    var errorDiv = document.getElementById('error_profile_div');
     errorDiv.innerHTML = "";
 	errorDiv.style.display = "none";
     

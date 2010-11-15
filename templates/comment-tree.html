@@ -1,4 +1,4 @@
-<div class="comment">
+<div class="comment" id="comment-{{comment.id}}">
     <div class="avatar">
     {% with comment.author as user %}
         {% include "user-item-mini.html" %}
@@ -18,7 +18,7 @@
         {% include "file-item.html" %}
     {% endfor %}
     </table>
-    <a style="margin-left: 40px; display:block;" href="#" class="replylink" onclick="ui_show_comment_form('comment-form-{{comment.id}}', '{{comment.id}}')" class="inner">Ответить</a>
+    <a style="margin-left: 40px; display:block;" href="#" class="replylink" onclick="ui_show_comment_form('comment-form-{{comment.id}}', '{{comment.id}}'); return false" class="inner">Ответить</a>
     <div id="comment-form-{{comment.id}}"></div>
     {% autoescape off %}
     {{ children }}

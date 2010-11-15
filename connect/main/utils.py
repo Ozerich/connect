@@ -92,21 +92,19 @@ def save_avatar(request, user):
     ext = f.name.split('.')[-1]
     fn = str(user.id) + '.' + ext
     srcf = download_file(f, 'avatars',  fn)
-    resize_image(
-        srcf,
-        100,
-        os.path.join(settings.STORAGE_PATH, 'avatars', '100.'+fn)
-    )
-    resize_image(
-        srcf,
-        50,
-        os.path.join(settings.STORAGE_PATH, 'avatars', '50.'+fn)
-    )
-    resize_image(
-        srcf,
-        25,
-        os.path.join(settings.STORAGE_PATH, 'avatars', '25.'+fn)
-    )
+
+    img = Image.open(srcf)
+    img.thumbnail((100,100), Image.ANTIALIAS)
+    img.save(os.path.join(settings.STORAGE_PATH, 'avatars', '100.'+fn))
+
+    img = Image.open(srcf)
+    img.thumbnail((50,50), Image.ANTIALIAS)
+    img.save(os.path.join(settings.STORAGE_PATH, 'avatars', '50.'+fn))
+
+    img = Image.open(srcf)
+    img.thumbnail((25,25), Image.ANTIALIAS)
+    img.save(os.path.join(settings.STORAGE_PATH, 'avatars', '25.'+fn))
+
     os.unlink(srcf)
     user.avatar = fn
 
@@ -114,7 +112,7 @@ def current_week():
     today_date = datetime.date.today()
     begin_study_date = datetime.date(2010, 8, 30)
     days_dif = today_date - begin_study_date
-    weeks_dif = (divmod(days_dif.days, 7)[0] + 1) % 4;
+    weeks_dif = (days_dif.days % 7 - 1) % 4 + 1;
     return weeks_dif
 
 def timetable_filename(group, subgroup, week):

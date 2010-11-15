@@ -116,7 +116,7 @@ def current_week():
     return weeks_dif
 
 def timetable_filename(group, subgroup, week):
-    filename = settings.STORAGE_PATH + "../../timetable/" + group + "-" + str(subgroup) + "-" + str(week) + ".xml"
+    filename = settings.STORAGE_PATH + "/../../timetable/" + group + "-" + str(subgroup) + "-" + str(week) + ".xml"
     return filename
 
 class Lecture:

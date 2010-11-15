@@ -49,14 +49,14 @@
         </div>
 	    {% endif %}
 	    
-	    <div style="width:240px;" class="block">
+	    <div style="width:240px;" class="block events">
             <div style="width:240px" class="block-title">События</div>
             
             {% for event in events|dictsort:'date' %}
-                {% ifchanged event.date %}
-                    {{event.date}}<br/>
+                {% ifchanged event.event_date %}
+                    <div class="date">{{event.date}}</div>
                 {% endifchanged %}
-                --{{ event.name }}<br/>
+                <div class="name">{{ event.name }}</div>
             {% endfor %}
         </div>
 	    {% if admin %} <a href="#" class="cbutton" onclick="ui_show_dialog('dialog-addevent')">Добавить событие</a>{% endif %}

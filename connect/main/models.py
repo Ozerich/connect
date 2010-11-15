@@ -1,4 +1,5 @@
 from django.db import models
+import datetime
 
 
 class Faculty(models.Model):
@@ -188,3 +189,27 @@ class Event(models.Model):
         return unicode(self.community) + ": " + self.name
     
     
+class NewsTopic(models.Model):
+    receiver = models.ForeignKey('User')
+    topic = models.ForeignKey('Topic')
+    comment = models.ForeignKey('Comment', blank=True, null=True)
+    about = models.ForeignKey('Comment', related_name='+', blank=True, null=True)
+    date = models.DateTimeField('Date')
+
+    @staticmethod
+    def newtopic(u, t):
+        for u in t.community.user_set.all():
+            NewsTopic(receiver=u, topic=t, about=None, comment=None, date=datetime.datetime.now()).save()
+    
+    @staticmethod
+    def new(c):
+        t = c.topic
+        p = c.parent
+        
+        NewsTopic.objects.filter(receiver=t.root.author, topic=t).delete()
+        NewsTopic(about=c, receiver=t.root.author, topic=t, comment=None, date=datetime.datetime.now()).save()
+        
+        if p and p.author != t.root.author:
+            NewsTopic.objects.filter(receiver=t.root.author, comment=p).delete()
+            NewsTopic(about=c, receiver=p.author, topic=t, comment=p, date=datetime.datetime.now()).save()
+

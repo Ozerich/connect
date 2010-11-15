@@ -7,7 +7,7 @@
         <div style="width:240px" class="block-title">Завтра: Неделя {{ week_number }}</div>
 		{% if tomorrow_timetable|length > 0 %}
 <table class="timetable">
-{% for item in tommorow_timetable %}
+{% for item in tomorrow_timetable %}
  <tr>
 	<td class="time">{{ item.start }}</td>
 	<td class="mode"><img src="static/images/lecturemodes/{{ item.mode }}.png"/></td>
@@ -33,14 +33,14 @@
     </div>
     
     
-    <div style="width:240px;" class="block">
+    <div style="width:240px;" class="block events">
         <div style="width:240px" class="block-title">События</div>
         <div style="padding-left: 10px">
-            {% for event in events|dictsort:'event_date' %}
+            {% for event in events|dictsort:"date" %}
                 {% ifchanged event.event_date %}
-                    {{event.event_date}}<br/>
+                    <div class="date">{{event.date}}</div>
                 {% endifchanged %}
-                --{{ event.name }}<br/>
+                <div class="name">{{ event.name }}</div>
             {% empty %}
                 Нет событий
             {% endfor %}
@@ -59,28 +59,46 @@
 {% endif %}
 </a>
     <span id="edit-status" style="display: none">
-        <input class="text" type="text" name="status" id="statusbox">
-        <input type="submit" name="setststus_submit" value="Установить"><br>
-        <a href='#' onclick="cancel_status();return false;" class="cancel-status">Отменить</a>
+        <input class="text" type="text" name="status" id="statusbox" style="width: 200px">
+        <br/>
+        <input type="submit" name="setststus_submit" value="Установить" class="cbutton">
+        <a href='#' onclick="cancel_status();return false;" class="cbutton">Отменить</a>
     </span>
 </form>
 
 <br/>
     <div style="width:400px" class="block-title">Новости</div>
-    <div style="width:400px" class="block">
-    <table class="news">
-        <tr>
-            <td class="date">
-            03.03.2004
-            </td>
-        </tr>
-        <tr>
-            <td class="news">
-                <a href="#" class="inner">Вера Дубинова</a> добавила в друзья
-                <a href="#" class="inner">Артема Твердолобова</a>
-            </td>
-        </tr>
-    </table>
+    <div style="width:400px" class="block news">
+    {% for news in me.newstopic_set.all|dictsortreversed:"date" %}
+        {% ifchanged news.date.date %}
+            <div class="date">{{news.date.date}}</div>
+        {% endifchanged %}
+        
+        <div class="msg">
+        {% if news.comment %}
+            Новый ответ на ваш комментарий "{{news.comment.text|slice:":30"}}":
+        {% else %}
+            {% if news.about %}
+                Новый ответ в обсуждении "{{news.topic.name}}":
+            {% else %}
+                Новое обсуждение в сообществе "{{news.topic.community.name}}":
+                <b>{{news.topic.name}}</b>
+            {% endif %}
+        {% endif %}
+        <a href="/topic/{{news.topic.id}}#comment-{{news.about.id}}">
+        <div class="quote">
+            <img src="/static/images/icons/new-reply.png"/>
+            {% if news.about %}
+                <div class="author">{{news.about.author.full_name}}</div>
+                {{news.about.text}}
+            {% else %}
+                <div class="author">{{news.topic.root.author.full_name}}</div>
+                {{news.topic.root.text}}
+            {% endif %}
+        </div>
+        </a>
+        </div>
+    {% endfor %}
     </div>
     
     

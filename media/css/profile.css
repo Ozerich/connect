@@ -7,8 +7,6 @@
 }
 
 .avatar-50 img {
-    width: 50px;
-    height: 50px;
     -webkit-box-shadow: 0 0 2px #666;
     -moz-box-shadow: 0 0 2px #666;
 }
@@ -27,8 +25,6 @@
 }
 
 .avatar-25 img {
-    width: 25px;
-    height: 25px;
     -webkit-box-shadow: 0 0 2px #666;
     -moz-box-shadow: 0 0 2px #666;
 }
@@ -54,13 +50,6 @@
 }
 
 
-.cancel-status
-{
-    font-size:8px;
-    float:right;
-    padding-right:20px;
-}
-
 .profile {
     width: 685px;
     padding: 5px 15px;
@@ -69,7 +58,6 @@
 .profile .photo {
     margin: 3px 20px 10px 0px;
     border: 1px solid #aaa;
-    width: 100px;
     float: left;
 }
 
@@ -132,6 +120,52 @@
     bottom: -26px;
     left: 20px;
 }
+
+.profile .news {
+}
+
+.profile .news .date {
+    font-weight: bold;
+}
+
+.profile .news .msg {
+    margin-left: 20px;
+}
+
+.profile .news .quote {
+    margin: 5px 20px;
+    padding: 3px;
+    font-style: italic;
+    border: 1px dashed #888;
+}
+
+.profile .news .quote img {
+    float: left;
+}
+
+.profile .news .quote .author {
+    font-weight: bold;
+    font-style: normal;
+    font-size: 10px;
+}
+
+.profile .events .date {
+    font-weight: bold;
+    font-style: normal;
+    font-size: 10px;
+}
+
+.profile .events .name {
+    margin: 0px;
+    padding: 0px;
+    margin-left: 20px;
+    font-size: 12px;
+}
+
+
+
+
+
 
 .friendsbox {
     width: 100%;

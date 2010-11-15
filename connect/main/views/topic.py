@@ -18,7 +18,7 @@ def topic(request, id):
 	
     if not t.root:
         c = Comment(
-            text=t.name, 
+            text=t.name,
             author=request.user,
             date=datetime.now(), 
             topic=t
@@ -65,6 +65,8 @@ def topic_reply(request):
     )
     c.save()
      
+    NewsTopic.new(c)
+    
     if 'attachment[]' in request.POST:
         for k in request.POST.getlist('attachment[]'):
             c.attachments.add(File.objects.get(id=k))  

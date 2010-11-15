@@ -16,6 +16,7 @@ table.timetable * {
 
 table.timetable {
     width: 100%;
+    margin: 5px 10px 5px;
 }
 
 table.timetable td {
@@ -35,8 +36,14 @@ table.timetable .subj, .room {
     font-weight: bold;
 }
 
+table.timetable .time, .room {
+    width: 30px;
+}
+
+
 table.timetable .mode {
     color: #000;
+    width: 18px;
     padding-top: 2px;
 }
 

@@ -2,6 +2,7 @@
 
 HIDDEN_COMMUNITY_NODES = [6]
 STORAGE_PATH = 'D:\Coding\Work\connect\media\storage'
+FORCE_SCRIPT_NAME='/'
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG

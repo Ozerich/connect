@@ -7,8 +7,6 @@
 }
 
 .avatar-50 img {
-    width: 50px;
-    height: 50px;
     -webkit-box-shadow: 0 0 2px #666;
     -moz-box-shadow: 0 0 2px #666;
 }
@@ -27,8 +25,6 @@
 }
 
 .avatar-25 img {
-    width: 25px;
-    height: 25px;
     -webkit-box-shadow: 0 0 2px #666;
     -moz-box-shadow: 0 0 2px #666;
 }
@@ -62,7 +58,6 @@
 .profile .photo {
     margin: 3px 20px 10px 0px;
     border: 1px solid #aaa;
-    width: 100px;
     float: left;
 }
 

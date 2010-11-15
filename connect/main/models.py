@@ -198,7 +198,8 @@ class NewsTopic(models.Model):
 
     @staticmethod
     def newtopic(u, t):
-        NewsTopic(receiver=u, topic=t, about=None, comment=None, date=datetime.datetime.now()).save()
+        for u in t.community.user_set.all():
+            NewsTopic(receiver=u, topic=t, about=None, comment=None, date=datetime.datetime.now()).save()
     
     @staticmethod
     def new(c):
@@ -210,5 +211,5 @@ class NewsTopic(models.Model):
         
         if p and p.author != t.root.author:
             NewsTopic.objects.filter(receiver=t.root.author, comment=p).delete()
-            NewsTopic(about=c, receiver=t.root.author, topic=t, comment=p, date=datetime.datetime.now()).save()
+            NewsTopic(about=c, receiver=p.author, topic=t, comment=p, date=datetime.datetime.now()).save()
 

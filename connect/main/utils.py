@@ -182,13 +182,10 @@ def my_events(request, community = None):
         communities = request.user.communities.all()
     else:
         communities = [community]
+    print communities
+
     events = []
     for community in communities:
         events.extend(Event.objects.filter(community=community).order_by("date"))
-    
-    result = []
-    current_date = 0
-    result_item = []
-
     return events    
 

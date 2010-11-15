@@ -33,14 +33,14 @@
     </div>
     
     
-    <div style="width:240px;" class="block">
+    <div style="width:240px;" class="block events">
         <div style="width:240px" class="block-title">События</div>
         <div style="padding-left: 10px">
-            {% for event in events|dictsort:'event_date' %}
+            {% for event in events|dictsort:"date" %}
                 {% ifchanged event.event_date %}
-                    {{event.event_date}}<br/>
+                    <div class="date">{{event.date}}</div>
                 {% endifchanged %}
-                --{{ event.name }}<br/>
+                <div class="name">{{ event.name }}</div>
             {% empty %}
                 Нет событий
             {% endfor %}

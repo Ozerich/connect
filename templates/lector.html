@@ -24,16 +24,17 @@
 {% endfor %}
 </div>
 
-<img class="photo" src="/static/storage/avatars/100.{{ lector.photo }}"/>
+<div>
+    <img class="photo" src="/static/storage/avatars/100.{{ lector.photo }}"/>
+    
+    <br/>
+    <h1>Преподаваемые дисциплины</h1>
 
-<h1>Преподаваемые дисциплины</h1>
+    {% for subject in lector.subjects.all %}
+        <a class="inner" href="/community/{{ subject.community.id }}">{{ subject.short_name }}</a><br/>
+    {% endfor %}
 
-{% for subject in lector.subjects.all %}
-    <a class="inner" href="/community/{{ subject.community.id }}">{{ subject.short_name }}</a><br/>
-{% endfor %}
-
-<br/>
-<br/>
+</div>
 
 <div class="block-title" style="width:280px">Отзывы</div>
 <div class="topic block" style="width:280px">

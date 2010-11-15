@@ -133,26 +133,41 @@
     font-weight: bold;
 }
 
-.profile .msg {
+.profile .news .msg {
     margin-left: 20px;
 }
 
-.profile .quote {
+.profile .news .quote {
     margin: 5px 20px;
     padding: 3px;
     font-style: italic;
     border: 1px dashed #888;
 }
 
-.profile .quote img {
+.profile .news .quote img {
     float: left;
 }
 
-.profile .quote .author {
+.profile .news .quote .author {
     font-weight: bold;
     font-style: normal;
     font-size: 10px;
 }
+
+.profile .events .date {
+    font-weight: bold;
+    font-style: normal;
+    font-size: 10px;
+}
+
+.profile .events .name {
+    margin: 0px;
+    padding: 0px;
+    margin-left: 20px;
+    font-size: 12px;
+}
+
+
 
 
 

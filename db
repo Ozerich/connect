@@ -2,7 +2,7 @@
 --
 -- Host: localhost    Database: bsuir
 -- ------------------------------------------------------
--- Server version	5.1.49-1ubuntu8
+-- Server version	5.1.49-1ubuntu8.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -79,7 +79,7 @@ CREATE TABLE `auth_message` (
   `message` longtext NOT NULL,
   PRIMARY KEY (`id`),
   KEY `auth_message_403f60f` (`user_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=43 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=45 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -149,7 +149,7 @@ CREATE TABLE `auth_user` (
 
 LOCK TABLES `auth_user` WRITE;
 /*!40000 ALTER TABLE `auth_user` DISABLE KEYS */;
-INSERT INTO `auth_user` VALUES (1,'root','','','john.pankov@gmail.com','sha1$70e41$d7a944177ffcbd070fa8da6b777982d464985645',1,1,1,'2010-11-06 07:54:53','2010-10-30 08:18:22');
+INSERT INTO `auth_user` VALUES (1,'root','','','john.pankov@gmail.com','sha1$70e41$d7a944177ffcbd070fa8da6b777982d464985645',1,1,1,'2010-11-11 07:53:39','2010-10-30 08:18:22');
 /*!40000 ALTER TABLE `auth_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -226,7 +226,7 @@ CREATE TABLE `django_admin_log` (
   PRIMARY KEY (`id`),
   KEY `django_admin_log_403f60f` (`user_id`),
   KEY `django_admin_log_1bb8f392` (`content_type_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=64 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=66 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -235,7 +235,7 @@ CREATE TABLE `django_admin_log` (
 
 LOCK TABLES `django_admin_log` WRITE;
 /*!40000 ALTER TABLE `django_admin_log` DISABLE KEYS */;
-INSERT INTO `django_admin_log` VALUES (1,'2010-10-30 08:18:55',1,8,'1','052004',1,''),(2,'2010-10-30 08:19:02',1,9,'1','Английский',1,''),(3,'2010-10-30 08:19:07',1,10,'1','Евгений Паньков',1,''),(4,'2010-10-30 10:43:22',1,9,'2','Французский',1,''),(5,'2010-10-30 13:25:53',1,8,'2','052001',1,''),(6,'2010-10-30 13:26:37',1,10,'3','Василий Пупкин',1,''),(7,'2010-10-30 13:29:00',1,7,'1','example.com',3,''),(8,'2010-10-30 15:45:55',1,12,'1','ФКСиС',1,''),(38,'2010-11-01 07:48:30',1,18,'1','Topic object',1,''),(10,'2010-10-30 16:13:09',1,8,'1','052004',2,'Изменен speciality и faculty.'),(11,'2010-10-30 16:13:14',1,8,'2','052001',2,'Изменен speciality и faculty.'),(12,'2010-10-30 16:23:31',1,10,'2','Евгений Паньков',2,'Изменен friends.'),(13,'2010-10-30 16:45:22',1,14,'1','Friendship object',1,''),(14,'2010-10-30 16:45:31',1,14,'2','Friendship object',1,''),(15,'2010-10-30 18:37:38',1,10,'4','Павел Дуров',1,''),(16,'2010-10-30 18:37:52',1,14,'3','Евгений Паньков > Павел Дуров',1,''),(17,'2010-10-30 18:39:27',1,14,'3','Павел Дуров > Евгений Паньков',2,'Изменен src и dst.'),(18,'2010-10-30 18:53:07',1,14,'4','Евгений Паньков > Павел Дуров',3,''),(19,'2010-10-30 18:53:13',1,14,'5','Евгений Паньков > Павел Дуров',3,''),(20,'2010-10-30 20:19:56',1,15,'1','Информатика',1,''),(21,'2010-10-31 10:47:56',1,10,'3','Василий Пупкин',2,'Изменен avatar.'),(22,'2010-10-31 11:34:06',1,16,'20','Message object',2,'Изменен date.'),(23,'2010-10-31 11:34:12',1,16,'1','Message object',2,'Изменен date.'),(24,'2010-10-31 17:43:41',1,17,'1','БГУИР',1,''),(25,'2010-10-31 17:44:15',1,17,'2','Факультет компьютерных систем и сетей',1,''),(26,'2010-10-31 17:44:17',1,12,'1','ФКСиС',2,'Изменен community.'),(27,'2010-10-31 17:44:36',1,17,'3','Информатика',1,''),(28,'2010-10-31 17:44:37',1,15,'1','Информатика',2,'Изменен community.'),(29,'2010-10-31 17:44:46',1,17,'4','052001',1,''),(30,'2010-10-31 17:44:47',1,8,'2','052001',2,'Изменен community.'),(31,'2010-10-31 17:44:57',1,17,'5','052004',1,''),(32,'2010-10-31 17:44:58',1,8,'1','052004',2,'Изменен community.'),(33,'2010-10-31 18:14:19',1,10,'4','Павел Дуров',2,'Изменен communities.'),(34,'2010-10-31 18:14:24',1,10,'2','Евгений Паньков',2,'Изменен communities.'),(35,'2010-10-31 18:14:28',1,10,'3','Василий Пупкин',2,'Изменен communities.'),(36,'2010-10-31 18:16:09',1,17,'1','БГУИР',2,'Изменен parent.'),(37,'2010-10-31 18:22:51',1,17,'1','БГУИР',2,'Изменен parent.'),(39,'2010-11-01 08:12:15',1,18,'2','Литрбол',1,''),(40,'2010-11-01 08:14:44',1,18,'3','Пиво или водка?',1,''),(41,'2010-11-01 08:14:59',1,18,'4','Где бухать в пятницу',1,''),(42,'2010-11-01 08:25:11',1,18,'3','Пиво или водка?',3,''),(43,'2010-11-01 08:25:11',1,18,'2','Литрбол',3,''),(44,'2010-11-01 08:25:11',1,18,'1','Я ололо, а вы?',3,''),(45,'2010-11-01 08:26:27',1,19,'1','Нажираемся в говно!',1,''),(46,'2010-11-01 08:26:32',1,18,'4','Где бухать в пятницу',2,'Изменен root.'),(47,'2010-11-01 08:32:18',1,19,'2','Точняк - воруй, убивай, еби гусей!',1,''),(48,'2010-11-01 08:34:31',1,19,'3','Чемпионат по литрболу!',1,''),(49,'2010-11-04 07:57:42',1,20,'1','File object',1,''),(50,'2010-11-04 08:09:18',1,20,'1','favicon.png',1,''),(51,'2010-11-04 08:09:31',1,17,'2','Факультет компьютерных систем и сетей',2,'Изменен files.'),(52,'2010-11-04 09:10:40',1,20,'2','Project.docx',1,''),(53,'2010-11-04 09:10:54',1,17,'2','Факультет компьютерных систем и сетей',2,'Изменен files.'),(54,'2010-11-06 07:56:12',1,17,'6','Предметы',1,''),(55,'2010-11-06 07:56:21',1,17,'7','ОАиП',1,''),(56,'2010-11-06 07:56:26',1,21,'1','ОАиП',1,''),(57,'2010-11-06 07:58:11',1,22,'1','Адекватность',1,''),(58,'2010-11-06 07:59:13',1,23,'2','Адекватность',1,''),(59,'2010-11-06 07:59:59',1,24,'1','Синицын',1,''),(60,'2010-11-06 08:28:08',1,22,'2','На лекции',1,''),(61,'2010-11-06 08:28:11',1,23,'3','На лекции',1,''),(62,'2010-11-06 08:28:14',1,24,'1','Синицын',2,'Изменен rating.'),(63,'2010-11-06 08:30:54',1,25,'1','Fotran forever!',1,'');
+INSERT INTO `django_admin_log` VALUES (1,'2010-10-30 08:18:55',1,8,'1','052004',1,''),(2,'2010-10-30 08:19:02',1,9,'1','Английский',1,''),(3,'2010-10-30 08:19:07',1,10,'1','Евгений Паньков',1,''),(4,'2010-10-30 10:43:22',1,9,'2','Французский',1,''),(5,'2010-10-30 13:25:53',1,8,'2','052001',1,''),(6,'2010-10-30 13:26:37',1,10,'3','Василий Пупкин',1,''),(7,'2010-10-30 13:29:00',1,7,'1','example.com',3,''),(8,'2010-10-30 15:45:55',1,12,'1','ФКСиС',1,''),(38,'2010-11-01 07:48:30',1,18,'1','Topic object',1,''),(10,'2010-10-30 16:13:09',1,8,'1','052004',2,'Изменен speciality и faculty.'),(11,'2010-10-30 16:13:14',1,8,'2','052001',2,'Изменен speciality и faculty.'),(12,'2010-10-30 16:23:31',1,10,'2','Евгений Паньков',2,'Изменен friends.'),(13,'2010-10-30 16:45:22',1,14,'1','Friendship object',1,''),(14,'2010-10-30 16:45:31',1,14,'2','Friendship object',1,''),(15,'2010-10-30 18:37:38',1,10,'4','Павел Дуров',1,''),(16,'2010-10-30 18:37:52',1,14,'3','Евгений Паньков > Павел Дуров',1,''),(17,'2010-10-30 18:39:27',1,14,'3','Павел Дуров > Евгений Паньков',2,'Изменен src и dst.'),(18,'2010-10-30 18:53:07',1,14,'4','Евгений Паньков > Павел Дуров',3,''),(19,'2010-10-30 18:53:13',1,14,'5','Евгений Паньков > Павел Дуров',3,''),(20,'2010-10-30 20:19:56',1,15,'1','Информатика',1,''),(21,'2010-10-31 10:47:56',1,10,'3','Василий Пупкин',2,'Изменен avatar.'),(22,'2010-10-31 11:34:06',1,16,'20','Message object',2,'Изменен date.'),(23,'2010-10-31 11:34:12',1,16,'1','Message object',2,'Изменен date.'),(24,'2010-10-31 17:43:41',1,17,'1','БГУИР',1,''),(25,'2010-10-31 17:44:15',1,17,'2','Факультет компьютерных систем и сетей',1,''),(26,'2010-10-31 17:44:17',1,12,'1','ФКСиС',2,'Изменен community.'),(27,'2010-10-31 17:44:36',1,17,'3','Информатика',1,''),(28,'2010-10-31 17:44:37',1,15,'1','Информатика',2,'Изменен community.'),(29,'2010-10-31 17:44:46',1,17,'4','052001',1,''),(30,'2010-10-31 17:44:47',1,8,'2','052001',2,'Изменен community.'),(31,'2010-10-31 17:44:57',1,17,'5','052004',1,''),(32,'2010-10-31 17:44:58',1,8,'1','052004',2,'Изменен community.'),(33,'2010-10-31 18:14:19',1,10,'4','Павел Дуров',2,'Изменен communities.'),(34,'2010-10-31 18:14:24',1,10,'2','Евгений Паньков',2,'Изменен communities.'),(35,'2010-10-31 18:14:28',1,10,'3','Василий Пупкин',2,'Изменен communities.'),(36,'2010-10-31 18:16:09',1,17,'1','БГУИР',2,'Изменен parent.'),(37,'2010-10-31 18:22:51',1,17,'1','БГУИР',2,'Изменен parent.'),(39,'2010-11-01 08:12:15',1,18,'2','Литрбол',1,''),(40,'2010-11-01 08:14:44',1,18,'3','Пиво или водка?',1,''),(41,'2010-11-01 08:14:59',1,18,'4','Где бухать в пятницу',1,''),(42,'2010-11-01 08:25:11',1,18,'3','Пиво или водка?',3,''),(43,'2010-11-01 08:25:11',1,18,'2','Литрбол',3,''),(44,'2010-11-01 08:25:11',1,18,'1','Я ололо, а вы?',3,''),(45,'2010-11-01 08:26:27',1,19,'1','Нажираемся в говно!',1,''),(46,'2010-11-01 08:26:32',1,18,'4','Где бухать в пятницу',2,'Изменен root.'),(47,'2010-11-01 08:32:18',1,19,'2','Точняк - воруй, убивай, еби гусей!',1,''),(48,'2010-11-01 08:34:31',1,19,'3','Чемпионат по литрболу!',1,''),(49,'2010-11-04 07:57:42',1,20,'1','File object',1,''),(50,'2010-11-04 08:09:18',1,20,'1','favicon.png',1,''),(51,'2010-11-04 08:09:31',1,17,'2','Факультет компьютерных систем и сетей',2,'Изменен files.'),(52,'2010-11-04 09:10:40',1,20,'2','Project.docx',1,''),(53,'2010-11-04 09:10:54',1,17,'2','Факультет компьютерных систем и сетей',2,'Изменен files.'),(54,'2010-11-06 07:56:12',1,17,'6','Предметы',1,''),(55,'2010-11-06 07:56:21',1,17,'7','ОАиП',1,''),(56,'2010-11-06 07:56:26',1,21,'1','ОАиП',1,''),(57,'2010-11-06 07:58:11',1,22,'1','Адекватность',1,''),(58,'2010-11-06 07:59:13',1,23,'2','Адекватность',1,''),(59,'2010-11-06 07:59:59',1,24,'1','Синицын',1,''),(60,'2010-11-06 08:28:08',1,22,'2','На лекции',1,''),(61,'2010-11-06 08:28:11',1,23,'3','На лекции',1,''),(62,'2010-11-06 08:28:14',1,24,'1','Синицын',2,'Изменен rating.'),(63,'2010-11-06 08:30:54',1,25,'1','Fotran forever!',1,''),(64,'2010-11-11 07:53:57',1,26,'1','Евгений Паньков --> Факультет компьютерных систем и сетей',1,''),(65,'2010-11-11 08:12:46',1,24,'1','Синицын А.К.',2,'Изменен full_name.');
 /*!40000 ALTER TABLE `django_admin_log` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -253,7 +253,7 @@ CREATE TABLE `django_content_type` (
   `model` varchar(100) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `app_label` (`app_label`,`model`)
-) ENGINE=MyISAM AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=29 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -262,7 +262,7 @@ CREATE TABLE `django_content_type` (
 
 LOCK TABLES `django_content_type` WRITE;
 /*!40000 ALTER TABLE `django_content_type` DISABLE KEYS */;
-INSERT INTO `django_content_type` VALUES (1,'permission','auth','permission'),(2,'group','auth','group'),(3,'user','auth','user'),(4,'message','auth','message'),(5,'content type','contenttypes','contenttype'),(6,'session','sessions','session'),(7,'site','sites','site'),(8,'group','main','group'),(9,'language','main','language'),(10,'user','main','user'),(11,'log entry','admin','logentry'),(12,'faculty','main','faculty'),(19,'comment','main','comment'),(14,'friendship','main','friendship'),(15,'stream','main','stream'),(16,'message','main','message'),(17,'community','main','community'),(18,'topic','main','topic'),(20,'file','main','file'),(21,'subject','main','subject'),(22,'rating type','main','ratingtype'),(23,'rating','main','rating'),(24,'lector','main','lector'),(25,'lector comment','main','lectorcomment');
+INSERT INTO `django_content_type` VALUES (1,'permission','auth','permission'),(2,'group','auth','group'),(3,'user','auth','user'),(4,'message','auth','message'),(5,'content type','contenttypes','contenttype'),(6,'session','sessions','session'),(7,'site','sites','site'),(8,'group','main','group'),(9,'language','main','language'),(10,'user','main','user'),(11,'log entry','admin','logentry'),(12,'faculty','main','faculty'),(19,'comment','main','comment'),(14,'friendship','main','friendship'),(15,'stream','main','stream'),(16,'message','main','message'),(17,'community','main','community'),(18,'topic','main','topic'),(20,'file','main','file'),(21,'subject','main','subject'),(22,'rating type','main','ratingtype'),(23,'rating','main','rating'),(24,'lector','main','lector'),(25,'lector comment','main','lectorcomment'),(26,'community admin','main','communityadmin'),(27,'event','main','event'),(28,'news topic','main','newstopic');
 /*!40000 ALTER TABLE `django_content_type` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -287,11 +287,7 @@ CREATE TABLE `django_session` (
 
 LOCK TABLES `django_session` WRITE;
 /*!40000 ALTER TABLE `django_session` DISABLE KEYS */;
-<<<<<<< Updated upstream
-INSERT INTO `django_session` VALUES ('b8246fed84283fcd9026b7a2907ef1ab','gAJ9cQFVBHVzZXJxAlgFAAAAYUBhLmFxA3MuYzQ3YTBjYTlmZDMwNjg1MzVlNjdhNDVlZTZkMGY3\nNTM=\n','2010-11-18 08:25:08'),('e1762165ecd98cac21e1c498bee70bb0','gAJ9cQEoVRJfYXV0aF91c2VyX2JhY2tlbmRxAlUpZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5k\ncy5Nb2RlbEJhY2tlbmRxA1UNX2F1dGhfdXNlcl9pZHEEigEBdS42ZjgyZDMwNjQ5NWU5YzhhNmUw\nZjQ4ZTRhNDJmOThhOQ==\n','2010-11-13 08:18:35'),('9a47dd3ca1c3e9a0443a0b4d54d3c91b','gAJ9cQEoVRJfYXV0aF91c2VyX2JhY2tlbmRxAlUpZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5k\ncy5Nb2RlbEJhY2tlbmRxA1UNX2F1dGhfdXNlcl9pZHEEigEBVQR1c2VycQVYDAAAAGR1cm92QHZr\nLmNvbXEGdS4yODdiNjY1MjBlNGRmYjk1ZTgzMDQ5NjAzYTRlOGM5Yg==\n','2010-11-14 12:41:23'),('a2d2e569077d7cd53e0f5a1371be1dd0','gAJ9cQEoVRJfYXV0aF91c2VyX2JhY2tlbmRxAlUpZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5k\ncy5Nb2RlbEJhY2tlbmRxA1UEdXNlcnEEWAUAAABhQGEuYXEFVQ1fYXV0aF91c2VyX2lkcQaKAQF1\nLmVkMWZkMTlkZjExODY2YWY4ODVhMTMyMDIxZTI5Y2U3\n','2010-11-18 07:57:27'),('8c3cd99110dbb73567b7df01f6b40e30','gAJ9cQFVBHVzZXJxAlgSAAAAT3ppY29kZXJAZ21haWwuY29tcQNzLjBkZDU3MjEwZjE3ZTgyZWQw\nZTk1Y2MyM2IyNDVmYmNm\n','2010-11-20 09:57:55'),('e0c0cada8286a7856bc4428106182bae','gAJ9cQEoVQ1fYXV0aF91c2VyX2lkcQKKAQFVEl9hdXRoX3VzZXJfYmFja2VuZHEDVSlkamFuZ28u\nY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZHEEVQR1c2VycQVYEgAAAE96aWNvZGVy\nQGdtYWlsLmNvbXEGdS5jMWUzYTYxMzQyMTI3OWVhZTM0NmEwZGYwOGYyYTc5OA==\n','2010-11-18 08:49:35');
-=======
-INSERT INTO `django_session` VALUES ('e1762165ecd98cac21e1c498bee70bb0','gAJ9cQEoVRJfYXV0aF91c2VyX2JhY2tlbmRxAlUpZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5k\ncy5Nb2RlbEJhY2tlbmRxA1UNX2F1dGhfdXNlcl9pZHEEigEBdS42ZjgyZDMwNjQ5NWU5YzhhNmUw\nZjQ4ZTRhNDJmOThhOQ==\n','2010-11-13 08:18:35'),('be897d109935513236e976ed41be7278','gAJ9cQFVBHVzZXJxAlgFAAAAYUBhLmFxA3MuYzQ3YTBjYTlmZDMwNjg1MzVlNjdhNDVlZTZkMGY3\nNTM=\n','2010-11-18 17:06:53'),('9a47dd3ca1c3e9a0443a0b4d54d3c91b','gAJ9cQEoVRJfYXV0aF91c2VyX2JhY2tlbmRxAlUpZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5k\ncy5Nb2RlbEJhY2tlbmRxA1UNX2F1dGhfdXNlcl9pZHEEigEBVQR1c2VycQVYDAAAAGR1cm92QHZr\nLmNvbXEGdS4yODdiNjY1MjBlNGRmYjk1ZTgzMDQ5NjAzYTRlOGM5Yg==\n','2010-11-14 12:41:23'),('a2d2e569077d7cd53e0f5a1371be1dd0','gAJ9cQEoVRJfYXV0aF91c2VyX2JhY2tlbmRxAlUpZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5k\ncy5Nb2RlbEJhY2tlbmRxA1UEdXNlcnEEWAUAAABhQGEuYXEFVQ1fYXV0aF91c2VyX2lkcQaKAQF1\nLmVkMWZkMTlkZjExODY2YWY4ODVhMTMyMDIxZTI5Y2U3\n','2010-11-18 07:57:27'),('80c2ad8e4d0ce026c30ec7fa3db3a510','gAJ9cQEoVRJfYXV0aF91c2VyX2JhY2tlbmRxAlUpZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5k\ncy5Nb2RlbEJhY2tlbmRxA1UEdXNlcnEEWAUAAABhQGEuYXEFVQ1fYXV0aF91c2VyX2lkcQaKAQF1\nLmVkMWZkMTlkZjExODY2YWY4ODVhMTMyMDIxZTI5Y2U3\n','2010-11-18 09:10:25'),('82ba226db298a82c787caafcbb8a16b4','gAJ9cQFVBHVzZXJxAlgFAAAAYUBhLmFxA3MuYzQ3YTBjYTlmZDMwNjg1MzVlNjdhNDVlZTZkMGY3\nNTM=\n','2010-11-22 08:39:55'),('3f090380a9a0aa50426663a46fd5af67','gAJ9cQEoVRJfYXV0aF91c2VyX2JhY2tlbmRxAlUpZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5k\ncy5Nb2RlbEJhY2tlbmRxA1UEdXNlcnEEWAUAAABhQGEuYXEFVQ1fYXV0aF91c2VyX2lkcQaKAQF1\nLmVkMWZkMTlkZjExODY2YWY4ODVhMTMyMDIxZTI5Y2U3\n','2010-11-20 07:54:53'),('29b4e2640690fbeb1e9fabc97f57013a','gAJ9cQFVBHVzZXJxAlgFAAAAYUBhLmFxA3MuYzQ3YTBjYTlmZDMwNjg1MzVlNjdhNDVlZTZkMGY3\nNTM=\n','2010-11-23 07:10:14'),('d3c886546078d59226149be6d80954e0','gAJ9cQFVBHVzZXJxAlgFAAAAYUBhLmFxA3MuYzQ3YTBjYTlmZDMwNjg1MzVlNjdhNDVlZTZkMGY3\nNTM=\n','2010-11-23 09:55:29'),('ce4c6ccfe76ca0a81b73fe6b66bea5f5','gAJ9cQFVBHVzZXJxAlgFAAAAYUBhLmFxA3MuYzQ3YTBjYTlmZDMwNjg1MzVlNjdhNDVlZTZkMGY3\nNTM=\n','2010-11-23 12:47:58');
->>>>>>> Stashed changes
+INSERT INTO `django_session` VALUES ('e1762165ecd98cac21e1c498bee70bb0','gAJ9cQEoVRJfYXV0aF91c2VyX2JhY2tlbmRxAlUpZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5k\ncy5Nb2RlbEJhY2tlbmRxA1UNX2F1dGhfdXNlcl9pZHEEigEBdS42ZjgyZDMwNjQ5NWU5YzhhNmUw\nZjQ4ZTRhNDJmOThhOQ==\n','2010-11-13 08:18:35'),('be897d109935513236e976ed41be7278','gAJ9cQFVBHVzZXJxAlgFAAAAYUBhLmFxA3MuYzQ3YTBjYTlmZDMwNjg1MzVlNjdhNDVlZTZkMGY3\nNTM=\n','2010-11-18 17:06:53'),('9a47dd3ca1c3e9a0443a0b4d54d3c91b','gAJ9cQEoVRJfYXV0aF91c2VyX2JhY2tlbmRxAlUpZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5k\ncy5Nb2RlbEJhY2tlbmRxA1UNX2F1dGhfdXNlcl9pZHEEigEBVQR1c2VycQVYDAAAAGR1cm92QHZr\nLmNvbXEGdS4yODdiNjY1MjBlNGRmYjk1ZTgzMDQ5NjAzYTRlOGM5Yg==\n','2010-11-14 12:41:23'),('a2d2e569077d7cd53e0f5a1371be1dd0','gAJ9cQEoVRJfYXV0aF91c2VyX2JhY2tlbmRxAlUpZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5k\ncy5Nb2RlbEJhY2tlbmRxA1UEdXNlcnEEWAUAAABhQGEuYXEFVQ1fYXV0aF91c2VyX2lkcQaKAQF1\nLmVkMWZkMTlkZjExODY2YWY4ODVhMTMyMDIxZTI5Y2U3\n','2010-11-18 07:57:27'),('80c2ad8e4d0ce026c30ec7fa3db3a510','gAJ9cQEoVRJfYXV0aF91c2VyX2JhY2tlbmRxAlUpZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5k\ncy5Nb2RlbEJhY2tlbmRxA1UEdXNlcnEEWAUAAABhQGEuYXEFVQ1fYXV0aF91c2VyX2lkcQaKAQF1\nLmVkMWZkMTlkZjExODY2YWY4ODVhMTMyMDIxZTI5Y2U3\n','2010-11-18 09:10:25'),('82ba226db298a82c787caafcbb8a16b4','gAJ9cQFVBHVzZXJxAlgFAAAAYUBhLmFxA3MuYzQ3YTBjYTlmZDMwNjg1MzVlNjdhNDVlZTZkMGY3\nNTM=\n','2010-11-22 08:39:55'),('3f090380a9a0aa50426663a46fd5af67','gAJ9cQEoVRJfYXV0aF91c2VyX2JhY2tlbmRxAlUpZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5k\ncy5Nb2RlbEJhY2tlbmRxA1UEdXNlcnEEWAUAAABhQGEuYXEFVQ1fYXV0aF91c2VyX2lkcQaKAQF1\nLmVkMWZkMTlkZjExODY2YWY4ODVhMTMyMDIxZTI5Y2U3\n','2010-11-20 07:54:53'),('29b4e2640690fbeb1e9fabc97f57013a','gAJ9cQFVBHVzZXJxAlgFAAAAYUBhLmFxA3MuYzQ3YTBjYTlmZDMwNjg1MzVlNjdhNDVlZTZkMGY3\nNTM=\n','2010-11-23 07:10:14'),('d3c886546078d59226149be6d80954e0','gAJ9cQFVBHVzZXJxAlgFAAAAYUBhLmFxA3MuYzQ3YTBjYTlmZDMwNjg1MzVlNjdhNDVlZTZkMGY3\nNTM=\n','2010-11-23 09:55:29'),('504d613ece98641e611ec1374b90e369','gAJ9cQFVBHVzZXJxAlgFAAAAYUBhLmFxA3MuYzQ3YTBjYTlmZDMwNjg1MzVlNjdhNDVlZTZkMGY3\nNTM=\n','2010-11-25 20:25:37'),('aa9f8c2e263f56c67cc57d16591d7fb0','gAJ9cQEoVRJfYXV0aF91c2VyX2JhY2tlbmRxAlUpZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5k\ncy5Nb2RlbEJhY2tlbmRxA1UEdXNlcnEEWAUAAABhQGEuYXEFVQ1fYXV0aF91c2VyX2lkcQaKAQF1\nLmVkMWZkMTlkZjExODY2YWY4ODVhMTMyMDIxZTI5Y2U3\n','2010-11-25 07:53:39'),('632b79117ca43e3f7584f94ff0e97b3f','gAJ9cQFVBHVzZXJxAlgFAAAAYUBhLmFxA3MuYzQ3YTBjYTlmZDMwNjg1MzVlNjdhNDVlZTZkMGY3\nNTM=\n','2010-11-26 09:36:39'),('25868125c390f3c7c0b7649c8170a59d','gAJ9cQFVBHVzZXJxAlgFAAAAYUBhLmFxA3MuYzQ3YTBjYTlmZDMwNjg1MzVlNjdhNDVlZTZkMGY3\nNTM=\n','2010-11-26 12:18:18'),('cbb5e52caf0eb5e14bb8a5304ca527be','gAJ9cQFVBHVzZXJxAlgHAAAAY0BjLmNvbXEDcy4xMWMyMDIzNDMyZWUzZGU1NmQyNzQzNGYyOWNm\nZWFhNQ==\n','2010-11-29 09:20:09');
 /*!40000 ALTER TABLE `django_session` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -337,7 +333,7 @@ CREATE TABLE `main_comment` (
   KEY `main_comment_337b96ff` (`author_id`),
   KEY `main_comment_57732028` (`topic_id`),
   KEY `main_comment_63f17a16` (`parent_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -346,7 +342,7 @@ CREATE TABLE `main_comment` (
 
 LOCK TABLES `main_comment` WRITE;
 /*!40000 ALTER TABLE `main_comment` DISABLE KEYS */;
-INSERT INTO `main_comment` VALUES (1,2,'sasda','2010-11-08 08:42:37',5,NULL),(2,2,'asdasdad','2010-11-08 08:42:51',6,NULL),(3,2,'','2010-11-09 18:15:56',6,2),(4,2,'Делимся!','2010-11-09 18:19:32',8,NULL),(5,2,'Пара файлов!','2010-11-09 18:19:45',8,4);
+INSERT INTO `main_comment` VALUES (1,2,'sasda','2010-11-08 08:42:37',5,NULL),(2,2,'asdasdad','2010-11-08 08:42:51',6,NULL),(3,2,'','2010-11-09 18:15:56',6,2),(4,2,'Делимся!','2010-11-09 18:19:32',8,NULL),(5,2,'Пара файлов!','2010-11-09 18:19:45',8,4),(6,2,'lol','2010-11-15 08:52:31',8,5),(7,2,'lol','2010-11-15 08:52:52',8,5),(8,2,'lol','2010-11-15 08:53:30',8,5),(9,2,'Я лжец и тролль','2010-11-15 09:00:37',8,4),(10,4,'SUCK YUR DICK','2010-11-15 09:07:11',8,9),(11,4,'DIE FAGGOT','2010-11-15 09:08:01',8,10),(12,2,'Инфа 100%!','2010-11-15 09:17:56',9,NULL);
 /*!40000 ALTER TABLE `main_comment` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -427,6 +423,63 @@ LOCK TABLES `main_community_files` WRITE;
 /*!40000 ALTER TABLE `main_community_files` DISABLE KEYS */;
 INSERT INTO `main_community_files` VALUES (3,2,2);
 /*!40000 ALTER TABLE `main_community_files` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `main_communityadmin`
+--
+
+DROP TABLE IF EXISTS `main_communityadmin`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `main_communityadmin` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `community_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `main_communityadmin_403f60f` (`user_id`),
+  KEY `main_communityadmin_1b775c26` (`community_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `main_communityadmin`
+--
+
+LOCK TABLES `main_communityadmin` WRITE;
+/*!40000 ALTER TABLE `main_communityadmin` DISABLE KEYS */;
+INSERT INTO `main_communityadmin` VALUES (1,2,2);
+/*!40000 ALTER TABLE `main_communityadmin` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `main_event`
+--
+
+DROP TABLE IF EXISTS `main_event`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `main_event` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `community_id` int(11) NOT NULL,
+  `name` varchar(200) NOT NULL,
+  `description` varchar(10000) NOT NULL,
+  `date_added` date NOT NULL,
+  `user_added_id` int(11) NOT NULL,
+  `date` date NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `main_event_1b775c26` (`community_id`),
+  KEY `main_event_55423318` (`user_added_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `main_event`
+--
+
+LOCK TABLES `main_event` WRITE;
+/*!40000 ALTER TABLE `main_event` DISABLE KEYS */;
+/*!40000 ALTER TABLE `main_event` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -583,11 +636,7 @@ CREATE TABLE `main_lector` (
 
 LOCK TABLES `main_lector` WRITE;
 /*!40000 ALTER TABLE `main_lector` DISABLE KEYS */;
-<<<<<<< Updated upstream
-INSERT INTO `main_lector` VALUES (1,'Анисимов Владимир Яковлевич','default.png');
-=======
-INSERT INTO `main_lector` VALUES (1,'Синицын','default.png');
->>>>>>> Stashed changes
+INSERT INTO `main_lector` VALUES (1,'Синицын А.К.','default.png');
 /*!40000 ALTER TABLE `main_lector` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -606,7 +655,7 @@ CREATE TABLE `main_lector_rating` (
   UNIQUE KEY `lector_id` (`lector_id`,`rating_id`),
   KEY `main_lector_rating_667daf1f` (`lector_id`),
   KEY `main_lector_rating_2404d475` (`rating_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -615,7 +664,7 @@ CREATE TABLE `main_lector_rating` (
 
 LOCK TABLES `main_lector_rating` WRITE;
 /*!40000 ALTER TABLE `main_lector_rating` DISABLE KEYS */;
-INSERT INTO `main_lector_rating` VALUES (2,1,1),(3,1,3);
+INSERT INTO `main_lector_rating` VALUES (5,1,3),(4,1,1);
 /*!40000 ALTER TABLE `main_lector_rating` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -634,7 +683,7 @@ CREATE TABLE `main_lector_subjects` (
   UNIQUE KEY `lector_id` (`lector_id`,`subject_id`),
   KEY `main_lector_subjects_667daf1f` (`lector_id`),
   KEY `main_lector_subjects_638462f1` (`subject_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -643,7 +692,7 @@ CREATE TABLE `main_lector_subjects` (
 
 LOCK TABLES `main_lector_subjects` WRITE;
 /*!40000 ALTER TABLE `main_lector_subjects` DISABLE KEYS */;
-INSERT INTO `main_lector_subjects` VALUES (2,1,1);
+INSERT INTO `main_lector_subjects` VALUES (3,1,1);
 /*!40000 ALTER TABLE `main_lector_subjects` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -731,6 +780,37 @@ INSERT INTO `main_message_attachments` VALUES (2,55,3),(1,55,2),(3,61,3),(4,62,3
 UNLOCK TABLES;
 
 --
+-- Table structure for table `main_newstopic`
+--
+
+DROP TABLE IF EXISTS `main_newstopic`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `main_newstopic` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `receiver_id` int(11) NOT NULL,
+  `topic_id` int(11) NOT NULL,
+  `comment_id` int(11) DEFAULT NULL,
+  `date` datetime NOT NULL,
+  `about_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `main_newstopic_6828e8a9` (`receiver_id`),
+  KEY `main_newstopic_57732028` (`topic_id`),
+  KEY `main_newstopic_64c238ac` (`comment_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `main_newstopic`
+--
+
+LOCK TABLES `main_newstopic` WRITE;
+/*!40000 ALTER TABLE `main_newstopic` DISABLE KEYS */;
+INSERT INTO `main_newstopic` VALUES (6,2,9,NULL,'2010-11-15 09:17:56',NULL),(5,2,8,10,'2010-11-15 09:08:01',11);
+/*!40000 ALTER TABLE `main_newstopic` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `main_rating`
 --
 
@@ -753,11 +833,7 @@ CREATE TABLE `main_rating` (
 
 LOCK TABLES `main_rating` WRITE;
 /*!40000 ALTER TABLE `main_rating` DISABLE KEYS */;
-<<<<<<< Updated upstream
-INSERT INTO `main_rating` VALUES (1,15,103,1);
-=======
 INSERT INTO `main_rating` VALUES (1,0,9000,1),(3,0,100501,2);
->>>>>>> Stashed changes
 /*!40000 ALTER TABLE `main_rating` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -771,13 +847,8 @@ DROP TABLE IF EXISTS `main_ratingtype`;
 CREATE TABLE `main_ratingtype` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
-<<<<<<< Updated upstream
-  `plus` varchar(200) NOT NULL,
-  `minus` varchar(200) NOT NULL,
-=======
   `plus` varchar(100) NOT NULL,
   `minus` varchar(100) NOT NULL,
->>>>>>> Stashed changes
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -788,11 +859,7 @@ CREATE TABLE `main_ratingtype` (
 
 LOCK TABLES `main_ratingtype` WRITE;
 /*!40000 ALTER TABLE `main_ratingtype` DISABLE KEYS */;
-<<<<<<< Updated upstream
-INSERT INTO `main_ratingtype` VALUES (1,'Моск','','');
-=======
 INSERT INTO `main_ratingtype` VALUES (1,'Адекватность','Адекват','Неадекват'),(2,'На лекции','Ботанить','Пинать хуи');
->>>>>>> Stashed changes
 /*!40000 ALTER TABLE `main_ratingtype` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -865,7 +932,7 @@ CREATE TABLE `main_topic` (
   `root_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `main_topic_1b775c26` (`community_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -874,7 +941,7 @@ CREATE TABLE `main_topic` (
 
 LOCK TABLES `main_topic` WRITE;
 /*!40000 ALTER TABLE `main_topic` DISABLE KEYS */;
-INSERT INTO `main_topic` VALUES (4,2,'Где бухать в пятницу','2010-11-01 08:14:56',1),(5,2,'A','2010-11-08 08:42:37',1),(6,2,'B','2010-11-08 08:42:51',2),(7,2,'Полезные файлы','2010-11-09 18:18:16',NULL),(8,2,'Полезные файлы','2010-11-09 18:19:32',4);
+INSERT INTO `main_topic` VALUES (4,2,'Где бухать в пятницу','2010-11-01 08:14:56',1),(5,2,'A','2010-11-08 08:42:37',1),(6,2,'B','2010-11-08 08:42:51',2),(7,2,'Полезные файлы','2010-11-09 18:18:16',NULL),(8,2,'Полезные файлы','2010-11-09 18:19:32',4),(9,2,'Вадимка - тролль!','2010-11-15 09:17:56',12);
 /*!40000 ALTER TABLE `main_topic` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -897,10 +964,11 @@ CREATE TABLE `main_user` (
   `subgroup` int(11) NOT NULL,
   `language_id` int(11) NOT NULL,
   `avatar` varchar(200) NOT NULL,
+  `status` varchar(1000) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `main_user_425ae3c4` (`group_id`),
   KEY `main_user_7ab48146` (`language_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -909,7 +977,7 @@ CREATE TABLE `main_user` (
 
 LOCK TABLES `main_user` WRITE;
 /*!40000 ALTER TABLE `main_user` DISABLE KEYS */;
-INSERT INTO `main_user` VALUES (2,'a@a.a','123','1234567','Евгений','Паньков','2010-05-05',1,1,1,'2.jpg'),(3,'v@a.com','123','3214567','Василий','Пупкин','2010-10-30',2,2,1,'default.png'),(4,'durov@vk.com','123','7463252','Павел','Дуров','2010-10-04',2,1,2,'4.jpg');
+INSERT INTO `main_user` VALUES (2,'a@a.a','123','1234567','Евгений','Паньков','2010-05-05',1,1,1,'2.jpg',''),(3,'v@a.com','123','3214567','Василий','Пупкин','2010-10-30',2,2,1,'default.png',NULL),(4,'durov@vk.com','123','7463252','Павел','Дуров','2010-10-04',2,1,2,'4.jpg',NULL),(5,'c@c.com','123','8364573','C','C','2010-01-01',2,1,1,'5.jpg','');
 /*!40000 ALTER TABLE `main_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -926,11 +994,7 @@ CREATE TABLE `main_user_communities` (
   `community_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `user_id` (`user_id`,`community_id`)
-<<<<<<< Updated upstream
-) ENGINE=MyISAM AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
-=======
-) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
->>>>>>> Stashed changes
+) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -939,11 +1003,7 @@ CREATE TABLE `main_user_communities` (
 
 LOCK TABLES `main_user_communities` WRITE;
 /*!40000 ALTER TABLE `main_user_communities` DISABLE KEYS */;
-<<<<<<< Updated upstream
-INSERT INTO `main_user_communities` VALUES (1,4,1),(13,4,2),(14,4,3),(4,4,4),(5,2,1),(6,2,2),(7,2,3),(8,2,5),(9,3,1),(10,3,2),(11,3,3),(12,3,4),(15,5,1),(20,5,2),(17,5,3),(18,5,5),(19,5,7);
-=======
-INSERT INTO `main_user_communities` VALUES (1,4,1),(13,4,2),(14,4,3),(4,4,4),(5,2,1),(6,2,2),(7,2,3),(8,2,5),(9,3,1),(10,3,2),(11,3,3),(12,3,4),(15,2,7);
->>>>>>> Stashed changes
+INSERT INTO `main_user_communities` VALUES (1,4,1),(13,4,2),(14,4,3),(4,4,4),(5,2,1),(6,2,2),(7,2,3),(8,2,5),(9,3,1),(10,3,2),(11,3,3),(12,3,4),(15,2,7),(16,5,4),(17,5,3),(18,5,2);
 /*!40000 ALTER TABLE `main_user_communities` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -956,8 +1016,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
-<<<<<<< Updated upstream
--- Dump completed on 2010-11-06 20:16:04
-=======
--- Dump completed on 2010-11-09 18:19:59
->>>>>>> Stashed changes
+-- Dump completed on 2010-11-15  9:28:37

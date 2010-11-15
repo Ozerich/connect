@@ -211,5 +211,5 @@ class NewsTopic(models.Model):
         
         if p and p.author != t.root.author:
             NewsTopic.objects.filter(receiver=t.root.author, comment=p).delete()
-            NewsTopic(about=c, receiver=t.root.author, topic=t, comment=p, date=datetime.datetime.now()).save()
+            NewsTopic(about=c, receiver=p.author, topic=t, comment=p, date=datetime.datetime.now()).save()
 

@@ -198,7 +198,8 @@ class NewsTopic(models.Model):
 
     @staticmethod
     def newtopic(u, t):
-        NewsTopic(receiver=u, topic=t, about=None, comment=None, date=datetime.datetime.now()).save()
+        for u in t.community.user_set.all():
+            NewsTopic(receiver=u, topic=t, about=None, comment=None, date=datetime.datetime.now()).save()
     
     @staticmethod
     def new(c):

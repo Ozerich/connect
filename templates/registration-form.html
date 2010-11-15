@@ -99,11 +99,7 @@
         <tr>
         	<td class="reg-left">Группа</td>
             <td class="reg-right">
-            	<select name="group">
-            	    {% for group in groups %}
-                    	<option value="{{ group.name }}">{{ group.name }}</option>
-                    {% endfor %}
-                </select>
+                <input type="text" name="group"/>
             </td>
         </tr>
         <tr>

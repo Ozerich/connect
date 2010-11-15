@@ -125,17 +125,16 @@
 
 <div class="dialog" id="dialog-addfile" style="display:none">
     <div class="dialog-content">
-    <form method="POST" action="/community/{{ c.id }}/addfile"  enctype="multipart/form-data">
-        <table>
+    <table>
 {% for file in my_files %}
 <tr class="file-item">
     <td rowspan="2" class="icon">
-        <a href="/something/{{c.id}}/{{file.id}}">
+        <a href="/community/addfile/{{c.id}}/{{file.id}}">
             <img src="/static/images/files/{{file.name|slice:"-3:"}}.png"/>
         </a>
     </td>
     <td colspan="2" class="name">
-        <a href="/something/{{c.id}}/{{file.id}}">
+        <a href="/community/addfile/{{c.id}}/{{file.id}}">
             {{file.name}}
         </a>
     </td>
@@ -145,8 +144,7 @@
     <td class="info">{{file.date}}</td>
 </tr>
 {% endfor %}
-        </table>
-    </form>
+    </table>
     </div>
 </div>
 {% endblock %}
